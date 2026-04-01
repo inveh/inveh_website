@@ -1,33 +1,78 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const images = [
-    { 
+const productCategories = [
+  {
+    title: "Pendant Lights",
+    subtitle: "Tube light based models",
+    images: [
+      { 
         src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
-        alt: 'Image_1',
+        alt: 'Pendant Light 1',
         description: 'This is a beautiful pendant light with modern design, perfect for contemporary interiors.'
-    },
-    { 
+      },
+      { 
         src: 'https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg', 
-        alt: 'Image_2',
+        alt: 'Pendant Light 2',
         description: 'Elegant hanging fixture that adds sophistication to any room with its unique shape.'
-    },
-    { 
+      },
+      { 
         src: 'https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg', 
-        alt: 'Image_3',
+        alt: 'Pendant Light 3',
         description: 'Stylish lighting solution combining functionality with aesthetic appeal.'
-    },
+      },
+    ]
+  },
+  {
+    title: "Wall Lights",
+    subtitle: "Illuminate Your Walls",
+    images: [
+      { 
+        src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
+        alt: 'Wall Light 1',
+        description: 'Modern wall sconce that provides ambient lighting with sleek design.'
+      },
+      { 
+        src: 'https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg', 
+        alt: 'Wall Light 2',
+        description: 'Decorative wall fixture perfect for hallways and living spaces.'
+      },
+    ]
+  },
+  {
+    title: "Floor Lamps",
+    subtitle: "Standing Tall in Style",
+    images: [
+      { 
+        src: 'https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg', 
+        alt: 'Floor Lamp 1',
+        description: 'Tall floor lamp providing excellent reading light and room illumination.'
+      },
+      { 
+        src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
+        alt: 'Floor Lamp 2',
+        description: 'Contemporary floor lamp with adjustable height and brightness.'
+      },
+    ]
+  }
 ];
 
-const currentSliderIndex = ref(0);
+const categoryIndices = ref(productCategories.map(() => 0));
 const showModal = ref(false);
-const currentImage = computed(() => images[currentSliderIndex.value]);
+const hoveredImage = ref(null);
 
-const nextSlide = () => { 
-    currentSliderIndex.value = (currentSliderIndex.value + 1) % images.length; 
+const getCurrentImage = (categoryIndex) => computed(() => 
+  productCategories[categoryIndex].images[categoryIndices.value[categoryIndex]]
+);
+
+const nextSlide = (categoryIndex) => { 
+  const images = productCategories[categoryIndex].images;
+  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex] + 1) % images.length; 
 };
-const prevSlide = () => { 
-    currentSliderIndex.value = (currentSliderIndex.value - 1 + images.length) % images.length; 
+
+const prevSlide = (categoryIndex) => { 
+  const images = productCategories[categoryIndex].images;
+  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex] - 1 + images.length) % images.length; 
 };
 </script>
 
@@ -36,38 +81,48 @@ const prevSlide = () => {
     <p>At inVeh Lighting Solutions, we provide customized lighting solutions for houses, hotels, restaurants, cafe, halls, ...</p>
   </div>
 
-    <h1>Pendant Lights</h1>
-    <h2>Tube light based models</h2>
-    <div class="product-showcase">
-      <div class="carousel">
-        <div
-          class="carousel-images"
-          @mouseenter="showModal = true"
-          @mouseleave="showModal = false"
-        >
-          <img
-            class="carousel-image-list"
-            v-for="(image, index) in images"
-            :key="index"
-            :src="image.src"
-            :alt="image.alt"
-            v-show="index === currentSliderIndex"
-          />
-          <div class="carousel-controls">
-            <button class="carousel-arrow" @click.stop="prevSlide">&#8592;</button>
-            <button class="carousel-arrow" @click.stop="nextSlide">&#8594;</button>
+    <div 
+      v-for="(category, categoryIndex) in productCategories" 
+      :key="category.title"
+      class="category-section"
+    >
+      <h1>{{ category.title }}</h1>
+      <h2>{{ category.subtitle }}</h2>
+      <div class="product-showcase">
+        <div class="carousel">
+          <div class="carousel-images">
+            <img
+              class="carousel-image-list"
+              v-for="(image, imageIndex) in category.images"
+              :key="`${category.title}-${imageIndex}`"
+              :src="image.src"
+              :alt="image.alt"
+              v-show="imageIndex === categoryIndices[categoryIndex]"
+              @mouseenter="hoveredImage = image; showModal = true"
+              @mouseleave="showModal = false; hoveredImage = null"
+            />
+            <div class="carousel-controls">
+              <button 
+                class="carousel-arrow" 
+                @click.stop="prevSlide(categoryIndex)"
+              >&#8592;</button>
+              <button 
+                class="carousel-arrow" 
+                @click.stop="nextSlide(categoryIndex)"
+              >&#8594;</button>
+            </div>
+          </div>
+
+          <!-- Modal shown on hover -->
+          <div v-if="showModal && hoveredImage" class="modal-overlay">
+            <img :src="hoveredImage.src" :alt="hoveredImage.alt" class="modal-image" />
           </div>
         </div>
 
-        <!-- Modal shown on hover -->
-        <div v-if="showModal" class="modal-overlay">
-          <img :src="currentImage?.src" :alt="currentImage?.alt" class="modal-image" />
+        <div class="product-description">
+          <h3>{{ getCurrentImage(categoryIndex).value?.alt }}</h3>
+          <p>{{ getCurrentImage(categoryIndex).value?.description }}</p>
         </div>
-      </div>
-
-      <div class="product-description">
-        <h3>{{ currentImage?.alt }}</h3>
-        <p>{{ currentImage?.description }}</p>
       </div>
     </div>
 </template>
@@ -98,6 +153,14 @@ h2 {
   font-weight: normal;
   margin-bottom: 2rem;
   font-style: italic;
+}
+
+.category-section {
+  margin-bottom: 4rem;
+}
+
+.category-section:last-child {
+  margin-bottom: 0;
 }
 
 .product-showcase {
@@ -144,6 +207,8 @@ h2 {
   justify-content: space-between;
   width: 7.5cm;
   margin-top: 6px;
+  position: relative;
+  z-index: 1010;
 }
 
 .carousel-arrow {
