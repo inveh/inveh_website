@@ -42,7 +42,7 @@
       width="350"
       height="350"
       style="border:0;"
-      allowfullscreen=""
+      allowfullscreen
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>

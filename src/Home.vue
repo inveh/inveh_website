@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+interface ProductImage {
+  src: string;
+  alt: string;
+  description: string;
+}
+
 const publicBaseUrl = import.meta.env.BASE_URL || '/'
 const getImagePath = (relativePath: string): string => `${publicBaseUrl}${relativePath}`
 
@@ -377,20 +383,20 @@ const productCategories = [
 
 const categoryIndices = ref(productCategories.map(() => 0));
 const showModal = ref(false);
-const hoveredImage = ref(null);
+const hoveredImage = ref<ProductImage | null>(null);
 
-const getCurrentImage = (categoryIndex) => computed(() => 
-  productCategories[categoryIndex].images[categoryIndices.value[categoryIndex]]
+const getCurrentImage = (categoryIndex: number) => computed(() => 
+  productCategories[categoryIndex]!.images[categoryIndices.value[categoryIndex]!]
 );
 
-const nextSlide = (categoryIndex) => { 
-  const images = productCategories[categoryIndex].images;
-  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex] + 1) % images.length; 
+const nextSlide = (categoryIndex: number) => { 
+  const images = productCategories[categoryIndex]!.images;
+  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex]! + 1) % images.length; 
 };
 
-const prevSlide = (categoryIndex) => { 
-  const images = productCategories[categoryIndex].images;
-  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex] - 1 + images.length) % images.length; 
+const prevSlide = (categoryIndex: number) => { 
+  const images = productCategories[categoryIndex]!.images;
+  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex]! - 1 + images.length) % images.length; 
 };
 </script>
 
@@ -433,7 +439,7 @@ const prevSlide = (categoryIndex) => {
 
           <!-- Modal shown on hover -->
           <div v-if="showModal && hoveredImage" class="modal-overlay">
-            <img :src="hoveredImage.src" :alt="hoveredImage.alt" class="modal-image" />
+            <img :src="hoveredImage!.src" :alt="hoveredImage!.alt" class="modal-image" />
           </div>
         </div>
 
