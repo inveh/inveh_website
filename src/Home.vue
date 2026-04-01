@@ -4,15 +4,18 @@ import { ref, computed } from 'vue'
 const images = [
     { 
         src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
-        alt: 'Image_1' 
+        alt: 'Image_1',
+        description: 'This is a beautiful pendant light with modern design, perfect for contemporary interiors.'
     },
     { 
         src: 'https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg', 
-        alt: 'Image_2' 
+        alt: 'Image_2',
+        description: 'Elegant hanging fixture that adds sophistication to any room with its unique shape.'
     },
     { 
         src: 'https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg', 
-        alt: 'Image_3' 
+        alt: 'Image_3',
+        description: 'Stylish lighting solution combining functionality with aesthetic appeal.'
     },
 ];
 
@@ -34,29 +37,36 @@ const prevSlide = () => {
   </div>
 
     <h1>Pendant Lights</h1>
-    <div class="carousel">
-      <div
-        class="carousel-images"
-        @mouseenter="showModal = true"
-        @mouseleave="showModal = false"
-      >
-        <img
-          class="carousel-image-list"
-          v-for="(image, index) in images"
-          :key="index"
-          :src="image.src"
-          :alt="image.alt"
-          v-show="index === currentSliderIndex"
-        />
-        <div class="carousel-controls">
-          <button class="carousel-arrow" @click.stop="prevSlide">&#8592;</button>
-          <button class="carousel-arrow" @click.stop="nextSlide">&#8594;</button>
+    <div class="product-showcase">
+      <div class="carousel">
+        <div
+          class="carousel-images"
+          @mouseenter="showModal = true"
+          @mouseleave="showModal = false"
+        >
+          <img
+            class="carousel-image-list"
+            v-for="(image, index) in images"
+            :key="index"
+            :src="image.src"
+            :alt="image.alt"
+            v-show="index === currentSliderIndex"
+          />
+          <div class="carousel-controls">
+            <button class="carousel-arrow" @click.stop="prevSlide">&#8592;</button>
+            <button class="carousel-arrow" @click.stop="nextSlide">&#8594;</button>
+          </div>
+        </div>
+
+        <!-- Modal shown on hover -->
+        <div v-if="showModal" class="modal-overlay">
+          <img :src="currentImage?.src" :alt="currentImage?.alt" class="modal-image" />
         </div>
       </div>
 
-      <!-- Modal shown on hover -->
-      <div v-if="showModal" class="modal-overlay">
-        <img :src="currentImage?.src" :alt="currentImage?.alt" class="modal-image" />
+      <div class="product-description">
+        <h3>{{ currentImage?.alt }}</h3>
+        <p>{{ currentImage?.description }}</p>
       </div>
     </div>
 </template>
@@ -72,6 +82,32 @@ const prevSlide = () => {
   justify-content: center;
   align-items: center;
   margin: 1rem auto;
+}
+
+.product-showcase {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+
+.product-description {
+  flex: 1;
+  max-width: 400px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-description h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.product-description p {
+  line-height: 1.6;
+  color: #666;
 }
 
 .carousel-images {
