@@ -21,12 +21,12 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_g0eabeg0eabeg0ea.png'), 
+        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_g0eabeg0eabeg0ea.webp'), 
         alt: 'Tube light Patti',
         description: ''
       },
       { 
-        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_o1dnnto1dnnto1dn.png'), 
+        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_o1dnnto1dnnto1dn.webp'), 
         alt: 'Tube light Patti',
         description: ''
       },
@@ -38,7 +38,7 @@ const productCategories = [
     subtitle: "Model IND001",
     images: [
       { 
-        src: getImagePath('IND001_DownLight_Indi/Gemini_Generated_Image_ejsghaejsghaejsg.png'), 
+        src: getImagePath('IND001_DownLight_Indi/Gemini_Generated_Image_ejsghaejsghaejsg.webp'), 
         alt: 'DownLight_Indi',
         description: ''
       },
@@ -60,7 +60,7 @@ const productCategories = [
     subtitle: "Model INB001",
     images: [
       { 
-        src: getImagePath('INB001_Wave_Pendant_Lamp/Gemini_Generated_Image_1tgeed1tgeed1tge.png'), 
+        src: getImagePath('INB001_Wave_Pendant_Lamp/Gemini_Generated_Image_1tgeed1tgeed1tge.webp'), 
         alt: 'Wave_Pendant_Lamp',
         description: ''
       },
@@ -82,7 +82,7 @@ const productCategories = [
     subtitle: "Model INB002",
     images: [
       { 
-        src: getImagePath('INB002_TriangleTunnelLamp/Gemini_Generated_Image_5arrmt5arrmt5arr.png'), 
+        src: getImagePath('INB002_TriangleTunnelLamp/Gemini_Generated_Image_5arrmt5arrmt5arr.webp'), 
         alt: 'TriangleTunnelLamp',
         description: ''
       },
@@ -104,7 +104,7 @@ const productCategories = [
     subtitle: "Model INB003",
     images: [
       { 
-        src: getImagePath('INB003_Hanging_Popsicle_stick/Gemini_Generated_Image_g9s2j3g9s2j3g9s2.png'), 
+        src: getImagePath('INB003_Hanging_Popsicle_stick/Gemini_Generated_Image_g9s2j3g9s2j3g9s2.webp'), 
         alt: 'Hanging_Popsicle_stick',
         description: ''
       },
@@ -126,7 +126,7 @@ const productCategories = [
     subtitle: "Model INB004",
     images: [
       { 
-        src: getImagePath('INB004_Moon_Rabbit/Gemini_Generated_Image_o7df53o7df53o7df.png'), 
+        src: getImagePath('INB004_Moon_Rabbit/Gemini_Generated_Image_o7df53o7df53o7df.webp'), 
         alt: 'Moon_Rabbit',
         description: ''
       },
@@ -148,12 +148,12 @@ const productCategories = [
     subtitle: "Model INB005",
     images: [
       { 
-        src: getImagePath('INB005_Honey_comb/Gemini_Generated_Image_my9dpkmy9dpkmy9d.png'), 
+        src: getImagePath('INB005_Honey_comb/Gemini_Generated_Image_my9dpkmy9dpkmy9d.webp'), 
         alt: 'Honey_comb',
         description: ''
       },
       { 
-        src: getImagePath('INB005_Honey_comb/honey comb lamp(AI).png'), 
+        src: getImagePath('INB005_Honey_comb/honey comb lamp(AI).webp'), 
         alt: 'Honey_comb',
         description: ''
       },
@@ -170,12 +170,12 @@ const productCategories = [
     subtitle: "Model INB006",
     images: [
       { 
-        src: getImagePath('INB006_Ball_bottle/Ball bottle light(AI).png'), 
+        src: getImagePath('INB006_Ball_bottle/Ball bottle light(AI).webp'), 
         alt: 'Ball_bottle',
         description: ''
       },
       { 
-        src: getImagePath('INB006_Ball_bottle/Gemini_Generated_Image_oplj5uoplj5uoplj.png'), 
+        src: getImagePath('INB006_Ball_bottle/Gemini_Generated_Image_oplj5uoplj5uoplj.webp'), 
         alt: 'Ball_bottle',
         description: ''
       },
@@ -192,12 +192,12 @@ const productCategories = [
     subtitle: "Model INB007",
     images: [
       { 
-        src: getImagePath('INB007_Spiral/Gemini_Generated_Image_dzqt3ddzqt3ddzqt.png'), 
+        src: getImagePath('INB007_Spiral/Gemini_Generated_Image_dzqt3ddzqt3ddzqt.webp'), 
         alt: 'Spiral',
         description: ''
       },
       { 
-        src: getImagePath('INB007_Spiral/INB007(AI).png'), 
+        src: getImagePath('INB007_Spiral/INB007(AI).webp'), 
         alt: 'Spiral',
         description: ''
       },
@@ -214,7 +214,7 @@ const productCategories = [
     subtitle: "Model INB008",
     images: [
       { 
-        src: getImagePath('INB008_Pumpkin_styled/Gemini_Generated_Image_ynkkg7ynkkg7ynkk.png'), 
+        src: getImagePath('INB008_Pumpkin_styled/Gemini_Generated_Image_ynkkg7ynkkg7ynkk.webp'), 
         alt: 'Pumpkin_styled',
         description: ''
       },
@@ -224,7 +224,7 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('INB008_Pumpkin_styled/Pumpkin styled lamp(AI.png'), 
+        src: getImagePath('INB008_Pumpkin_styled/Pumpkin styled lamp(AI.webp'), 
         alt: 'Pumpkin_styled',
         description: ''
       },
@@ -236,12 +236,12 @@ const productCategories = [
     subtitle: "Model INB009",
     images: [
       { 
-        src: getImagePath('INB009_Fairy_Moon/Fairy moon lamp(AI).png'), 
+        src: getImagePath('INB009_Fairy_Moon/Fairy moon lamp(AI).webp'), 
         alt: 'Fairy_Moon',
         description: ''
       },
       { 
-        src: getImagePath('INB009_Fairy_Moon/Gemini_Generated_Image_wwjn0gwwjn0gwwjn.png'), 
+        src: getImagePath('INB009_Fairy_Moon/Gemini_Generated_Image_wwjn0gwwjn0gwwjn.webp'), 
         alt: 'Fairy_Moon',
         description: ''
       },
@@ -258,12 +258,12 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('INB010_Pineapple/Gemini_Generated_Image_bye9n4bye9n4bye9.png'), 
+        src: getImagePath('INB010_Pineapple/Gemini_Generated_Image_bye9n4bye9n4bye9.webp'), 
         alt: 'Pineapple',
         description: ''
       },
       { 
-        src: getImagePath('INB010_Pineapple/Pineapple lamp(AI).png'), 
+        src: getImagePath('INB010_Pineapple/Pineapple lamp(AI).webp'), 
         alt: 'Pineapple',
         description: ''
       },
@@ -275,7 +275,7 @@ const productCategories = [
     subtitle: "Model INB011",
     images: [
       { 
-        src: getImagePath('INB011_Cylindrical_JailBar/Gemini_Generated_Image_7pcmdn7pcmdn7pcm.png'), 
+        src: getImagePath('INB011_Cylindrical_JailBar/Gemini_Generated_Image_7pcmdn7pcmdn7pcm.webp'), 
         alt: 'Cylindrical_JailBar',
         description: ''
       },
@@ -307,7 +307,7 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('INB012_Hexagon_Tulip/white wood light(AI).png'), 
+        src: getImagePath('INB012_Hexagon_Tulip/white wood light(AI).webp'), 
         alt: 'Hexagon_Tulip',
         description: ''
       },
@@ -319,7 +319,7 @@ const productCategories = [
     subtitle: "Model INB013",
     images: [
       { 
-        src: getImagePath('INB013_Wooden_flower_lamp/Gemini_Generated_Image_7ovy8k7ovy8k7ovy.png'), 
+        src: getImagePath('INB013_Wooden_flower_lamp/Gemini_Generated_Image_7ovy8k7ovy8k7ovy.webp'), 
         alt: 'Wooden_flower_lamp',
         description: ''
       },
@@ -346,7 +346,7 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light(AI).png'), 
+        src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light(AI).webp'), 
         alt: 'MiniChristmas_Tree',
         description: ''
       },

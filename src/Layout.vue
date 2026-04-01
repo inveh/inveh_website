@@ -3,7 +3,7 @@
   <picture class="logo-container">
     <img
       class="logo"
-      src="/inveh_logo.png"
+      src="/inveh_logo.webp"
       alt="DP"
       width="150"
       height="150"
