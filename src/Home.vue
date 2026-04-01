@@ -1,60 +1,32 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+const publicBaseUrl = import.meta.env.BASE_URL || '/'
+const getImagePath = (relativePath: string): string => `${publicBaseUrl}${relativePath}`
+
 const productCategories = [
   {
     title: "Tube light based models",
-    subtitle: "Tube light based models",
+    subtitle: "Model INT001",
     images: [
       { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
-        alt: 'Pendant Light 1',
+        src: getImagePath('INT001_Tube_light_Patti/Untitled9.webp'), 
+        alt: 'Tube light Patti',
         description: 'This is a beautiful pendant light with modern design, perfect for contemporary interiors.'
       },
       { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg', 
-        alt: 'Pendant Light 2',
+        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_g0eabeg0eabeg0ea.png'), 
+        alt: 'Tube light Patti',
         description: 'Elegant hanging fixture that adds sophistication to any room with its unique shape.'
       },
       { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg', 
-        alt: 'Pendant Light 3',
+        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_o1dnnto1dnnto1dn.png'), 
+        alt: 'Tube light Patti',
         description: 'Stylish lighting solution combining functionality with aesthetic appeal.'
       },
     ]
   },
-  {
-    title: "",
-    subtitle: "Illuminate Your Walls",
-    images: [
-      { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
-        alt: 'Wall Light 1',
-        description: 'Modern wall sconce that provides ambient lighting with sleek design.'
-      },
-      { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg', 
-        alt: 'Wall Light 2',
-        description: 'Decorative wall fixture perfect for hallways and living spaces.'
-      },
-    ]
-  },
-  {
-    title: "Floor Lamps",
-    subtitle: "Standing Tall in Style",
-    images: [
-      { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg', 
-        alt: 'Floor Lamp 1',
-        description: 'Tall floor lamp providing excellent reading light and room illumination.'
-      },
-      { 
-        src: 'https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg', 
-        alt: 'Floor Lamp 2',
-        description: 'Contemporary floor lamp with adjustable height and brightness.'
-      },
-    ]
-  }
+
 ];
 
 const categoryIndices = ref(productCategories.map(() => 0));
