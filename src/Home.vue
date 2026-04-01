@@ -12,21 +12,367 @@ const productCategories = [
       { 
         src: getImagePath('INT001_Tube_light_Patti/Untitled9.webp'), 
         alt: 'Tube light Patti',
-        description: 'This is a beautiful pendant light with modern design, perfect for contemporary interiors.'
+        description: ''
       },
       { 
         src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_g0eabeg0eabeg0ea.png'), 
         alt: 'Tube light Patti',
-        description: 'Elegant hanging fixture that adds sophistication to any room with its unique shape.'
+        description: ''
       },
       { 
         src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_o1dnnto1dnnto1dn.png'), 
         alt: 'Tube light Patti',
-        description: 'Stylish lighting solution combining functionality with aesthetic appeal.'
+        description: ''
       },
     ]
   },
 
+  {
+    title: "Down light based models",
+    subtitle: "Model IND001",
+    images: [
+      { 
+        src: getImagePath('IND001_DownLight_Indi/Gemini_Generated_Image_ejsghaejsghaejsg.png'), 
+        alt: 'DownLight_Indi',
+        description: ''
+      },
+      { 
+        src: getImagePath('IND001_DownLight_Indi/IMG20260306113404.webp'), 
+        alt: 'DownLight_Indi',
+        description: ''
+      },
+      { 
+        src: getImagePath('IMG20260401121724.webp'), 
+        alt: 'DownLight_Indi',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "Bulb based models",
+    subtitle: "Model INB001",
+    images: [
+      { 
+        src: getImagePath('INB001_Wave_Pendant_Lamp/Gemini_Generated_Image_1tgeed1tgeed1tge.png'), 
+        alt: 'Wave_Pendant_Lamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB001_Wave_Pendant_Lamp/IMG20260401114240.webp'), 
+        alt: 'Wave_Pendant_Lamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB001_Wave_Pendant_Lamp/IMG20260401114311.webp'), 
+        alt: 'Wave_Pendant_Lamp',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB002",
+    images: [
+      { 
+        src: getImagePath('INB002_TriangleTunnelLamp/Gemini_Generated_Image_5arrmt5arrmt5arr.png'), 
+        alt: 'TriangleTunnelLamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB002_TriangleTunnelLamp/IMG20260401115157.webp'), 
+        alt: 'TriangleTunnelLamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB002_TriangleTunnelLamp/IMG20260401115441.webp'), 
+        alt: 'TriangleTunnelLamp',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB003",
+    images: [
+      { 
+        src: getImagePath('INB003_Hanging_Popsicle_stick/Gemini_Generated_Image_g9s2j3g9s2j3g9s2.png'), 
+        alt: 'Hanging_Popsicle_stick',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB003_Hanging_Popsicle_stick/WhatsApp Image 2026-02-25 at 16.33.01.webp'), 
+        alt: 'Hanging_Popsicle_stick',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB003_Hanging_Popsicle_stick/WhatsApp Image 2026-02-25 at 16.33.01 (1).webp'), 
+        alt: 'Hanging_Popsicle_stick',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB004",
+    images: [
+      { 
+        src: getImagePath('INB004_Moon_Rabbit/Gemini_Generated_Image_o7df53o7df53o7df.png'), 
+        alt: 'Moon_Rabbit',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB004_Moon_Rabbit/IMG20260401115809.webp'), 
+        alt: 'Moon_Rabbit',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB004_Moon_Rabbit/WhatsApp Image 2026-02-25 at 16.33.00.webp'), 
+        alt: 'Moon_Rabbit',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB005",
+    images: [
+      { 
+        src: getImagePath('INB005_Honey_comb/Gemini_Generated_Image_my9dpkmy9dpkmy9d.png'), 
+        alt: 'Honey_comb',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB005_Honey_comb/honey comb lamp(AI).png'), 
+        alt: 'Honey_comb',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB005_Honey_comb/IMG20260401120232.webp'), 
+        alt: 'Honey_comb',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB006",
+    images: [
+      { 
+        src: getImagePath('INB006_Ball_bottle/Ball bottle light(AI).png'), 
+        alt: 'Ball_bottle',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB006_Ball_bottle/Gemini_Generated_Image_oplj5uoplj5uoplj.png'), 
+        alt: 'Ball_bottle',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB006_Ball_bottle/IMG20260401120247.webp'), 
+        alt: 'Ball_bottle',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB007",
+    images: [
+      { 
+        src: getImagePath('INB007_Spiral/Gemini_Generated_Image_dzqt3ddzqt3ddzqt.png'), 
+        alt: 'Spiral',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB007_Spiral/INB007(AI).png'), 
+        alt: 'Spiral',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB007_Spiral/IMG20260401120125.webp'), 
+        alt: 'Spiral',
+        description: ''
+      },
+    ]
+  },
+
+  {
+    title: "",
+    subtitle: "Model INB008",
+    images: [
+      { 
+        src: getImagePath('INB008_Pumpkin_styled/Gemini_Generated_Image_ynkkg7ynkkg7ynkk.png'), 
+        alt: 'Pumpkin_styled',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB008_Pumpkin_styled/IMG20260401120311.webp'), 
+        alt: 'Pumpkin_styled',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB008_Pumpkin_styled/Pumpkin styled lamp(AI.png'), 
+        alt: 'Pumpkin_styled',
+        description: ''
+      },
+    ]
+  }, 
+  
+  {
+    title: "",
+    subtitle: "Model INB009",
+    images: [
+      { 
+        src: getImagePath('INB009_Fairy_Moon/Fairy moon lamp(AI).png'), 
+        alt: 'Fairy_Moon',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB009_Fairy_Moon/Gemini_Generated_Image_wwjn0gwwjn0gwwjn.png'), 
+        alt: 'Fairy_Moon',
+        description: ''
+      },
+    ]
+  }, 
+
+  {
+    title: "",
+    subtitle: "Model INB010",
+    images: [
+      { 
+        src: getImagePath('INB010_Pineapple/IMG20260401120216.webp'), 
+        alt: 'Pineapple',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB010_Pineapple/Gemini_Generated_Image_bye9n4bye9n4bye9.png'), 
+        alt: 'Pineapple',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB010_Pineapple/Pineapple lamp(AI).png'), 
+        alt: 'Pineapple',
+        description: ''
+      },
+    ]
+  }, 
+
+  {
+    title: "",
+    subtitle: "Model INB011",
+    images: [
+      { 
+        src: getImagePath('INB011_Cylindrical_JailBar/Gemini_Generated_Image_7pcmdn7pcmdn7pcm.png'), 
+        alt: 'Cylindrical_JailBar',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB011_Cylindrical_JailBar/IMG20260401114634.webp'), 
+        alt: 'Cylindrical_JailBar',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB011_Cylindrical_JailBar/IMG20260401114923.webp'), 
+        alt: 'Cylindrical_JailBar',
+        description: ''
+      },
+    ]
+  },  
+
+  {
+    title: "",
+    subtitle: "Model INB012",
+    images: [
+      { 
+        src: getImagePath('INB012_Hexagon_Tulip/IMG20260401120201.webp'), 
+        alt: 'Hexagon_Tulip',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB012_Hexagon_Tulip/white wood light.webp'), 
+        alt: 'Hexagon_Tulip',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB012_Hexagon_Tulip/white wood light(AI).png'), 
+        alt: 'Hexagon_Tulip',
+        description: ''
+      },
+    ]
+  }, 
+
+  {
+    title: "",
+    subtitle: "Model INB013",
+    images: [
+      { 
+        src: getImagePath('INB013_Wooden_flower_lamp/Gemini_Generated_Image_7ovy8k7ovy8k7ovy.png'), 
+        alt: 'Wooden_flower_lamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB013_Wooden_flower_lamp/IMG20260401115838.webp'), 
+        alt: 'Wooden_flower_lamp',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB013_Wooden_flower_lamp/IMG20260401115849.webp'), 
+        alt: 'Wooden_flower_lamp',
+        description: ''
+      },
+    ]
+  }, 
+
+  {
+    title: "",
+    subtitle: "Model INB014",
+    images: [
+      { 
+        src: getImagePath('INB014_MiniChristmas_Tree/Christmas tree light.webp'), 
+        alt: 'MiniChristmas_Tree',
+        description: ''
+      },
+      { 
+        src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light(AI).png'), 
+        alt: 'MiniChristmas_Tree',
+        description: ''
+      },
+    ]
+  },   
+
+  {
+    title: "Personalised Gifts",
+    subtitle: "Wooden Keychain",
+    images: [
+      { 
+        src: getImagePath('KeyChain_engrav/IMG20260219203515_BURST000_COVER.webp'), 
+        alt: 'Wooden Keychain',
+        description: ''
+      },
+      { 
+        src: getImagePath('KeyChain_engrav/IMG20260219203525.webp'), 
+        alt: 'Wooden Keychain',
+        description: ''
+      },
+      { 
+        src: getImagePath('KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11.webp'), 
+        alt: 'Wooden Keychain',
+        description: ''
+      },
+      { 
+        src: getImagePath('KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11 (1).webp'), 
+        alt: 'Wooden Keychain',
+        description: ''
+      },
+    ]
+  }, 
 ];
 
 const categoryIndices = ref(productCategories.map(() => 0));
