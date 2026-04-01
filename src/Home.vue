@@ -37,6 +37,7 @@ const prevSlide = () => {
   </div>
 
     <h1>Pendant Lights</h1>
+    <h2>Tube light based models</h2>
     <div class="product-showcase">
       <div class="carousel">
         <div
@@ -82,6 +83,21 @@ const prevSlide = () => {
   justify-content: center;
   align-items: center;
   margin: 1rem auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 
 .product-showcase {
