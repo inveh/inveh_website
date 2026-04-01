@@ -42,7 +42,7 @@ const productCategories = [
         description: ''
       },
       { 
-        src: getImagePath('IMG20260401121724.webp'), 
+        src: getImagePath('IND001_DownLight_Indi/IMG20260401121724.webp'), 
         alt: 'DownLight_Indi',
         description: ''
       },
