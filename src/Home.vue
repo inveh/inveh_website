@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const productCategories = [
   {
-    title: "Pendant Lights",
+    title: "Tube light based models",
     subtitle: "Tube light based models",
     images: [
       { 
@@ -24,7 +24,7 @@ const productCategories = [
     ]
   },
   {
-    title: "Wall Lights",
+    title: "",
     subtitle: "Illuminate Your Walls",
     images: [
       { 
@@ -120,7 +120,7 @@ const prevSlide = (categoryIndex) => {
         </div>
 
         <div class="product-description">
-          <h3>{{ getCurrentImage(categoryIndex).value?.alt }}</h3>
+          <h4>{{ getCurrentImage(categoryIndex).value?.alt }}</h4>
           <p>{{ getCurrentImage(categoryIndex).value?.description }}</p>
         </div>
       </div>
@@ -147,7 +147,7 @@ h1 {
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
   color: #666;
   font-size: 1.2rem;
   font-weight: normal;
