@@ -16,7 +16,7 @@
   <div class="banner">
     <img
       class="banner-image"
-      src="/shop_front.jpeg"
+      src="/shop_front.webp"
       alt="Banner"
     />
   </div>
