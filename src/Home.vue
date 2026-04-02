@@ -11,9 +11,6 @@ const getImagePath = (relativePath: string): string => `${publicBaseUrl}${relati
 const productCategories = [
   {
     title: "Tube light based models",
-    subtitle: "Model INT001",
-    description: '',
-    alt: 'Tube light Patti',
     images: [
       { 
         src: getImagePath('INT001_Tube_light_Patti/Untitled9.webp'), 
@@ -24,14 +21,14 @@ const productCategories = [
       { 
         src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_o1dnnto1dnnto1dn.webp'), 
       },
-    ]
+    ],
+    model_name: 'Tube light Patti',
+    model_num: "Model INT001",
+    description: 'dummy description',
   },
 
   {
     title: "Down light based models",
-    subtitle: "Model IND001",
-    description: '',
-    alt: 'DownLight_Indi',
     images: [
       { 
         src: getImagePath('IND001_DownLight_Indi/Gemini_Generated_Image_ejsghaejsghaejsg.webp'), 
@@ -42,14 +39,14 @@ const productCategories = [
       { 
         src: getImagePath('IND001_DownLight_Indi/IMG20260401121724.webp'), 
       },
-    ]
+    ],
+    model_name: 'DownLight_Indi',
+    model_num: "Model IND001",
+    description: 'dummy description',
   },
 
   {
     title: "Bulb based models",
-    subtitle: "Model INB001",
-    description: '',
-    alt: 'Wave_Pendant_Lamp',
     images: [
       { 
         src: getImagePath('INB001_Wave_Pendant_Lamp/Gemini_Generated_Image_1tgeed1tgeed1tge.webp'), 
@@ -60,14 +57,14 @@ const productCategories = [
       { 
         src: getImagePath('INB001_Wave_Pendant_Lamp/IMG20260401114311.webp'), 
       },
-    ]
+    ],
+    model_name: 'Wave_Pendant_Lamp',
+    model_num: "Model INB001",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB002",
-    description: '',
-    alt: 'TriangleTunnelLamp',
     images: [
       { 
         src: getImagePath('INB002_TriangleTunnelLamp/Gemini_Generated_Image_5arrmt5arrmt5arr.webp'), 
@@ -78,14 +75,14 @@ const productCategories = [
       { 
         src: getImagePath('INB002_TriangleTunnelLamp/IMG20260401115441.webp'), 
       },
-    ]
+    ],
+    model_name: 'TriangleTunnelLamp',
+    model_num: "Model INB002",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB003",
-    description: '',
-    alt: 'Hanging_Popsicle_stick',
     images: [
       { 
         src: getImagePath('INB003_Hanging_Popsicle_stick/Gemini_Generated_Image_g9s2j3g9s2j3g9s2.webp'), 
@@ -96,14 +93,14 @@ const productCategories = [
       { 
         src: getImagePath('INB003_Hanging_Popsicle_stick/WhatsApp Image 2026-02-25 at 16.33.01 (1).webp'), 
       },
-    ]
+    ],
+    model_name: 'Hanging_Popsicle_stick',
+    model_num: "Model INB003",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB004",
-    description: '',
-    alt: 'Moon_Rabbit',
     images: [
       { 
         src: getImagePath('INB004_Moon_Rabbit/Gemini_Generated_Image_o7df53o7df53o7df.webp'), 
@@ -114,14 +111,14 @@ const productCategories = [
       { 
         src: getImagePath('INB004_Moon_Rabbit/WhatsApp Image 2026-02-25 at 16.33.00.webp'), 
       },
-    ]
+    ],
+    model_name: 'Moon_Rabbit',
+    model_num: "Model INB004",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB005",
-    description: '',
-    alt: 'Honey_comb',
     images: [
       { 
         src: getImagePath('INB005_Honey_comb/Gemini_Generated_Image_my9dpkmy9dpkmy9d.webp'), 
@@ -132,14 +129,14 @@ const productCategories = [
       { 
         src: getImagePath('INB005_Honey_comb/IMG20260401120232.webp'), 
       },
-    ]
+    ],
+    model_name: 'Honey_comb',
+    model_num: "Model INB005",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB006",
-    description: '',
-    alt: 'Ball_bottle',
     images: [
       { 
         src: getImagePath('INB006_Ball_bottle/Ball bottle light(AI).webp'), 
@@ -150,14 +147,14 @@ const productCategories = [
       { 
         src: getImagePath('INB006_Ball_bottle/IMG20260401120247.webp'), 
       },
-    ]
+    ],
+    model_name: 'Ball_bottle',
+    model_num: "Model INB006",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB007",
-    description: '',
-    alt: 'Spiral',
     images: [
       { 
         src: getImagePath('INB007_Spiral/Gemini_Generated_Image_dzqt3ddzqt3ddzqt.webp'), 
@@ -168,14 +165,14 @@ const productCategories = [
       { 
         src: getImagePath('INB007_Spiral/IMG20260401120125.webp'), 
       },
-    ]
+    ],
+    model_name: 'Spiral',
+    model_num: "Model INB007",
+    description: 'dummy description',
   },
 
   {
     title: "",
-    subtitle: "Model INB008",
-    description: '',
-    alt: 'Pumpkin_styled',
     images: [
       { 
         src: getImagePath('INB008_Pumpkin_styled/Gemini_Generated_Image_ynkkg7ynkkg7ynkk.webp'), 
@@ -186,14 +183,14 @@ const productCategories = [
       { 
         src: getImagePath('INB008_Pumpkin_styled/Pumpkin styled lamp(AI.webp'), 
       },
-    ]
+    ],
+    model_name: 'Pumpkin_styled',
+    model_num: "Model INB008",
+    description: 'dummy description',
   }, 
   
   {
     title: "",
-    subtitle: "Model INB009",
-    description: '',
-    alt: 'Fairy_Moon',
     images: [
       { 
         src: getImagePath('INB009_Fairy_Moon/Fairy moon lamp(AI).webp'), 
@@ -201,14 +198,14 @@ const productCategories = [
       { 
         src: getImagePath('INB009_Fairy_Moon/Gemini_Generated_Image_wwjn0gwwjn0gwwjn.webp'), 
       },
-    ]
+    ],
+    model_name: 'Fairy_Moon',
+    model_num: "Model INB009",
+    description: 'dummy description',
   }, 
 
   {
     title: "",
-    subtitle: "Model INB010",
-    description: '',
-    alt: 'Pineapple',
     images: [
       { 
         src: getImagePath('INB010_Pineapple/IMG20260401120216.webp'), 
@@ -219,14 +216,14 @@ const productCategories = [
       { 
         src: getImagePath('INB010_Pineapple/Pineapple lamp(AI).webp'), 
       },
-    ]
+    ],
+    model_name: 'Pineapple',
+    model_num: "Model INB010",
+    description: 'dummy description',
   }, 
 
   {
     title: "",
-    subtitle: "Model INB011",
-    description: '',
-    alt: 'Cylindrical_JailBar',
     images: [
       { 
         src: getImagePath('INB011_Cylindrical_JailBar/Gemini_Generated_Image_7pcmdn7pcmdn7pcm.webp'), 
@@ -237,14 +234,14 @@ const productCategories = [
       { 
         src: getImagePath('INB011_Cylindrical_JailBar/IMG20260401114923.webp'), 
       },
-    ]
+    ],
+    model_name: 'Cylindrical_JailBar',
+    model_num: "Model INB011",
+    description: 'dummy description',
   },  
 
   {
     title: "",
-    subtitle: "Model INB012",
-    description: '',
-    alt: 'Hexagon_Tulip',
     images: [
       { 
         src: getImagePath('INB012_Hexagon_Tulip/IMG20260401120201.webp'), 
@@ -255,14 +252,14 @@ const productCategories = [
       { 
         src: getImagePath('INB012_Hexagon_Tulip/white wood light(AI).webp'), 
       },
-    ]
+    ],
+    model_name: 'Hexagon_Tulip',
+    model_num: "Model INB012",
+    description: 'dummy description',
   }, 
 
   {
     title: "",
-    subtitle: "Model INB013",
-    description: '',
-    alt: 'Wooden_flower_lamp',
     images: [
       { 
         src: getImagePath('INB013_Wooden_flower_lamp/Gemini_Generated_Image_7ovy8k7ovy8k7ovy.webp'), 
@@ -273,14 +270,14 @@ const productCategories = [
       { 
         src: getImagePath('INB013_Wooden_flower_lamp/IMG20260401115849.webp'), 
       },
-    ]
+    ],
+    model_name: 'Wooden_flower_lamp',
+    model_num: "Model INB013",
+    description: 'dummy description',
   }, 
 
   {
     title: "",
-    subtitle: "Model INB014",
-    description: '',
-    alt: 'MiniChristmas_Tree',
     images: [
       { 
         src: getImagePath('INB014_MiniChristmas_Tree/Christmas tree light.webp'), 
@@ -288,14 +285,14 @@ const productCategories = [
       { 
         src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light(AI).webp'), 
       },
-    ]
+    ],
+    model_name: 'MiniChristmas_Tree',
+    model_num: "Model INB014",
+    description: 'dummy description',
   },   
 
   {
     title: "Personalised Gifts",
-    subtitle: "Wooden Keychain",
-    description: '',
-    alt: 'Wooden Keychain',
     images: [
       { 
         src: getImagePath('KeyChain_engrav/IMG20260219203515_BURST000_COVER.webp'), 
@@ -309,7 +306,10 @@ const productCategories = [
       { 
         src: getImagePath('KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11 (1).webp'), 
       },
-    ]
+    ],
+    model_name: 'Wooden Keychain',
+    model_num: "Wooden Keychain",
+    description: 'dummy description',
   }, 
 ];
 
@@ -342,8 +342,8 @@ const prevSlide = (categoryIndex: number) => {
       class="category-section"
     >
       <h1>{{ category.title }}</h1>
-      <h2>{{ category.subtitle }}</h2>
-      <h3 class="category-alt">{{ category.alt }}</h3>
+      <h2>{{ category.model_num }}</h2>
+      <h3 class="category-model_name">{{ category.model_name }}</h3>
       <div class="product-showcase">
         <div class="carousel">
           <div class="carousel-images">
@@ -352,7 +352,7 @@ const prevSlide = (categoryIndex: number) => {
               v-for="(image, imageIndex) in category.images"
               :key="`${category.title}-${imageIndex}`"
               :src="image.src"
-              :alt="category.alt"
+              :alt="category.model_name"
               v-show="imageIndex === categoryIndices[categoryIndex]"
               @mouseenter="hoveredImage = image; showModal = true"
               @mouseleave="showModal = false; hoveredImage = null"
@@ -371,7 +371,7 @@ const prevSlide = (categoryIndex: number) => {
 
           <!-- Modal shown on hover -->
           <div v-if="showModal && hoveredImage" class="modal-overlay">
-            <img :src="hoveredImage!.src" :alt="category.alt" class="modal-image" />
+            <img :src="hoveredImage!.src" :alt="category.model_name" class="modal-image" />
           </div>
         </div>
 
@@ -410,7 +410,7 @@ h2 {
   font-style: italic;
 }
 
-.category-alt {
+.category-model_name {
   text-align: left;
   color: #333;
   font-size: 1.5rem;
