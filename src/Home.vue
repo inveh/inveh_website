@@ -373,8 +373,10 @@ const prevSlide = (categoryIndex: number) => {
           </div>
         </div>
 
-        <h3 class="category-model_name">{{ category.model_name }}</h3>
-        <h2>{{ category.model_num }}</h2>
+        <div class="model-titles">
+          <h3 class="category-model_name">{{ category.model_name }}</h3>
+          <h1 class="category-model_num">{{ category.model_num }}</h1>
+        </div>
 
         <div class="product-description" v-if="category.description">
           <p>{{ category.description }}</p>
@@ -411,13 +413,29 @@ h2 {
   font-style: italic;
 }
 
+.model-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.category-model_num {
+  text-align: left;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0;
+}
+
 .category-model_name {
   text-align: left;
   color: #333;
   font-size: 1.5rem;
   font-weight: 500;
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .category-section {
