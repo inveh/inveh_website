@@ -54,7 +54,7 @@ const goToProduct = (index: number) => {
 
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     padding: 1rem;
     gap: 2rem 1rem;
   }
