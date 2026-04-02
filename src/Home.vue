@@ -330,10 +330,24 @@ const productCategories = [
   }, 
 ];
 
-const hoverIndex = ref<number | null>(null);
+const categoryIndices = ref(productCategories.map(() => 0));
 
-const currentImageIndex = (index: number) => {
-  return hoverIndex.value === index && productCategories[index]!.images.length > 1 ? 1 : 0;
+const getCurrentImageIndex = (index: number) => {
+  return categoryIndices.value[index] || 0;
+};
+
+const nextSlide = (index: number) => { 
+  const images = productCategories[index]!.images;
+  if(images.length > 0) {
+    categoryIndices.value[index] = (categoryIndices.value[index]! + 1) % images.length; 
+  }
+};
+
+const prevSlide = (index: number) => { 
+  const images = productCategories[index]!.images;
+  if(images.length > 0) {
+    categoryIndices.value[index] = (categoryIndices.value[index]! - 1 + images.length) % images.length; 
+  }
 };
 </script>
 
@@ -348,18 +362,24 @@ const currentImageIndex = (index: number) => {
       :key="product.model_num"
       class="product-card"
     >
-      <div 
-        class="product-image-container"
-        @mouseenter="hoverIndex = index"
-        @mouseleave="hoverIndex = null"
-      >
+      <div class="product-image-container">
         <img
           v-if="product.images.length > 0"
-          :src="product.images[currentImageIndex(index)]!.src"
+          :src="product.images[getCurrentImageIndex(index)]!.src"
           :alt="product.model_name"
           class="product-image"
         />
-        <div class="quick-add-btn">+</div>
+        
+        <div class="carousel-controls" v-if="product.images.length > 1">
+          <button 
+            class="carousel-arrow" 
+            @click.stop="prevSlide(index)"
+          >&#8592;</button>
+          <button 
+            class="carousel-arrow" 
+            @click.stop="nextSlide(index)"
+          >&#8594;</button>
+        </div>
       </div>
 
       <div class="product-info">
@@ -427,32 +447,43 @@ const currentImageIndex = (index: number) => {
   transition: transform 0.8s ease;
 }
 
-.product-image-container:hover .product-image {
-  transform: scale(1.05);
+.carousel-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.quick-add-btn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: white;
+.product-image-container:hover .carousel-controls {
+  opacity: 1;
+}
+
+.carousel-arrow {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: black;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.2s;
 }
 
-.product-image-container:hover .quick-add-btn {
-  opacity: 1;
-  transform: translateY(0);
+.carousel-arrow:hover { 
+  background: rgba(255, 255, 255, 1);
+  color: #000;
 }
 
 .product-info {
