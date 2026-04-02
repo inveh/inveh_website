@@ -94,7 +94,6 @@ const toggleDescription = () => {
 
           <div class="action-buttons">
             <button class="add-to-cart-btn">Add to cart</button>
-            <button class="buy-now-btn">Buy it now</button>
           </div>
         </div>
       </div>
@@ -331,23 +330,6 @@ const toggleDescription = () => {
 .add-to-cart-btn:hover {
   background: #a89a81;
   border-color: #a89a81;
-}
-
-.buy-now-btn {
-  background: #222; /* Charcoal */
-  color: white;
-  border: 1px solid #222;
-  padding: 1.2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.buy-now-btn:hover {
-  background: #000;
 }
 
 @media (max-width: 900px) {

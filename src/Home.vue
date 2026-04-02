@@ -11,9 +11,6 @@ const goToProduct = (index: number) => {
 </script>
 
 <template>
-  <div class="introText_style">
-    <p>At inVeh Lighting Solutions, we provide customized lighting solutions for houses, hotels, restaurants, cafe, halls, ...</p>
-  </div>
 
   <div class="product-grid">
     <div 
@@ -43,17 +40,6 @@ const goToProduct = (index: number) => {
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   box-sizing: border-box;
-}
-
-.introText_style {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
-  color: #666;
-  max-width: 800px;
-  line-height: 1.6;
 }
 
 .product-grid {
