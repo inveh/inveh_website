@@ -52,8 +52,7 @@ const addToCart = () => {
     <div class="product-layout">
       <!-- LEFT COLUMN -->
       <div class="left-column">
-        <!-- Desktop Layout -->
-        <div class="gallery desktop-gallery">
+        <div class="gallery">
           <!-- Desktop Thumbnails (Left side of gallery) -->
           <div class="thumbnails" v-if="product.images.length > 1">
             <img 
@@ -74,19 +73,6 @@ const addToCart = () => {
               :src="product.images[currentImageIndex]?.src" 
               :alt="product.model_name" 
               class="main-image"
-            />
-          </div>
-        </div>
-
-        <!-- Mobile Carousel -->
-        <div class="carousel mobile-carousel" v-if="product.images.length > 1">
-          <div class="carousel-track">
-            <img 
-              v-for="(img, idx) in product.images" 
-              :key="idx"
-              :src="img.src"
-              :alt="product.model_name"
-              class="carousel-image"
             />
           </div>
         </div>
@@ -180,8 +166,7 @@ const addToCart = () => {
   gap: 3rem;
 }
 
-/* Desktop Gallery */
-.gallery.desktop-gallery {
+.gallery {
   display: flex;
   gap: 1.5rem;
 }
@@ -223,23 +208,6 @@ const addToCart = () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Mobile Carousel */
-.carousel.mobile-carousel {
-  display: none;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-.carousel.mobile-carousel .carousel-track {
-  display: flex;
-}
-.carousel.mobile-carousel .carousel-image {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  object-fit: cover;
-  width: 100%;
-  height: auto;
 }
 
 .accordions {
@@ -391,19 +359,21 @@ const addToCart = () => {
   .left-column, .right-sidebar {
     width: 100%;
   }
-  
-  .gallery.desktop-gallery {
-    display: none;
+
+  .gallery {
+    flex-direction: column-reverse;
   }
   
-  .carousel.mobile-carousel {
-    display: block;
+  .thumbnails {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
   }
-  
+
   .thumbnail {
     width: 60px;
   }
-  
+
   .product-detail-page {
     padding: 1rem 1.5rem;
   }
