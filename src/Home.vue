@@ -342,8 +342,6 @@ const prevSlide = (categoryIndex: number) => {
       class="category-section"
     >
       <h1>{{ category.title }}</h1>
-      <h2>{{ category.model_num }}</h2>
-      <h3 class="category-model_name">{{ category.model_name }}</h3>
       <div class="product-showcase">
         <div class="carousel">
           <div class="carousel-images">
@@ -374,6 +372,9 @@ const prevSlide = (categoryIndex: number) => {
             <img :src="hoveredImage!.src" :alt="category.model_name" class="modal-image" />
           </div>
         </div>
+
+        <h3 class="category-model_name">{{ category.model_name }}</h3>
+        <h2>{{ category.model_num }}</h2>
 
         <div class="product-description" v-if="category.description">
           <p>{{ category.description }}</p>
@@ -415,8 +416,8 @@ h2 {
   color: #333;
   font-size: 1.5rem;
   font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .category-section {
@@ -429,18 +430,19 @@ h2 {
 
 .product-showcase {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
   align-items: flex-start;
+  gap: 0.5rem;
   margin: 2rem 0;
 }
 
 .product-description {
-  flex: 1;
   max-width: 400px;
   padding: 1rem;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
 .product-description h3 {
