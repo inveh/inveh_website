@@ -343,6 +343,7 @@ const prevSlide = (categoryIndex: number) => {
     >
       <h1>{{ category.title }}</h1>
       <h2>{{ category.subtitle }}</h2>
+      <h3 class="category-alt">{{ category.alt }}</h3>
       <div class="product-showcase">
         <div class="carousel">
           <div class="carousel-images">
@@ -374,9 +375,8 @@ const prevSlide = (categoryIndex: number) => {
           </div>
         </div>
 
-        <div class="product-description">
-          <h4>{{ category.alt }}</h4>
-          <p v-if="category.description">{{ category.description }}</p>
+        <div class="product-description" v-if="category.description">
+          <p>{{ category.description }}</p>
         </div>
       </div>
     </div>
@@ -406,8 +406,17 @@ h2 {
   color: #666;
   font-size: 1.2rem;
   font-weight: normal;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
   font-style: italic;
+}
+
+.category-alt {
+  text-align: left;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .category-section {
