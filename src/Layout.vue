@@ -9,18 +9,6 @@
       />
     </div>
 
-    <!-- Logo -->
-    <picture class="logo-container">
-      <img
-        class="logo"
-        src="/inveh_logo.webp"
-        alt="DP"
-        width="150"
-        height="150"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
   </header>
 
   <!-- Navigation -->
@@ -42,22 +30,6 @@
   position: relative;
   width: 100%;
   margin-top: 1.5rem;
-}
-
-.logo-container {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  z-index: 10;
-}
-
-.logo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  object-fit: cover;
-  display: block;
 }
 
 .banner {
