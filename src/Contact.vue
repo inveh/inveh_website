@@ -18,13 +18,13 @@
       <p>Subject to Udumalpet Jurisdiction</p>
     </div>
 
-    <div class="info-card">
+    <div class="info-card center-align">
       <h3>Reach us at:</h3>
       <p>✉ <a href="mailto:info@inveh.in">info@inveh.in</a></p>
       <p>☎ +91 94877 41183</p>
     </div>
 
-    <div class="info-card">
+    <div class="info-card right-align">
       <h3>Visit us at:</h3>
       <p>Inveh Lighting Solutions,</p>
       <p>10A1, Poompugar nagar, Dhali road,</p>
@@ -70,17 +70,28 @@
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1500px;
   margin: 3rem auto;
   padding: 0 2rem;
 }
 
 .info-card {
+  flex: 1 1 280px;
   text-align: left;
   line-height: 1.5;
+}
+
+.info-card.right-align {
+  text-align: right;
+}
+
+.info-card.center-align {
+  text-align: center;
 }
 
 .info-card h3 {
