@@ -49,6 +49,7 @@ const goToProduct = (index: number) => {
   padding: 2rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -56,6 +57,14 @@ const goToProduct = (index: number) => {
     grid-template-columns: repeat(2, 1fr);
     padding: 1rem;
     gap: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 1.5rem 0.5rem;
   }
 }
 
