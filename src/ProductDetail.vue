@@ -23,6 +23,24 @@ const goBack = () => {
 const toggleDescription = () => {
   isDescriptionOpen.value = !isDescriptionOpen.value
 }
+
+const quantity = ref(1)
+
+const incrementQuantity = () => {
+  quantity.value++
+}
+
+const decrementQuantity = () => {
+  if (quantity.value > 1) {
+    quantity.value--
+  }
+}
+
+const addToCart = () => {
+  if (product.value) {
+    alert(`Added ${quantity.value} of ${product.value.model_name} to your cart.`)
+  }
+}
 </script>
 
 <template>
@@ -86,14 +104,14 @@ const toggleDescription = () => {
           <div class="quantity-selector">
             <label>Quantity</label>
             <div class="qty-controls">
-              <button class="qty-btn">−</button>
-              <input type="text" value="1" readonly class="qty-input" />
-              <button class="qty-btn">+</button>
+              <button class="qty-btn" @click="decrementQuantity">−</button>
+              <input type="text" :value="quantity" readonly class="qty-input" />
+              <button class="qty-btn" @click="incrementQuantity">+</button>
             </div>
           </div>
 
           <div class="action-buttons">
-            <button class="add-to-cart-btn">Add to cart</button>
+            <button class="add-to-cart-btn" @click="addToCart">Add to cart</button>
           </div>
         </div>
       </div>
