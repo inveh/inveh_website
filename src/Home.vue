@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 interface ProductImage {
   src: string;
@@ -385,9 +385,8 @@ const categoryIndices = ref(productCategories.map(() => 0));
 const showModal = ref(false);
 const hoveredImage = ref<ProductImage | null>(null);
 
-const getCurrentImage = (categoryIndex: number) => computed(() => 
-  productCategories[categoryIndex]!.images[categoryIndices.value[categoryIndex]!]
-);
+const getCurrentImage = (categoryIndex: number) => 
+  productCategories[categoryIndex]!.images[categoryIndices.value[categoryIndex]!];
 
 const nextSlide = (categoryIndex: number) => { 
   const images = productCategories[categoryIndex]!.images;
@@ -444,8 +443,8 @@ const prevSlide = (categoryIndex: number) => {
         </div>
 
         <div class="product-description">
-          <h4>{{ getCurrentImage(categoryIndex).value?.alt }}</h4>
-          <p>{{ getCurrentImage(categoryIndex).value?.description }}</p>
+          <h4>{{ getCurrentImage(categoryIndex)?.alt }}</h4>
+          <p v-if="getCurrentImage(categoryIndex)?.description">{{ getCurrentImage(categoryIndex)?.description }}</p>
         </div>
       </div>
     </div>

@@ -45,6 +45,5 @@
     "@vue/server-renderer": "beta",
     "@vue/shared": "beta",
     "@vue/compat": "beta"
-  },
-  "deploy": "gh-pages -d dist"
+  }
 }

@@ -1,25 +1,27 @@
 <template>
-  <!-- Logo -->
-  <picture class="logo-container">
-    <img
-      class="logo"
-      src="/inveh_logo.webp"
-      alt="DP"
-      width="150"
-      height="150"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </picture>
+  <header class="header-container">
+    <!-- Banner -->
+    <div class="banner">
+      <img
+        class="banner-image"
+        src="/shop_front.webp"
+        alt="Banner"
+      />
+    </div>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img
-      class="banner-image"
-      src="/shop_front.webp"
-      alt="Banner"
-    />
-  </div>
+    <!-- Logo -->
+    <picture class="logo-container">
+      <img
+        class="logo"
+        src="/inveh_logo.webp"
+        alt="DP"
+        width="150"
+        height="150"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+  </header>
 
   <!-- Navigation -->
   <nav class="main-nav">
@@ -36,12 +38,17 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.logo-container {
-  display: block;
-  margin: 1.5rem 0 0 1.5rem;
+.header-container {
   position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.logo-container {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
   z-index: 10;
-  margin-bottom: -200px;
 }
 
 .logo {
@@ -55,9 +62,6 @@
 
 .banner {
   width: 100%;
-  position: relative;
-  margin-bottom: 0;
-  margin-top: 1.5rem;
 }
 
 .banner-image {
