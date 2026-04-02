@@ -330,21 +330,10 @@ const productCategories = [
   }, 
 ];
 
-const categoryIndices = ref(productCategories.map(() => 0));
-const showModal = ref(false);
-const hoveredImage = ref<ProductImage | null>(null);
+const hoverIndex = ref<number | null>(null);
 
-const getCurrentImage = (categoryIndex: number) => 
-  productCategories[categoryIndex]!.images[categoryIndices.value[categoryIndex]!];
-
-const nextSlide = (categoryIndex: number) => { 
-  const images = productCategories[categoryIndex]!.images;
-  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex]! + 1) % images.length; 
-};
-
-const prevSlide = (categoryIndex: number) => { 
-  const images = productCategories[categoryIndex]!.images;
-  categoryIndices.value[categoryIndex] = (categoryIndices.value[categoryIndex]! - 1 + images.length) % images.length; 
+const currentImageIndex = (index: number) => {
+  return hoverIndex.value === index && productCategories[index]!.images.length > 1 ? 1 : 0;
 };
 </script>
 
@@ -353,59 +342,38 @@ const prevSlide = (categoryIndex: number) => {
     <p>At inVeh Lighting Solutions, we provide customized lighting solutions for houses, hotels, restaurants, cafe, halls, ...</p>
   </div>
 
+  <div class="product-grid">
     <div 
-      v-for="(category, categoryIndex) in productCategories" 
-      :key="category.title"
-      class="category-section"
+      v-for="(product, index) in productCategories" 
+      :key="product.model_num"
+      class="product-card"
     >
-      <h1>{{ category.title }}</h1>
-      <div class="product-showcase">
-        <div class="carousel">
-          <div class="carousel-images">
-            <img
-              class="carousel-image-list"
-              v-for="(image, imageIndex) in category.images"
-              :key="`${category.title}-${imageIndex}`"
-              :src="image.src"
-              :alt="category.model_name"
-              v-show="imageIndex === categoryIndices[categoryIndex]"
-              @mouseenter="hoveredImage = image; showModal = true"
-              @mouseleave="showModal = false; hoveredImage = null"
-            />
-            <div class="carousel-controls">
-              <button 
-                class="carousel-arrow" 
-                @click.stop="prevSlide(categoryIndex)"
-              >&#8592;</button>
-              <button 
-                class="carousel-arrow" 
-                @click.stop="nextSlide(categoryIndex)"
-              >&#8594;</button>
-            </div>
-          </div>
+      <div 
+        class="product-image-container"
+        @mouseenter="hoverIndex = index"
+        @mouseleave="hoverIndex = null"
+      >
+        <img
+          v-if="product.images.length > 0"
+          :src="product.images[currentImageIndex(index)]!.src"
+          :alt="product.model_name"
+          class="product-image"
+        />
+        <div class="quick-add-btn">+</div>
+      </div>
 
-          <!-- Modal shown on hover -->
-          <div v-if="showModal && hoveredImage" class="modal-overlay">
-            <img :src="hoveredImage!.src" :alt="category.model_name" class="modal-image" />
-          </div>
-        </div>
-
-        <div class="model-titles">
-          <h3 class="category-model_name">{{ category.model_name }}</h3>
-          <h1 class="category-model_num">{{ category.model_num }}</h1>
-          <h2 class="category-model_price" v-if="category.model_price" v-html="category.model_price"></h2>
-        </div>
-
-        <div class="product-description" v-if="category.description">
-          <p>{{ category.description }}</p>
-        </div>
+      <div class="product-info">
+        <h3 class="product-title">{{ product.model_name }}</h3>
+        <p class="product-price" v-if="product.model_price" v-html="product.model_price"></p>
       </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
 }
 
 .introText_style {
@@ -413,144 +381,103 @@ const prevSlide = (categoryIndex: number) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-h2 {
-  text-align: left;
+  margin: 2rem auto;
   color: #666;
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin-bottom: 0.25rem;
-  font-style: italic;
-}
-
-.model-titles {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: 100%;
-}
-
-.category-model_num {
-  text-align: left;
-  color: #666;
-  font-size: 0.9rem;
-  font-weight: normal;
-  font-style: italic;
-  margin: 0;
-}
-
-.category-model_price {
-  text-align: left;
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.category-model_name {
-  text-align: left;
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-
-.category-section {
-  margin-bottom: 4rem;
-}
-
-.category-section:last-child {
-  margin-bottom: 0;
-}
-
-.product-showcase {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin: 2rem 0;
-}
-
-.product-description {
-  max-width: 400px;
-  padding: 1rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.product-description h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.product-description p {
+  max-width: 800px;
   line-height: 1.6;
-  color: #666;
 }
 
-.carousel-images {
-  position: relative;
-  display: inline-block;
-  cursor: zoom-in;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem 1.5rem;
+  padding: 2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.carousel-image-list {
-  width: 7.5cm;
-  height: 5cm;
-  object-fit: cover;
-  display: block;
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    gap: 2rem 1rem;
+  }
 }
 
-.carousel-controls {
+.product-card {
   display: flex;
-  justify-content: space-between;
-  width: 7.5cm;
-  margin-top: 6px;
-  position: relative;
-  z-index: 1010;
-}
-
-.carousel-arrow {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  flex-direction: column;
   cursor: pointer;
-  color: #444;
-  padding: 0 4px;
-  line-height: 1;
+  transition: transform 0.2s ease;
 }
 
-.carousel-arrow:hover { color: #000; }
+.product-image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+  background: #f4f4f4;
+  margin-bottom: 1rem;
+}
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.product-image-container:hover .product-image {
+  transform: scale(1.05);
+}
+
+.quick-add-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  pointer-events: none;
+  font-size: 1.5rem;
+  color: black;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.modal-image {
-  max-width: 80vw;
-  max-height: 70vh;
-  border-radius: 8px;
-  object-fit: contain;
+.product-image-container:hover .quick-add-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-info {
+  text-align: center;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-title {
+  text-align: center;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.product-price {
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 0;
 }
 </style>
