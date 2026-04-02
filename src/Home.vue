@@ -24,6 +24,7 @@ const productCategories = [
     ],
     model_name: 'Tube light Patti',
     model_num: "Model INT001",
+    model_price: '<s>₹150</s> ₹100',
     description: 'dummy description',
   },
 
@@ -42,6 +43,7 @@ const productCategories = [
     ],
     model_name: 'DownLight_Indi',
     model_num: "Model IND001",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -60,6 +62,7 @@ const productCategories = [
     ],
     model_name: 'Wave_Pendant_Lamp',
     model_num: "Model INB001",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -78,6 +81,7 @@ const productCategories = [
     ],
     model_name: 'TriangleTunnelLamp',
     model_num: "Model INB002",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -96,6 +100,7 @@ const productCategories = [
     ],
     model_name: 'Hanging_Popsicle_stick',
     model_num: "Model INB003",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -114,6 +119,7 @@ const productCategories = [
     ],
     model_name: 'Moon_Rabbit',
     model_num: "Model INB004",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -132,6 +138,7 @@ const productCategories = [
     ],
     model_name: 'Honey_comb',
     model_num: "Model INB005",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -150,6 +157,7 @@ const productCategories = [
     ],
     model_name: 'Ball_bottle',
     model_num: "Model INB006",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -168,6 +176,7 @@ const productCategories = [
     ],
     model_name: 'Spiral',
     model_num: "Model INB007",
+    model_price: 'dummy price',
     description: 'dummy description',
   },
 
@@ -186,6 +195,7 @@ const productCategories = [
     ],
     model_name: 'Pumpkin_styled',
     model_num: "Model INB008",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
   
@@ -201,6 +211,7 @@ const productCategories = [
     ],
     model_name: 'Fairy_Moon',
     model_num: "Model INB009",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
 
@@ -219,6 +230,7 @@ const productCategories = [
     ],
     model_name: 'Pineapple',
     model_num: "Model INB010",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
 
@@ -237,6 +249,7 @@ const productCategories = [
     ],
     model_name: 'Cylindrical_JailBar',
     model_num: "Model INB011",
+    model_price: 'dummy price',
     description: 'dummy description',
   },  
 
@@ -255,6 +268,7 @@ const productCategories = [
     ],
     model_name: 'Hexagon_Tulip',
     model_num: "Model INB012",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
 
@@ -273,6 +287,7 @@ const productCategories = [
     ],
     model_name: 'Wooden_flower_lamp',
     model_num: "Model INB013",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
 
@@ -288,6 +303,7 @@ const productCategories = [
     ],
     model_name: 'MiniChristmas_Tree',
     model_num: "Model INB014",
+    model_price: 'dummy price',
     description: 'dummy description',
   },   
 
@@ -309,6 +325,7 @@ const productCategories = [
     ],
     model_name: 'Wooden Keychain',
     model_num: "Wooden Keychain",
+    model_price: 'dummy price',
     description: 'dummy description',
   }, 
 ];
@@ -376,6 +393,7 @@ const prevSlide = (categoryIndex: number) => {
         <div class="model-titles">
           <h3 class="category-model_name">{{ category.model_name }}</h3>
           <h1 class="category-model_num">{{ category.model_num }}</h1>
+          <h2 class="category-model_price" v-if="category.model_price" v-html="category.model_price"></h2>
         </div>
 
         <div class="product-description" v-if="category.description">
@@ -426,6 +444,14 @@ h2 {
   font-size: 0.9rem;
   font-weight: normal;
   font-style: italic;
+  margin: 0;
+}
+
+.category-model_price {
+  text-align: left;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
   margin: 0;
 }
 
