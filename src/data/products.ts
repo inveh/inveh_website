@@ -301,10 +301,10 @@ export const productCategories: ProductCategory[] = [
     title: "",
     images: [
       {
-        src: getImagePath('INB014_MiniChristmas_Tree/Christmas tree light(AI).webp'),
+        src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light(AI).webp'),
       },
       {
-        src: getImagePath('INB014_MiniChristmas_Tree/christmas tree light.webp'),
+        src: getImagePath('INB014_MiniChristmas_Tree/Christmas tree light.webp'),
       },
     ],
     model_name: 'MiniChristmas_Tree',
