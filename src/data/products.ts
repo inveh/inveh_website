@@ -17,7 +17,7 @@ export const getImagePath = (relativePath: string): string => `${publicBaseUrl}$
 
 export const productCategories: ProductCategory[] = [
   {
-    title: "Tube light based models",
+    title: "Tube Light Models",
     images: [
       {
         src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_f5b66hf5b66hf5b6.webp'),
@@ -29,15 +29,15 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_1391vv1391vv1391.webp'),
       },
     ],
-    model_name: 'Pine Tube light',
+    model_name: 'Pine Tube Light',
     model_num: "INT001",
     model_price: 1500,
     discount: 400,
-    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 445mm (L) x 45mm (B) + 60mm (H)',
+    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 44.5cm (Width) x 4.5cm (Depth) x 6cm (Height)',
   },
 
   {
-    title: "Down light based models",
+    title: "Down Light Models",
     images: [
       {
         src: getImagePath('IND001_DownLight_Indi/Gemini_Generated_Image_ejsghaejsghaejsg.webp'),
@@ -49,11 +49,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('IND001_DownLight_Indi/IMG20260401121724.webp'),
       },
     ],
-    model_name: 'DownLight_Indi',
+    model_name: 'Pine Down Light',
     model_num: "IND001",
-    model_price: 700,
-    discount: 0,
-    description: 'size:15cm x 13cm',
+    model_price: 1000,
+    discount: 300,
+    description: 'A Pine wood housing to the standard down light (3W). Customisation possible in the area of the wood similar like the butterfly in the picture. Mentioned price is unit price. Size: 13cm(Width) x 13cm(Depth) x 15cm(Height)',
   },
 
   {
