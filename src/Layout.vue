@@ -71,8 +71,8 @@ const downloadPDF = () => {
       item.model_name,
       item.model_num,
       item.quantity.toString(),
-      item.model_price || 'N/A',
-      numMatch ? `₹${lineTotal}` : 'N/A'
+      (item.model_price || 'N/A').replace('₹', 'Rs. '),
+      numMatch ? `Rs. ${lineTotal}` : 'N/A'
     ];
   });
 
@@ -82,7 +82,7 @@ const downloadPDF = () => {
     body: tableData,
     foot: [[
       { content: 'Grand Total', colSpan: 4, styles: { halign: 'right', fontStyle: 'bold' } },
-      `₹${grandTotal}`
+      `Rs. ${grandTotal}`
     ]],
     theme: 'striped',
     headStyles: { fillColor: [26, 26, 26] },
