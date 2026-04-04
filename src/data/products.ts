@@ -325,7 +325,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Mini Christmas Tree',
     model_num: "INB014",
-    model_price: 0,
+    model_price: 500,
     discount: 0,
     description: 'If you want to enjoy the Christmas in Lilliputian civilization, then this Mini Christmas Tree is a perfect choice. Size: 12cm (Height) x 14cm (Diameter)',
   },
