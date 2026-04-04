@@ -7,7 +7,7 @@ export interface ProductCategory {
   images: ProductImage[];
   model_name: string;
   model_num: string;
-  model_price: string;
+  model_price: number;
   description: string;
 }
 
@@ -30,7 +30,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Tube light Patti',
     model_num: "INT001",
-    model_price: 'Price : ₹1100',
+    model_price: 1100,
     description: 'size:',
   },
 
@@ -49,7 +49,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'DownLight_Indi',
     model_num: "IND001",
-    model_price: 'Price : ₹700',
+    model_price: 700,
     description: 'size:15cm x 13cm',
   },
 
@@ -68,7 +68,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Wave_Pendant_Lamp',
     model_num: "INB001",
-    model_price: 'Price : ₹700',
+    model_price: 700,
     description: 'size:36cm x 20cm',
   },
 
@@ -87,7 +87,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'TriangleTunnelLamp',
     model_num: "INB002",
-    model_price: 'Price : ₹700',
+    model_price: 700,
     description: 'size:11cm x 12cm',
   },
 
@@ -106,7 +106,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Hanging_Popsicle_stick',
     model_num: "INB003",
-    model_price: 'Price : ₹900',
+    model_price: 900,
     description: 'size:30cm x 14cm',
   },
 
@@ -125,7 +125,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Moon_Rabbit',
     model_num: "INB004",
-    model_price: 'Price : ₹600',
+    model_price: 600,
     description: 'size:25cm x 25cm',
   },
 
@@ -144,7 +144,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Honey_comb',
     model_num: "INB005",
-    model_price: 'Price : ₹600',
+    model_price: 600,
     description: 'size:26cm x 14cm',
   },
 
@@ -163,7 +163,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Ball_bottle',
     model_num: "INB006",
-    model_price: 'Price : ₹1000',
+    model_price: 1000,
     description: 'size:50cm x 40cm',
   },
 
@@ -182,7 +182,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Spiral',
     model_num: "INB007",
-    model_price: 'Price : ₹700',
+    model_price: 700,
     description: 'size: 35cm x 35cm',
   },
 
@@ -201,7 +201,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Pumpkin_styled',
     model_num: "INB008",
-    model_price: 'Price : ₹700',
+    model_price: 700,
     description: 'size:30cm x 45cm',
   },
 
@@ -217,7 +217,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Fairy_Moon',
     model_num: "INB009",
-    model_price: 'Price : ₹600',
+    model_price: 600,
     description: 'size:20cm x 20cm',
   },
 
@@ -236,7 +236,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Pineapple',
     model_num: "INB010",
-    model_price: 'Price : ₹1100',
+    model_price: 1100,
     description: 'size:30cm x 45cm',
   },
 
@@ -255,7 +255,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Cylindrical_JailBar',
     model_num: "INB011",
-    model_price: 'dummy price',
+    model_price: 0,
     description: 'dummy description',
   },
 
@@ -274,7 +274,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Hexagon_Tulip',
     model_num: "INB012",
-    model_price: 'dummy price',
+    model_price: 0,
     description: 'dummy description',
   },
 
@@ -293,7 +293,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Wooden_flower_lamp',
     model_num: "INB013",
-    model_price: 'dummy price',
+    model_price: 0,
     description: 'dummy description',
   },
 
@@ -309,7 +309,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'MiniChristmas_Tree',
     model_num: "INB014",
-    model_price: 'dummy price',
+    model_price: 0,
     description: 'dummy description',
   },
 
@@ -331,7 +331,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Wooden Keychain',
     model_num: "Wooden Keychain",
-    model_price: 'dummy price',
+    model_price: 0,
     description: 'dummy description',
   },
 ];
