@@ -57,7 +57,7 @@ export const productCategories: ProductCategory[] = [
   },
 
   {
-    title: "Bulb based models",
+    title: "Bulb Models",
     images: [
       {
         src: getImagePath('INB001_Wave_Pendant_Lamp/Gemini_Generated_Image_esv76xesv76xesv7.webp'),
@@ -69,11 +69,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB001_Wave_Pendant_Lamp/IMG20260401114311.webp'),
       },
     ],
-    model_name: 'Wave_Pendant_Lamp',
+    model_name: 'Wave Pendant Lamp',
     model_num: "INB001",
-    model_price: 700,
-    discount: 0,
-    description: 'size:36cm x 20cm',
+    model_price: 1000,
+    discount: 300,
+    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder with a 3W LED bulb giving a warm glow. size: 36cm (Height) x 20cm (Diameter)',
   },
 
   {
