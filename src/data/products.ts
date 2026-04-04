@@ -169,11 +169,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB006_Ball_bottle/IMG20260226165528_exported_1772114311327.webp'),
       },
     ],
-    model_name: 'Ball_bottle',
+    model_name: 'Ball Bottle',
     model_num: "INB006",
-    model_price: 1000,
-    discount: 0,
-    description: 'size:50cm x 40cm',
+    model_price: 1200,
+    discount: 200,
+    description: 'A design derived from ancient calabash containers will sure make the surrounding environment warm and cozy. Size: 50cm (Height) x 40cm (Diameter)',
   },
 
   {
