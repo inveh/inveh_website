@@ -306,11 +306,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB013_Wooden_flower_lamp/IMG20260401115838.webp'),
       },
     ],
-    model_name: 'Wooden_flower_lamp',
+    model_name: 'Wooden flower',
     model_num: "INB013",
-    model_price: 0,
-    discount: 0,
-    description: 'dummy description',
+    model_price: 700,
+    discount: 100,
+    description: 'Let the light bloom in your home with this wooden flower lamp. Size: 25cm (Height) x 20cm (Diameter)',
   },
 
   {
