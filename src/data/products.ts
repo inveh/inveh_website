@@ -323,11 +323,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB014_MiniChristmas_Tree/Christmas tree light.webp'),
       },
     ],
-    model_name: 'MiniChristmas_Tree',
+    model_name: 'Mini Christmas Tree',
     model_num: "INB014",
     model_price: 0,
     discount: 0,
-    description: 'dummy description',
+    description: 'If you want to enjoy the Christmas in Lilliputian civilization, then this Mini Christmas Tree is a perfect choice. Size: 12cm (Height) x 14cm (Diameter)',
   },
 
   {
@@ -347,9 +347,9 @@ export const productCategories: ProductCategory[] = [
       },
     ],
     model_name: 'Wooden Keychain',
-    model_num: "Wooden Keychain",
-    model_price: 0,
+    model_num: "ING001",
+    model_price: 100,
     discount: 0,
-    description: 'dummy description',
+    description: 'Surpise your beloved ones with such personalised Gifts. Complete customization possible. Mentioned price for unit price. Size: 5cm (Height) x 4cm (Width) x 0.8cm (Depth)',
   },
 ];
