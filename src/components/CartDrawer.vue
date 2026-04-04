@@ -20,12 +20,12 @@ const closeCart = () => {
 };
 
 const getItemTotal = (item: CartItem) => {
-  if (item.model_price === null || item.model_price === undefined) return 'N/A';
+  if (!item.model_price || item.model_price <= 0) return 'N/A';
   return `Rs. ${item.model_price * item.quantity}`;
 };
 
-const formatPrice = (price: number | null | undefined) => {
-  if (price === null || price === undefined) return 'N/A';
+const formatPrice = (price: number) => {
+  if (!price || price <= 0) return 'N/A';
   return `Rs. ${price}`;
 };
 
@@ -76,8 +76,8 @@ const downloadPDF = () => {
       item.model_name,
       item.model_num,
       item.quantity.toString(),
-      item.model_price ? `Rs. ${item.model_price}` : 'N/A',
-      item.model_price ? `Rs. ${lineTotal}` : 'N/A'
+      item.model_price && item.model_price > 0 ? `Rs. ${item.model_price}` : 'N/A',
+      item.model_price && item.model_price > 0 ? `Rs. ${lineTotal}` : 'N/A'
     ];
   });
 
