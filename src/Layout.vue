@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { cart, isCartOpen } from './store/cart';
+import { cart, isCartOpen, type CartItem } from './store/cart';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -22,6 +22,14 @@ const closeCart = () => {
     userEmail.value = '';
     userPhone.value = '';
   }, 300);
+};
+
+const getItemTotal = (item: CartItem) => {
+  if (!item.model_price) return '';
+  const match = item.model_price.match(/\d+/);
+  if (!match) return '';
+  const num = parseInt(match[0], 10);
+  return `Rs. ${num * item.quantity}`;
 };
 
 const proceedToDownload = () => {
@@ -161,8 +169,9 @@ const downloadPDF = () => {
             <h4>{{ item.model_name }}</h4>
             <p>SKU: {{ item.model_num }}</p>
           </div>
-          <div class="item-quantity">
-            Qty: {{ item.quantity }}
+          <div class="item-meta">
+            <span class="item-quantity">Qty: {{ item.quantity }}</span>
+            <span class="item-price">{{ getItemTotal(item) }}</span>
           </div>
         </div>
       </div>
@@ -444,8 +453,17 @@ body {
   font-size: 0.85rem;
   color: #666;
 }
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .item-quantity {
   font-weight: 500;
+}
+.item-price {
+  font-weight: 600;
+  color: #1a1a1a;
 }
 .empty-cart-msg {
   padding: 20px;
