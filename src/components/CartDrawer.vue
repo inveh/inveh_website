@@ -21,12 +21,8 @@ const closeCart = () => {
 
 const getItemTotal = (item: CartItem) => {
   if (!item.model_price || item.model_price <= 0) return 'N/A';
-  return `Rs. ${item.model_price * item.quantity}`;
-};
-
-const formatPrice = (price: number) => {
-  if (!price || price <= 0) return 'N/A';
-  return `Rs. ${price}`;
+  const price = item.model_price - (item.discount || 0);
+  return `Rs. ${price * item.quantity}`;
 };
 
 const proceedToDownload = () => {
@@ -68,7 +64,8 @@ const downloadPDF = () => {
   let grandTotalQty = 0;
 
   const tableData = cart.map((item) => {
-    const lineTotal = (item.model_price || 0) * item.quantity;
+    const finalPrice = item.model_price > 0 ? item.model_price - (item.discount || 0) : 0;
+    const lineTotal = finalPrice * item.quantity;
     grandTotal += lineTotal;
     grandTotalQty += item.quantity;
     
@@ -76,8 +73,8 @@ const downloadPDF = () => {
       item.model_name,
       item.model_num,
       item.quantity.toString(),
-      item.model_price && item.model_price > 0 ? `Rs. ${item.model_price}` : 'N/A',
-      item.model_price && item.model_price > 0 ? `Rs. ${lineTotal}` : 'N/A'
+      item.model_price > 0 && finalPrice > 0 ? `Rs. ${finalPrice}` : 'N/A',
+      item.model_price > 0 && finalPrice > 0 ? `Rs. ${lineTotal}` : 'N/A'
     ];
   });
 
@@ -117,7 +114,10 @@ const downloadPDF = () => {
         </div>
         <div class="item-meta">
           <span class="item-quantity">Qty: {{ item.quantity }}</span>
-          <span class="item-price">{{ getItemTotal(item) }}</span>
+          <div class="drawer-price-info">
+            <span v-if="item.discount > 0 && item.model_price > 0" class="original-price">Rs. {{ item.model_price }}</span>
+            <span class="item-price">{{ getItemTotal(item) }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -238,6 +238,16 @@ const downloadPDF = () => {
 }
 .item-quantity {
   font-weight: 500;
+}
+.drawer-price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.85em;
 }
 .item-price {
   font-weight: 600;
