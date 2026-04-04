@@ -4,6 +4,7 @@ export interface CartItem {
   model_name: string;
   model_num: string;
   model_price: number;
+  discount: number;
   quantity: number;
 }
 
