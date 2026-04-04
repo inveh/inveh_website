@@ -226,11 +226,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB009_Fairy_Moon/Gemini_Generated_Image_wwjn0gwwjn0gwwjn.webp'),
       },
     ],
-    model_name: 'Fairy_Moon',
+    model_name: 'Fairy Moon',
     model_num: "INB009",
-    model_price: 600,
-    discount: 0,
-    description: 'size:20cm x 20cm',
+    model_price: 500,
+    discount: 100,
+    description: 'Let your imagination fly with this fairy moon. Size: 20cm (Width) x 4.5cm (Depth) x 20cm (Height)',
   },
 
   {
