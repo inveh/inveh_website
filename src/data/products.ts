@@ -133,7 +133,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB004",
     model_price: 600,
     discount: 0,
-    description: 'Rabbit silhouette cut out in the center with a moon behind it. Sure the little children in your home will love this. Size:25cm x 25cm',
+    description: 'Rabbit silhouette cut out in the center with a moon behind it. Sure the little children in your home will love this. Size: 25cm cube',
   },
 
   {
@@ -149,11 +149,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB005_Honey_comb/Honey comb lamp.webp'),
       },
     ],
-    model_name: 'Honey_comb',
+    model_name: 'Honey Comb',
     model_num: "INB005",
-    model_price: 600,
-    discount: 0,
-    description: 'size:26cm x 14cm',
+    model_price: 800,
+    discount: 200,
+    description: 'Mughal empire honeycomb lighting with its warmnes takes you to a different era. size: 14cm (Width) x 14cm(Depth) x 26cm(Height',
   },
 
   {
