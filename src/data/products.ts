@@ -26,14 +26,14 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INT001_Tube_light_Patti/WhatsApp Image 2026-02-14 at 12.40.11.webp'),
       },
       {
-        src: getImagePath('INT001_Tube_light_Patti/WhatsApp Image 2026-02-14 at 14.11.20.webp'),
+        src: getImagePath('INT001_Tube_light_Patti/Gemini_Generated_Image_1391vv1391vv1391.webp'),
       },
     ],
-    model_name: 'Tube light Patti',
+    model_name: 'Pine Tube light',
     model_num: "INT001",
-    model_price: 1100,
-    discount: 200,
-    description: 'size:',
+    model_price: 1500,
+    discount: 400,
+    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 445mm (L) x 45mm (B) + 60mm (H)',
   },
 
   {
