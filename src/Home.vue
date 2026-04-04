@@ -5,8 +5,12 @@ import { productCategories, type ProductImage } from './data/products'
 
 const router = useRouter()
 
-const goToProduct = (index: number) => {
-  router.push({ name: 'Product', params: { id: index.toString() } })
+const goToProduct = (sku: string) => {
+  router.push({ name: 'Product', params: { id: sku } })
+}
+
+const formatPrice = (price: number) => {
+  return price > 0 ? `Rs. ${price}` : '';
 }
 </script>
 
@@ -14,10 +18,10 @@ const goToProduct = (index: number) => {
 
   <div class="product-grid">
     <div 
-      v-for="(product, index) in productCategories" 
+      v-for="product in productCategories" 
       :key="product.model_num"
       class="product-card"
-      @click="goToProduct(index)"
+      @click="goToProduct(product.model_num)"
     >
       <div class="product-image-container">
         <img
@@ -30,7 +34,7 @@ const goToProduct = (index: number) => {
 
       <div class="product-info">
         <h3 class="product-title">{{ product.model_name }}</h3>
-        <p class="product-price" v-if="product.model_price" v-html="product.model_price"></p>
+        <p class="product-price" v-if="product.model_price > 0">{{ formatPrice(product.model_price) }}</p>
       </div>
     </div>
   </div>
