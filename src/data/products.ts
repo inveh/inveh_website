@@ -73,7 +73,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB001",
     model_price: 1000,
     discount: 300,
-    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder giving a warm glow. size: 36cm (Height) x 20cm (Diameter)',
+    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder giving a warm glow. Size: 36cm (Height) x 20cm (Diameter)',
   },
 
   {
@@ -93,7 +93,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB002",
     model_price: 700,
     discount: 0,
-    description: 'Set of pine wood traingles stacked over one another giving a tunnel like glow. size:11cm (Width) x 12cm (Depth)',
+    description: 'Set of pine wood traingles stacked over one another giving a tunnel like glow. Size:11cm (Width) x 12cm (Depth)',
   },
 
   {
@@ -109,11 +109,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB003_Hanging_Popsicle_stick/WhatsApp Image 2026-02-25 at 16.33.01.webp'),
       },
     ],
-    model_name: 'Hanging_Popsicle_stick',
+    model_name: 'Hanging Popsicle Sticks',
     model_num: "INB003",
     model_price: 900,
     discount: 0,
-    description: 'size:30cm x 14cm',
+    description: 'Pine wood popsicle sticks hanging in a circular frame giving a feeling of Chinese Feng-ling. Size:30cm (Height) x 14cm (Diameter)',
   },
 
   {
