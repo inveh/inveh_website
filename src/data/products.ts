@@ -266,11 +266,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB011_Cylindrical_JailBar/IMG20260401114634.webp'),
       },
     ],
-    model_name: 'Cylindrical_JailBar',
+    model_name: 'Cylindrical JailBar',
     model_num: "INB011",
-    model_price: 0,
+    model_price: 800,
     discount: 0,
-    description: 'dummy description',
+    description: 'To escape the busy day, let the light spend some time in a jail until we energise!. Size: 20cm (Height) x 14cm (Diameter)',
   },
 
   {
