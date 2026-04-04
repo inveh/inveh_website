@@ -8,11 +8,14 @@ const route = useRoute()
 const router = useRouter()
 
 const productId = computed(() => {
-  const idStr = route.params.id as string
-  return parseInt(idStr, 10)
+  return route.params.id as string
 })
 
-const product = computed(() => productCategories[productId.value])
+const product = computed(() => productCategories.find(p => p.model_num === productId.value))
+
+const formatPrice = (price: number) => {
+  return price > 0 ? `Rs. ${price}` : '';
+}
 
 const currentImageIndex = ref(0)
 const isDescriptionOpen = ref(true)
@@ -104,7 +107,7 @@ const addToCart = () => {
           <h1 class="product-title">{{ product.model_name }}</h1>
           <p class="product-model-number">SKU: {{ product.model_num }}</p>
           <div class="price-container">
-            <h2 class="product-price" v-if="product.model_price" v-html="product.model_price"></h2>
+            <h2 class="product-price" v-if="product.model_price > 0">{{ formatPrice(product.model_price) }}</h2>
             <span class="tax-info">Tax included.</span>
           </div>
 
