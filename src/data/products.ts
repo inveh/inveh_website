@@ -209,11 +209,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB008_Pumpkin_styled/IMG20260306112833.webp'),
       },
     ],
-    model_name: 'Pumpkin_styled',
+    model_name: 'Pumpkin',
     model_num: "INB008",
-    model_price: 700,
-    discount: 0,
-    description: 'size:30cm x 45cm',
+    model_price: 1000,
+    discount: 300,
+    description: 'Inspired from Germany\'s Ludwigsburg Pumpkin Festival. Size: 30cm (Height) x 45cm (Diameter)',
   },
 
   {
