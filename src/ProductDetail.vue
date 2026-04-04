@@ -13,9 +13,7 @@ const productId = computed(() => {
 
 const product = computed(() => productCategories.find(p => p.model_num === productId.value))
 
-const formatPrice = (price: number) => {
-  return price > 0 ? `Rs. ${price}` : '';
-}
+// Removed formatPrice helper
 
 const currentImageIndex = ref(0)
 const isDescriptionOpen = ref(true)
@@ -46,6 +44,7 @@ const addToCart = () => {
       model_name: product.value.model_name,
       model_num: product.value.model_num,
       model_price: product.value.model_price,
+      discount: product.value.discount || 0,
       quantity: quantity.value
     });
     isCartOpen.value = true;
@@ -107,7 +106,10 @@ const addToCart = () => {
           <h1 class="product-title">{{ product.model_name }}</h1>
           <p class="product-model-number">SKU: {{ product.model_num }}</p>
           <div class="price-container">
-            <h2 class="product-price" v-if="product.model_price > 0">{{ formatPrice(product.model_price) }}</h2>
+            <h2 class="product-price" v-if="product.model_price > 0">
+              <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
+              <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
+            </h2>
             <span class="tax-info">Tax included.</span>
           </div>
 
@@ -288,6 +290,18 @@ const addToCart = () => {
   font-weight: 500;
   color: #111;
   margin: 0 0 0.25rem 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  font-weight: 400;
+}
+
+.selling-price {
+  color: #111;
 }
 
 .tax-info {
