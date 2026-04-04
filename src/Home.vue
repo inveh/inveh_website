@@ -9,9 +9,7 @@ const goToProduct = (sku: string) => {
   router.push({ name: 'Product', params: { id: sku } })
 }
 
-const formatPrice = (price: number) => {
-  return price > 0 ? `Rs. ${price}` : '';
-}
+// Removed formatPrice logic as its handled natively in template
 </script>
 
 <template>
@@ -34,7 +32,10 @@ const formatPrice = (price: number) => {
 
       <div class="product-info">
         <h3 class="product-title">{{ product.model_name }}</h3>
-        <p class="product-price" v-if="product.model_price > 0">{{ formatPrice(product.model_price) }}</p>
+        <p class="product-price" v-if="product.model_price > 0">
+          <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
+          <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
+        </p>
       </div>
     </div>
   </div>
@@ -119,5 +120,17 @@ const formatPrice = (price: number) => {
   font-size: 0.95rem;
   font-weight: 400;
   margin: 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 0.5rem;
+  font-size: 0.85em;
+}
+
+.selling-price {
+  color: #111;
+  font-weight: 600;
 }
 </style>
