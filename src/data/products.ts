@@ -73,7 +73,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB001",
     model_price: 1000,
     discount: 300,
-    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder with a 3W LED bulb giving a warm glow. size: 36cm (Height) x 20cm (Diameter)',
+    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder giving a warm glow. size: 36cm (Height) x 20cm (Diameter)',
   },
 
   {
@@ -89,11 +89,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB002_TriangleTunnelLamp/IMG20260401115613.webp'),
       },
     ],
-    model_name: 'TriangleTunnelLamp',
+    model_name: 'Triangle Tunnel Lamp',
     model_num: "INB002",
     model_price: 700,
     discount: 0,
-    description: 'size:11cm x 12cm',
+    description: 'Set of pine wood traingles stacked over one another giving a tunnel like glow. size:11cm (Width) x 12cm (Depth)',
   },
 
   {
