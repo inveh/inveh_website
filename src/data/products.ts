@@ -248,9 +248,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Pineapple',
     model_num: "INB010",
-    model_price: 1100,
-    discount: 0,
-    description: 'size:30cm x 45cm',
+    model_price: 1500,
+    discount: 300,
+    description: 'More spiky on the outside, more warm on the inside, same like a Pineapple!. A tropical vibe to your home!. Size:30cm (Height) x 45cm (Diameter',
   },
 
   {
