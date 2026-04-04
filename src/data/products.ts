@@ -286,11 +286,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB012_Hexagon_Tulip/IMG20260401120201.webp'),
       },
     ],
-    model_name: 'Hexagon_Tulip',
+    model_name: 'Hexagon Tulip',
     model_num: "INB012",
-    model_price: 0,
+    model_price: 500,
     discount: 0,
-    description: 'dummy description',
+    description: 'Get the Amsterdam Tulips garden vibe with this hexagon tulip lamp. Size: 15cm (Height) x 17cm (Diameter)',
   },
 
   {
