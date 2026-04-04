@@ -59,18 +59,34 @@ const downloadPDF = () => {
     doc.text(`Phone: ${userPhone.value}`, 14, startYPos);
   }
 
-  const tableData = cart.map(item => [
-    item.model_name,
-    item.model_num,
-    item.quantity.toString()
-  ]);
+  let grandTotal = 0;
+
+  const tableData = cart.map(item => {
+    const numMatch = item.model_price ? item.model_price.match(/\d+/) : null;
+    const numericPrice = numMatch ? parseInt(numMatch[0], 10) : 0;
+    const lineTotal = numericPrice * item.quantity;
+    grandTotal += lineTotal;
+    
+    return [
+      item.model_name,
+      item.model_num,
+      item.quantity.toString(),
+      item.model_price || 'N/A',
+      numMatch ? `₹${lineTotal}` : 'N/A'
+    ];
+  });
 
   autoTable(doc, {
     startY: startYPos + 10,
-    head: [['Model Name', 'SKU', 'Quantity']],
+    head: [['Model Name', 'SKU', 'Quantity', 'Price', 'Total']],
     body: tableData,
+    foot: [[
+      { content: 'Grand Total', colSpan: 4, styles: { halign: 'right', fontStyle: 'bold' } },
+      `₹${grandTotal}`
+    ]],
     theme: 'striped',
     headStyles: { fillColor: [26, 26, 26] },
+    footStyles: { fillColor: [240, 240, 240], textColor: [26, 26, 26] },
   });
 
   doc.save('Inveh-Lighting-Quote.pdf');

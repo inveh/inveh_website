@@ -42,6 +42,7 @@ const addToCart = () => {
     addToCartStore({
       model_name: product.value.model_name,
       model_num: product.value.model_num,
+      model_price: product.value.model_price,
       quantity: quantity.value
     });
     isCartOpen.value = true;

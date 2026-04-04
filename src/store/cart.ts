@@ -3,6 +3,7 @@ import { reactive, ref } from 'vue';
 export interface CartItem {
   model_name: string;
   model_num: string;
+  model_price: string;
   quantity: number;
 }
 
