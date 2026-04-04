@@ -33,6 +33,10 @@ const downloadPDF = () => {
     alert("Please enter a name to generate the quote.");
     return;
   }
+  if (!userEmail.value && !userPhone.value) {
+    alert("Please provide at least one contact method (Email or Phone).");
+    return;
+  }
 
   const doc = new jsPDF();
   
@@ -145,18 +149,18 @@ const downloadPDF = () => {
       
       <div class="cart-items form-container" v-else-if="cart.length > 0 && showUserForm">
         <h3 class="form-title">Contact Details</h3>
-        <p class="form-desc">Please provide your details to include in the quote.</p>
+        <p class="form-desc">Please provide your Name and at least one contact method (Email or Phone).</p>
         
         <div class="form-group">
           <label>Name *</label>
           <input type="text" v-model="userName" placeholder="Your Name" required />
         </div>
         <div class="form-group">
-          <label>Email</label>
+          <label>Email * (or Phone)</label>
           <input type="email" v-model="userEmail" placeholder="Your Email" />
         </div>
         <div class="form-group">
-          <label>Phone Number</label>
+          <label>Phone Number * (or Email)</label>
           <input type="tel" v-model="userPhone" placeholder="Your Phone Number" />
         </div>
       </div>
