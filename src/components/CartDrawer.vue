@@ -144,7 +144,7 @@ const downloadPDF = () => {
     </div>
     
     <div class="cart-footer" v-if="cart.length > 0">
-      <button class="checkout-btn" v-if="!showUserForm" @click="proceedToDownload">Proceed to Download</button>
+      <button class="checkout-btn" v-if="!showUserForm" @click="proceedToDownload">Proceed to Download Quote</button>
       <button class="checkout-btn" v-else @click="downloadPDF">Generate PDF</button>
     </div>
   </div>
