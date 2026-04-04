@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { productCategories } from './data/products'
+import { addToCartStore, isCartOpen } from './store/cart'
 
 const route = useRoute()
 const router = useRouter()
@@ -38,7 +39,12 @@ const decrementQuantity = () => {
 
 const addToCart = () => {
   if (product.value) {
-    alert(`Added ${quantity.value} of ${product.value.model_name} to your cart.`)
+    addToCartStore({
+      model_name: product.value.model_name,
+      model_num: product.value.model_num,
+      quantity: quantity.value
+    });
+    isCartOpen.value = true;
   }
 }
 </script>
