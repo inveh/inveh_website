@@ -1,19 +1,39 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { cart, isCartOpen } from './store/cart';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 const cartTotal = computed(() => cart.reduce((total, item) => total + item.quantity, 0));
 
+const showUserForm = ref(false);
+const userName = ref('');
+const userEmail = ref('');
+const userPhone = ref('');
+
 const openCart = () => {
   isCartOpen.value = true;
 };
 const closeCart = () => {
   isCartOpen.value = false;
+  setTimeout(() => {
+    showUserForm.value = false;
+    userName.value = '';
+    userEmail.value = '';
+    userPhone.value = '';
+  }, 300);
+};
+
+const proceedToDownload = () => {
+  showUserForm.value = true;
 };
 
 const downloadPDF = () => {
+  if (!userName.value) {
+    alert("Please enter a name to generate the quote.");
+    return;
+  }
+
   const doc = new jsPDF();
   
   doc.setFontSize(22);
@@ -22,6 +42,19 @@ const downloadPDF = () => {
   doc.setFontSize(14);
   doc.text('Cart Quote Request', 14, 32);
 
+  doc.setFontSize(11);
+  doc.text(`Requested By: ${userName.value}`, 14, 42);
+  
+  let startYPos = 42;
+  if (userEmail.value) {
+    startYPos += 6;
+    doc.text(`Email: ${userEmail.value}`, 14, startYPos);
+  }
+  if (userPhone.value) {
+    startYPos += 6;
+    doc.text(`Phone: ${userPhone.value}`, 14, startYPos);
+  }
+
   const tableData = cart.map(item => [
     item.model_name,
     item.model_num,
@@ -29,7 +62,7 @@ const downloadPDF = () => {
   ]);
 
   autoTable(doc, {
-    startY: 40,
+    startY: startYPos + 10,
     head: [['Model Name', 'SKU', 'Quantity']],
     body: tableData,
     theme: 'striped',
@@ -37,6 +70,7 @@ const downloadPDF = () => {
   });
 
   doc.save('Inveh-Lighting-Quote.pdf');
+  closeCart();
 };
 </script>
 
@@ -97,7 +131,7 @@ const downloadPDF = () => {
         <button class="close-btn" @click="closeCart">&times;</button>
       </div>
       
-      <div class="cart-items" v-if="cart.length > 0">
+      <div class="cart-items" v-if="cart.length > 0 && !showUserForm">
         <div class="cart-item" v-for="(item, idx) in cart" :key="idx">
           <div class="item-info">
             <h4>{{ item.model_name }}</h4>
@@ -108,12 +142,31 @@ const downloadPDF = () => {
           </div>
         </div>
       </div>
+      
+      <div class="cart-items form-container" v-else-if="cart.length > 0 && showUserForm">
+        <h3 class="form-title">Contact Details</h3>
+        <p class="form-desc">Please provide your details to include in the quote.</p>
+        
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" v-model="userName" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" v-model="userEmail" placeholder="Your Email" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" v-model="userPhone" placeholder="Your Phone Number" />
+        </div>
+      </div>
       <div class="empty-cart-msg" v-else>
         Your cart is currently empty.
       </div>
       
       <div class="cart-footer" v-if="cart.length > 0">
-        <button class="checkout-btn" @click="downloadPDF">Download as PDF</button>
+        <button class="checkout-btn" v-if="!showUserForm" @click="proceedToDownload">Proceed to Download</button>
+        <button class="checkout-btn" v-else @click="downloadPDF">Generate PDF</button>
       </div>
     </div>
   </div>
@@ -394,5 +447,40 @@ body {
 }
 .checkout-btn:hover {
   background: #333;
+}
+
+.form-container {
+  padding: 20px;
+}
+.form-title {
+  margin: 0 0 5px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.form-desc {
+  margin: 0 0 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: #1a1a1a;
 }
 </style>
