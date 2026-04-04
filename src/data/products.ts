@@ -193,7 +193,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB007",
     model_price: 700,
     discount: 0,
-    description: 'size: 35cm x 35cm',
+    description: 'Caution: You may feel sleepy or hypnotized when you start tracing each circle! Size: 35cm (Height) x 35cm (Diameter)',
   },
 
   {
