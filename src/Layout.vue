@@ -60,12 +60,14 @@ const downloadPDF = () => {
   }
 
   let grandTotal = 0;
+  let grandTotalQty = 0;
 
   const tableData = cart.map(item => {
     const numMatch = item.model_price ? item.model_price.match(/\d+/) : null;
     const numericPrice = numMatch ? parseInt(numMatch[0], 10) : 0;
     const lineTotal = numericPrice * item.quantity;
     grandTotal += lineTotal;
+    grandTotalQty += item.quantity;
     
     return [
       item.model_name,
@@ -81,7 +83,9 @@ const downloadPDF = () => {
     head: [['Model Name', 'SKU', 'Quantity', 'Price', 'Total']],
     body: tableData,
     foot: [[
-      { content: 'Grand Total', colSpan: 4, styles: { halign: 'right', fontStyle: 'bold' } },
+      { content: 'Grand Total', colSpan: 2, styles: { halign: 'right', fontStyle: 'bold' } },
+      grandTotalQty.toString(),
+      '',
       `Rs. ${grandTotal}`
     ]],
     theme: 'striped',
