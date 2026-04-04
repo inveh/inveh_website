@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { cart, isCartOpen, type CartItem } from '../store/cart';
+import { cart, isCartOpen, type CartItem, clearCart } from '../store/cart';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -27,6 +27,12 @@ const getItemTotal = (item: CartItem) => {
 
 const proceedToDownload = () => {
   showUserForm.value = true;
+};
+
+const handleClearAll = () => {
+  if (confirm('Are you sure you want to clear all items from your cart?')) {
+    clearCart();
+  }
 };
 
 const downloadPDF = () => {
@@ -146,6 +152,7 @@ const downloadPDF = () => {
     <div class="cart-footer" v-if="cart.length > 0">
       <button class="checkout-btn" v-if="!showUserForm" @click="proceedToDownload">Proceed to Download Quote</button>
       <button class="checkout-btn" v-else @click="downloadPDF">Generate PDF</button>
+      <button class="clear-btn" v-if="!showUserForm" @click="handleClearAll">Clear All</button>
     </div>
   </div>
 </template>
@@ -277,6 +284,22 @@ const downloadPDF = () => {
 }
 .checkout-btn:hover {
   background: #333;
+}
+
+.clear-btn {
+  width: 100%;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  border: 1px solid #ddd;
+  padding: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+.clear-btn:hover {
+  background: #e8e8e8;
 }
 
 .form-container {

@@ -33,3 +33,8 @@ export const addToCartStore = (item: CartItem) => {
   }
   saveCartStore();
 };
+
+export const clearCart = () => {
+  cart.splice(0, cart.length);
+  saveCartStore();
+};
