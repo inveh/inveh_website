@@ -129,11 +129,11 @@ export const productCategories: ProductCategory[] = [
         src: getImagePath('INB004_Moon_Rabbit/WhatsApp Image 2026-02-25 at 16.33.00.webp'),
       },
     ],
-    model_name: 'Moon_Rabbit',
+    model_name: 'Moon Rabbit',
     model_num: "INB004",
     model_price: 600,
     discount: 0,
-    description: 'size:25cm x 25cm',
+    description: 'Rabbit silhouette cut out in the center with a moon behind it. Sure the little children in your home will love this. Size:25cm x 25cm',
   },
 
   {
