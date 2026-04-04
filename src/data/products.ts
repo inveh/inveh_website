@@ -334,16 +334,16 @@ export const productCategories: ProductCategory[] = [
     title: "Personalised Gifts",
     images: [
       {
-        src: getImagePath('KeyChain_engrav/IMG20260219203515_BURST000_COVER.webp'),
+        src: getImagePath('ING001_KeyChain_engrav/IMG20260219203515_BURST000_COVER.webp'),
       },
       {
-        src: getImagePath('KeyChain_engrav/IMG20260219203525.webp'),
+        src: getImagePath('ING001_KeyChain_engrav/IMG20260219203525.webp'),
       },
       {
-        src: getImagePath('KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11.webp'),
+        src: getImagePath('ING001_KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11.webp'),
       },
       {
-        src: getImagePath('KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11 (1).webp'),
+        src: getImagePath('ING001_KeyChain_engrav/WhatsApp Image 2026-02-09 at 11.49.11 (1).webp'),
       },
     ],
     model_name: 'Wooden Keychain',
