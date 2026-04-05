@@ -99,6 +99,7 @@ const downloadPDF = () => {
     footStyles: { fillColor: [240, 240, 240], textColor: [26, 26, 26] },
   });
 
+  alert('Send the downloaded PDF to info@inveh.in or +919487741183 (Whatsapp) to confirm order');
   doc.save('Inveh-Lighting-Quote.pdf');
   closeCart();
 };
