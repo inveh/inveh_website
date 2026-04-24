@@ -212,14 +212,18 @@ const addToCart = () => {
 .main-image-container {
   flex: 1;
   background: #f8f8f8;
-  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 700px;
   overflow: hidden;
 }
 
 .main-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-height: 700px;
+  object-fit: contain;
 }
 
 .accordions {
