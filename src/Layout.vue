@@ -86,8 +86,8 @@ body {
 }
 
 .announcement-bar {
-  background-color: #ffffff; /* Match logo background */
-  color: #1a1a1a; /* Match logo font color */
+  background-color: #02163b; /* logo dark blue */
+  color: #fec955; /* logo yellow */
   text-align: center;
   padding: 8px 15px;
   font-size: 11px;
