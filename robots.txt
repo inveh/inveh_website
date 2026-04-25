@@ -1,0 +1,5 @@
+# robots.txt for www.inveh.in
+User-agent: *
+Allow: /
+
+Sitemap: https://www.inveh.in/sitemap.xml
