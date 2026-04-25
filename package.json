@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@vueuse/head": "^2.0.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.7",
     "vue": "beta",

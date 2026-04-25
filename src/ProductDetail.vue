@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useHead } from '@vueuse/head'
 import { productCategories } from './data/products'
 import { addToCartStore, isCartOpen } from './store/cart'
 
@@ -13,7 +14,48 @@ const productId = computed(() => {
 
 const product = computed(() => productCategories.find(p => p.model_num === productId.value))
 
-// Removed formatPrice helper
+// Dynamic SEO head tags per product
+useHead(computed(() => {
+  const p = product.value
+  if (!p) return { title: 'Product Not Found – Inveh Lighting Solutions' }
+  const sellingPrice = p.model_price - (p.discount || 0)
+  return {
+    title: `${p.model_name} – Inveh Lighting Solutions | Handcrafted Wooden LED Lamp`,
+    meta: [
+      {
+        name: 'description',
+        content: p.description
+          ? `${p.description} | Buy ${p.model_name} from Inveh Lighting Solutions.`
+          : `Buy the ${p.model_name} handcrafted wooden LED lamp from Inveh Lighting Solutions. Starting at Rs. ${sellingPrice}.`
+      },
+      { property: 'og:title', content: `${p.model_name} – Inveh Lighting Solutions` },
+      { property: 'og:description', content: p.description || `Handcrafted wooden LED lamp by Inveh Lighting Solutions.` },
+      { property: 'og:image', content: p.images[0]?.src || 'https://www.inveh.in/inveh_logo.webp' },
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: p.model_name,
+          sku: p.model_num,
+          description: p.description,
+          image: p.images.map(img => `https://www.inveh.in${img.src}`),
+          brand: { '@type': 'Brand', name: 'Inveh Lighting Solutions' },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
+            price: sellingPrice,
+            availability: 'https://schema.org/InStock',
+            url: `https://www.inveh.in/#/product/${p.model_num}`,
+            seller: { '@type': 'Organization', name: 'Inveh Lighting Solutions' }
+          }
+        })
+      }
+    ]
+  }
+}))
 
 const currentImageIndex = ref(0)
 const isDescriptionOpen = ref(true)
@@ -54,9 +96,13 @@ const addToCart = () => {
 
 <template>
   <div class="product-detail-page" v-if="product">
-    <div class="breadcrumb" @click="goBack">
-      &larr; Back to Shop
-    </div>
+    <!-- Semantic breadcrumb for SEO -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><router-link to="/">Home</router-link></li>
+        <li aria-current="page">{{ product.model_name }}</li>
+      </ol>
+    </nav>
 
     <div class="product-layout">
       <!-- LEFT COLUMN -->
@@ -71,7 +117,8 @@ const addToCart = () => {
               :class="{ active: currentImageIndex === idx }"
               @click="currentImageIndex = idx"
               class="thumbnail"
-              :alt="product.model_name"
+              :alt="`${product.model_name} – view ${idx + 1}`"
+              loading="lazy"
             />
           </div>
 
@@ -131,9 +178,11 @@ const addToCart = () => {
   </div>
   <div v-else class="not-found">
     <h2>Product not found</h2>
-    <div class="breadcrumb" @click="goBack">
-      &larr; Back to Shop
-    </div>
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><router-link to="/">Home</router-link></li>
+      </ol>
+    </nav>
   </div>
 </template>
 
@@ -149,19 +198,42 @@ const addToCart = () => {
   padding: 2rem 4rem;
 }
 
-.breadcrumb {
-  cursor: pointer;
-  color: #666;
+.breadcrumb-nav {
   margin-bottom: 2rem;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.9rem;
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 1px;
-  display: inline-block;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: '›';
+  margin-left: 0.5rem;
+  color: #ccc;
+}
+
+.breadcrumb-list a {
+  color: #666;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
-.breadcrumb:hover {
+.breadcrumb-list a:hover {
   color: #000;
+}
+
+.breadcrumb-list li[aria-current='page'] {
+  color: #111;
+  font-weight: 500;
 }
 
 .product-layout {

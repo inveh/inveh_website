@@ -29,9 +29,30 @@ const router = createRouter({
       path: '/',
       component: Layout,
       children: [
-        { path: '',            component: Home },
-        { path: 'product/:id', name: 'Product', component: ProductDetail },
-        { path: 'Contact',  component: Contact },
+        {
+          path: '',
+          name: 'Home',
+          component: Home,
+          meta: {
+            title: 'Inveh Lighting Solutions – Handcrafted Wooden LED Lamps | Udumalpet, India',
+            description: 'Inveh Lighting Solutions crafts premium handmade wooden LED pendant lamps, tube lights, and personalised gifts. Shop unique eco-friendly lighting for homes and offices. Based in Udumalpet, Tamil Nadu, India.'
+          }
+        },
+        {
+          path: 'product/:id',
+          name: 'Product',
+          component: ProductDetail,
+          // Title is set dynamically in ProductDetail.vue using the product name
+        },
+        {
+          path: 'Contact',
+          name: 'Contact',
+          component: Contact,
+          meta: {
+            title: 'Contact Us – Inveh Lighting Solutions | Udumalpet, Tamil Nadu',
+            description: 'Get in touch with Inveh Lighting Solutions. Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.'
+          }
+        },
       ],
     },
   ],

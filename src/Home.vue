@@ -13,38 +13,63 @@ const goToProduct = (sku: string) => {
 </script>
 
 <template>
+  <main>
+    <!-- Visually hidden H1 for SEO – does not affect visual layout -->
+    <h1 class="visually-hidden">Inveh Lighting Solutions – Shop Handcrafted Wooden LED Lamps Online</h1>
 
-  <div class="product-grid">
-    <div 
-      v-for="product in productCategories" 
-      :key="product.model_num"
-      class="product-card"
-      @click="goToProduct(product.model_num)"
-    >
-      <div class="product-image-container">
-        <img
-          v-if="product.images.length > 0"
-          :src="product.images[0]!.src"
-          :alt="product.model_name"
-          class="product-image"
-        />
-      </div>
+    <section class="product-grid" aria-label="Product catalog">
+      <article
+        v-for="product in productCategories"
+        :key="product.model_num"
+        class="product-card"
+        @click="goToProduct(product.model_num)"
+        role="button"
+        tabindex="0"
+        @keydown.enter="goToProduct(product.model_num)"
+        :aria-label="`View ${product.model_name}`"
+      >
+        <div class="product-image-container">
+          <img
+            v-if="product.images.length > 0"
+            :src="product.images[0]!.src"
+            :alt="`${product.model_name} – handcrafted wooden LED lamp by Inveh Lighting`"
+            class="product-image"
+            loading="lazy"
+            width="400"
+            height="500"
+          />
+        </div>
 
-      <div class="product-info">
-        <h3 class="product-title">{{ product.model_name }}</h3>
-        <p class="product-price" v-if="product.model_price > 0">
-          <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
-          <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
-        </p>
-      </div>
-    </div>
-  </div>
+        <div class="product-info">
+          <h2 class="product-title">{{ product.model_name }}</h2>
+          <p class="product-price" v-if="product.model_price > 0">
+            <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
+            <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
 </template>
+
 
 <style scoped>
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   box-sizing: border-box;
+}
+
+/* Visually hidden but readable by screen-readers and search crawlers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .product-grid {
