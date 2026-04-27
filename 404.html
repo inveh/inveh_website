@@ -8,11 +8,18 @@
       // When GitHub Pages 404s on a deep link (e.g. /product/INB001),
       // this page encodes the path as a query param and redirects to /,
       // where index.html restores it before Vue Router initialises.
+      // Exception: Firebase internal /_/ paths are left alone (blocked by robots.txt anyway).
       (function () {
+        var path = window.location.pathname;
+        if (path.startsWith('/_/')) {
+          // Do not redirect Firebase internal routes — let them 404 cleanly.
+          document.title = '404 – Page Not Found';
+          return;
+        }
         var l = window.location;
         l.replace(
           l.protocol + '//' + l.host + '/?p=' +
-          encodeURIComponent(l.pathname) +
+          encodeURIComponent(path) +
           (l.search ? '&' + l.search.slice(1) : '') +
           l.hash
         );
