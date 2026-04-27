@@ -2,6 +2,11 @@
 User-agent: *
 Allow: /
 
+# Block non-existent pages from crawling
+Disallow: /home
+Disallow: /about-us
+Disallow: /pendant-lights
+
 # Block Firebase Hosting internal routes (not real pages)
 Disallow: /_/
 
