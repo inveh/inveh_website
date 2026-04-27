@@ -2,4 +2,7 @@
 User-agent: *
 Allow: /
 
+# Block Firebase Hosting internal routes (not real pages)
+Disallow: /_/
+
 Sitemap: https://www.inveh.in/sitemap.xml
