@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Layout from './Layout.vue';
 import Home from './Home.vue';
 import ProductDetail from './ProductDetail.vue';
@@ -7,7 +7,7 @@ import Contact from './Contact.vue';
 const scrollPositions = new Map();
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return new Promise((resolve) => {

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inveh Lighting Solutions</title>
+    <script>
+      // GitHub Pages SPA Redirect
+      // When GitHub Pages 404s on a deep link (e.g. /product/INB001),
+      // this page encodes the path as a query param and redirects to /,
+      // where index.html restores it before Vue Router initialises.
+      (function () {
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.host + '/?p=' +
+          encodeURIComponent(l.pathname) +
+          (l.search ? '&' + l.search.slice(1) : '') +
+          l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting…
+  </body>
+</html>
