@@ -250,7 +250,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB015",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'This is a Table Lamp. Size: x cm (Height) x x cm (Diameter)',
   },
 
   {
