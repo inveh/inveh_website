@@ -348,9 +348,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Spade',
     model_num: "INB023",
-    model_price: 0,
+    model_price: 800,
     discount: 0,
-    description: 'The pendant lamp features a cylindrical, laser-cut wooden shade that blends intricate traditional motifs with modern manufacturing techniques.',
+    description: 'The pendant lamp features a cylindrical, laser-cut wooden shade that blends intricate traditional motifs with modern manufacturing techniques. Size: 36cm (Height) x 24cm (Width)',
   },
 
   {
