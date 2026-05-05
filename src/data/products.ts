@@ -293,7 +293,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB019",
     model_price: 800,
     discount: 0,
-    description: 'The pendant lamp has a organic silhouette withprecise, uniform shapes of the wooden ribs. Size: 40cm (Height) x 25cm (Width)',
+    description: 'The pendant lamp has a organic silhouette with precise, uniform shapes of the wooden ribs. Size: 30cm (Height) x 30cm (Width)',
   },
 
   {
