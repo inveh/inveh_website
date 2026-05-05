@@ -405,9 +405,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Bell',
     model_num: "INB029",
-    model_price: 0,
+    model_price: 700,
     discount: 0,
-    description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom.',
+    description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom. Size: 30cm (Height) x 22cm (Width)',
   },
 
   {
