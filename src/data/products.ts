@@ -391,9 +391,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Rugby Ball',
     model_num: "INB027",
-    model_price: 0,
+    model_price: 1000,
     discount: 0,
-    description: 'The lamp has an elongated, egg-shaped (ellipsoid) silhouette formed by vertical and horizontal cross-sections.',
+    description: 'The lamp has an elongated, egg-shaped (ellipsoid) silhouette formed by vertical and horizontal cross-sections. Size: 35cm (Height) x 20cm (Width)',
   },
 
   {
