@@ -262,9 +262,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Light House',
     model_num: "INB017",
-    model_price: 0,
+    model_price: 900,
     discount: 0,
-    description: 'The image features a parametric pendant lamp with a series of vertical, curved wooden slats that are held in place by horizontal rings, creating a tapered, cage-like silhouette.',
+    description: 'The image features a parametric pendant lamp with a series of vertical, curved wooden slats that are held in place by horizontal rings, creating a tapered, cage-like silhouette. Size: 40cm (Height) x 37cm (Width)',
   },
 
   {
