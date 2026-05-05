@@ -320,9 +320,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Curve Spiral',
     model_num: "INB021",
-    model_price: 0,
+    model_price: 700,
     discount: 0,
-    description: 'The lampshade is composed of several vertical, curved wooden ribs that taper at the top and bottom, creating a teardrop or bulbous silhouette.',
+    description: 'The lampshade is composed of several vertical, curved wooden ribs that taper at the top and bottom, creating a teardrop or bulbous silhouette. Size: 35cm (Height) x 22cm (Width)',
   },
 
   {
