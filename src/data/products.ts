@@ -206,7 +206,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Hexagon Tulip',
     model_num: "INB012",
-    model_price: 500,
+    model_price: 600,
     discount: 0,
     description: 'Get the Amsterdam Tulips garden vibe with this hexagon tulip lamp. Size: 15cm (Height) x 17cm (Diameter)',
   },
@@ -248,9 +248,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Wooden Rabbit Night Light Bunny',
     model_num: "INB015",
-    model_price: 0,
+    model_price: 700,
     discount: 0,
-    description: 'The lamp is shaped like a rabbit,that combines modern manufacturing techniques with a warm, rustic aesthetic. Size: x cm (Height) x x cm (Diameter)',
+    description: 'The lamp is shaped like a rabbit,that combines modern manufacturing techniques with a warm, rustic aesthetic. Size: 15cm (Height) x 28cm (Width) x 12cm (Depth)',
   },
 
   {
