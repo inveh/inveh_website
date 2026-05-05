@@ -363,9 +363,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Turbine',
     model_num: "INB024",
-    model_price: 0,
+    model_price: 700,
     discount: 0,
-    description: 'The lamp is composed of several vertical wooden fins arranged radially around a central light source.',
+    description: 'The lamp is composed of several vertical wooden fins arranged radially around a central light source. Size: 25cm (Height) x 25cm (Width)',
   },
 
   {
