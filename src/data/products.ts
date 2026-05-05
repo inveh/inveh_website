@@ -306,9 +306,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Slatted Pendant',
     model_num: "INB020",
-    model_price: 0,
+    model_price: 700,
     discount: 0,
-    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or "egg-shaped" silhouette.',
+    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or "egg-shaped" silhouette. Size: 40cm (Height) x 20cm (Width)',
   },
 
   {
