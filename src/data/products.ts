@@ -250,7 +250,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB015",
     model_price: 0,
     discount: 0,
-    description: 'This is a Table Lamp. Size: x cm (Height) x x cm (Diameter)',
+    description: 'The lamp is shaped like a rabbit,that combines modern manufacturing techniques with a warm, rustic aesthetic. Size: x cm (Height) x x cm (Diameter)',
   },
 
   {
@@ -264,7 +264,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB017",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The image features a parametric pendant lamp with a series of vertical, curved wooden slats that are held in place by horizontal rings, creating a tapered, cage-like silhouette.',
   },
 
   {
@@ -279,7 +279,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB018",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or "waffle" pattern that creates a dynamic sense of movement and texture.',
   },
 
   {
@@ -293,7 +293,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB019",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The pendant lamp has a organic silhouette withprecise, uniform shapes of the wooden ribs.',
   },
 
   {
@@ -308,7 +308,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB020",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or "egg-shaped" silhouette.',
   },
 
   {
@@ -322,7 +322,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB021",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The lampshade is composed of several vertical, curved wooden ribs that taper at the top and bottom, creating a teardrop or bulbous silhouette.',
   },
 
   {
@@ -335,7 +335,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB022",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or "trapezoidal" silhouette.',
   },
 
   {
@@ -350,7 +350,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB023",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The pendant lamp features a cylindrical, laser-cut wooden shade that blends intricate traditional motifs with modern manufacturing techniques.',
   },
 
   {
@@ -365,7 +365,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB024",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The lamp is composed of several vertical wooden fins arranged radially around a central light source.',
   },
 
   {
@@ -379,7 +379,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB026",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The pendant lamp featuresvertical, interlocking ribs that create a bulbous, hexagonal or octagonal silhouette.',
   },
 
   {
@@ -393,7 +393,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB027",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The lamp has an elongated, egg-shaped (ellipsoid) silhouette formed by vertical and horizontal cross-sections.',
   },
 
   {
@@ -407,7 +407,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB029",
     model_price: 0,
     discount: 0,
-    description: '',
+    description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom.',
   },
 
   {
