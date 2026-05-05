@@ -258,7 +258,6 @@ export const productCategories: ProductCategory[] = [
     images: [
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_1.webp') },
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_2.webp') },
-      { src: getImagePath('INB017_LightHouse/INB017_LightHouse_3.webp') },
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_4.webp') },
     ],
     model_name: 'Light House',
@@ -272,11 +271,9 @@ export const productCategories: ProductCategory[] = [
     title: "",
     images: [
       { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_1.webp') },
-      { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_2.webp') },
       { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_3.webp') },
       { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_4.webp') },
-      { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_5.webp') },
-      { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_6.webp') },
+      { src: getImagePath('INB018_Cylinder_ZigZag/INB018_Cylinder_ZigZag_2.webp') },
     ],
     model_name: 'Cylinder ZigZag',
     model_num: "INB018",
@@ -288,10 +285,9 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB019_Rustic_Hanging/INB019_Rustic_Hanging_1.webp') },
       { src: getImagePath('INB019_Rustic_Hanging/INB019_Rustic_Hanging_2.webp') },
       { src: getImagePath('INB019_Rustic_Hanging/INB019_Rustic_Hanging_3.webp') },
-      { src: getImagePath('INB019_Rustic_Hanging/INB019_Rustic_Hanging_4.webp') },
+      { src: getImagePath('INB019_Rustic_Hanging/INB019_Rustic_Hanging_1.webp') },
     ],
     model_name: 'Rustic Hanging',
     model_num: "INB019",
@@ -307,7 +303,6 @@ export const productCategories: ProductCategory[] = [
       { src: getImagePath('INB020_Slatted_Pendant/INB020_Slatted_Pendant_2.webp') },
       { src: getImagePath('INB020_Slatted_Pendant/INB020_Slatted_Pendant_3.webp') },
       { src: getImagePath('INB020_Slatted_Pendant/INB020_Slatted_Pendant_4.webp') },
-      { src: getImagePath('INB020_Slatted_Pendant/INB020_Slatted_Pendant_5.webp') },
     ],
     model_name: 'Slatted Pendant',
     model_num: "INB020",
@@ -320,11 +315,8 @@ export const productCategories: ProductCategory[] = [
     title: "",
     images: [
       { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_1.webp') },
-      { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_2.webp') },
       { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_3.webp') },
-      { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_4.webp') },
-      { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_5.webp') },
-      { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_6.webp') },
+      { src: getImagePath('INB021_Curve_Spiral/INB021_Curve_Spiral_2.webp') },
     ],
     model_name: 'Curve Spiral',
     model_num: "INB021",
@@ -338,9 +330,6 @@ export const productCategories: ProductCategory[] = [
     images: [
       { src: getImagePath('INB022_Plain_Cone/INB022_Plain_Cone_1.webp') },
       { src: getImagePath('INB022_Plain_Cone/INB022_Plain_Cone_2.webp') },
-      { src: getImagePath('INB022_Plain_Cone/INB022_Plain_Cone_3.webp') },
-      { src: getImagePath('INB022_Plain_Cone/INB022_Plain_Cone_4.webp') },
-      { src: getImagePath('INB022_Plain_Cone/INB022_Plain_Cone_5.webp') },
     ],
     model_name: 'Plain Cone',
     model_num: "INB022",
@@ -352,10 +341,10 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB023_Spade/INB023_Spade_1.webp') },
       { src: getImagePath('INB023_Spade/INB023_Spade_2.webp') },
-      { src: getImagePath('INB023_Spade/INB023_Spade_3.webp') },
       { src: getImagePath('INB023_Spade/INB023_Spade_4.webp') },
+      { src: getImagePath('INB023_Spade/INB023_Spade_1.webp') },
+      { src: getImagePath('INB023_Spade/INB023_Spade_3.webp') },
     ],
     model_name: 'Spade',
     model_num: "INB023",
@@ -368,9 +357,9 @@ export const productCategories: ProductCategory[] = [
     title: "",
     images: [
       { src: getImagePath('INB024_Turbine/INB024_Turbine_1.webp') },
+      { src: getImagePath('INB024_Turbine/INB024_Turbine_4.webp') },
       { src: getImagePath('INB024_Turbine/INB024_Turbine_2.webp') },
       { src: getImagePath('INB024_Turbine/INB024_Turbine_3.webp') },
-      { src: getImagePath('INB024_Turbine/INB024_Turbine_4.webp') },
     ],
     model_name: 'Turbine',
     model_num: "INB024",
@@ -384,9 +373,7 @@ export const productCategories: ProductCategory[] = [
     images: [
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_1.webp') },
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_2.webp') },
-      { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_3.webp') },
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_4.webp') },
-      { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_5.webp') },
     ],
     model_name: 'Pumpkin Hexagon',
     model_num: "INB026",
@@ -398,9 +385,8 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB027_RugbyBall/INB027_RugbyBall_1.webp') },
       { src: getImagePath('INB027_RugbyBall/INB027_RugbyBall_2.webp') },
-      { src: getImagePath('INB027_RugbyBall/INB027_RugbyBall_3.webp') },
+      { src: getImagePath('INB027_RugbyBall/INB027_RugbyBall_1.webp') },
       { src: getImagePath('INB027_RugbyBall/INB027_RugbyBall_4.webp') },
     ],
     model_name: 'Rugby Ball',
@@ -413,9 +399,8 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB029_Bell/INB029_Bell_1.webp') },
       { src: getImagePath('INB029_Bell/INB029_Bell_2.webp') },
-      { src: getImagePath('INB029_Bell/INB029_Bell_3.webp') },
+      { src: getImagePath('INB029_Bell/INB029_Bell_1.webp') },
       { src: getImagePath('INB029_Bell/INB029_Bell_4.webp') },
     ],
     model_name: 'Bell',
