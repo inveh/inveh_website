@@ -277,9 +277,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Cylinder ZigZag',
     model_num: "INB018",
-    model_price: 0,
+    model_price: 1200,
     discount: 0,
-    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or "waffle" pattern that creates a dynamic sense of movement and texture.',
+    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or "waffle" pattern that creates a dynamic sense of movement and texture. Size: 40cm (Height) x 25cm (Width)',
   },
 
   {
