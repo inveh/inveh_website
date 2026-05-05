@@ -333,9 +333,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Plain Cone',
     model_num: "INB022",
-    model_price: 0,
+    model_price: 600,
     discount: 0,
-    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or "trapezoidal" silhouette.',
+    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or "trapezoidal" silhouette. Size: 25cm (Height) x 20cm (Width)',
   },
 
   {
