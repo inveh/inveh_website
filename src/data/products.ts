@@ -377,9 +377,9 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Pumpkin Hexagon',
     model_num: "INB026",
-    model_price: 0,
+    model_price: 900,
     discount: 0,
-    description: 'The pendant lamp featuresvertical, interlocking ribs that create a bulbous, hexagonal or octagonal silhouette.',
+    description: 'The pendant lamp featuresvertical, interlocking ribs that create a bulbous, hexagonal or octagonal silhouette. Size: 32cm (Height) x 38cm (Width)',
   },
 
   {
