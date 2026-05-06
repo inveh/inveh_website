@@ -429,6 +429,7 @@ export const productCategories: ProductCategory[] = [
     images: [
       { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_1.webp') },
       { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_2.webp') },
+      { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_3.webp') }
     ],
     model_name: 'Bug Wall Decor Lamp',
     model_num: "INW001",
