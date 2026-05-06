@@ -371,6 +371,20 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
+      { src: getImagePath('INB025_Floral_Lamp/INB025_Floral_Lamp_1.webp') },
+      { src: getImagePath('INB025_Floral_Lamp/INB025_Floral_Lamp_2.webp') },
+      { src: getImagePath('INB025_Floral_Lamp/INB025_Floral_Lamp_3.webp') },
+    ],
+    model_name: 'Floral Lamp',
+    model_num: "INB025",
+    model_price: 1200,
+    discount: 0,
+    description: 'This is a rectangular, pendant-style lamp featuring floral mandala-like motifs',
+  },
+
+  {
+    title: "",
+    images: [
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_1.webp') },
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_2.webp') },
       { src: getImagePath('INB026_Pumpkin_Hexagon/INB026_Pumpkin_Hexagon_4.webp') },
@@ -408,6 +422,19 @@ export const productCategories: ProductCategory[] = [
     model_price: 1200,
     discount: 0,
     description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom. Size: 30cm (Height) x 22cm (Width)',
+  },
+
+  {
+    title: "Wall Decor",
+    images: [
+      { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_1.webp') },
+      { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_2.webp') },
+    ],
+    model_name: 'Bug Wall Decor Lamp',
+    model_num: "INW001",
+    model_price: 2500,
+    discount: 0,
+    description: 'This wall decor lamp features a striking celestial and minimalist design that acts as both a functional light source and a piece of modern art.',
   },
 
   {
