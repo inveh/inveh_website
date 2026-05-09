@@ -392,50 +392,40 @@ CONTENT_H = PAGE_H - TOP_MARGIN - BOTTOM_MARGIN - HEADER_H - FOOTER_H - 0.3 * cm
 
 
 
+# ── Per-product full-page layout ──────────────────────────────────────────────
+HERO_W  = CONTENT_W * 0.52    # left column: hero image
+INFO_W  = CONTENT_W * 0.44    # right column: text
+THUMB_W = 3.2 * cm            # thumbnail width
+
+
 def build_product_page(product: dict, styles: dict) -> list:
     """
     Returns flowables for one full content page.
 
     Layout:
       ┌──────────────────────────┬──────────────────────────┐
-      │  Image 1                 │  Category badge          │
-      │  ─────────────────────  │  Product name            │
-      │  Image 2                 │  Model No / SKU          │
-      │  ─────────────────────  │  ──────────────────────  │
-      │  Image 3  (etc.)         │  Price                   │
+      │  Hero image (large)      │  Category badge          │
+      │                          │  Product name            │
+      │                          │  Model No / SKU          │
+      │                          │  ──────────────────────  │
+      │                          │  Price                   │
       │                          │  ──────────────────────  │
       │                          │  Description             │
+      │                          │  More Views thumbnails   │
       └──────────────────────────┴──────────────────────────┘
-    All images from the website appear stacked one below the other on the left.
     """
-    # ── Resolve all images ───────────────────────────────────────────────────
+    # ── Resolve images ───────────────────────────────────────────────────────
     image_paths: list[Path] = []
     for rel_path in product["images"]:
         found = find_image(rel_path.lstrip("/"))
         if found:
             image_paths.append(found)
 
-    n_images = max(len(image_paths), 1)
-
-    # Total vertical space in the left column
-    IMG_COL_W  = CONTENT_W * 0.52
-    gap        = 3 * mm                          # gap between stacked images
-    total_gaps = gap * (n_images - 1)
-    per_img_h  = (CONTENT_H - total_gaps) / n_images   # equal height per image
-
-    # Build the stacked image list for the left column
-    left_col: list = []
-    for idx, img_path in enumerate(image_paths):
-        img = rl_image(img_path, IMG_COL_W, per_img_h)
-        if img:
-            left_col.append(img)
-        else:
-            left_col.append(Spacer(IMG_COL_W, per_img_h))
-        if idx < n_images - 1:
-            left_col.append(Spacer(1, gap))
-
-    if not left_col:
-        left_col = [Spacer(IMG_COL_W, CONTENT_H)]
+    # Hero: first image, scaled to fill left column height
+    if image_paths:
+        hero = rl_image(image_paths[0], HERO_W, CONTENT_H * 0.72)
+    else:
+        hero = Spacer(HERO_W, CONTENT_H * 0.72)
 
     # ── Price text ───────────────────────────────────────────────────────────
     price    = product["model_price"]
@@ -451,7 +441,6 @@ def build_product_page(product: dict, styles: dict) -> list:
 
     # ── Category label ───────────────────────────────────────────────────────
     cat_label = product["title"].strip() or "Bulb Models"
-    INFO_W_   = CONTENT_W - IMG_COL_W - 0.4 * cm   # right column width
 
     cat_style = ParagraphStyle(
         "cat_label",
@@ -462,7 +451,7 @@ def build_product_page(product: dict, styles: dict) -> list:
     )
     cat_pill = Table(
         [[Paragraph(cat_label.upper(), cat_style)]],
-        colWidths=[INFO_W_],
+        colWidths=[INFO_W],
     )
     cat_pill.setStyle(TableStyle([
         ("BACKGROUND",    (0, 0), (-1, -1), BRAND_DARK),
@@ -503,6 +492,14 @@ def build_product_page(product: dict, styles: dict) -> list:
         spaceAfter=0,
     )
 
+    # ── Thumbnail strip (extra images after hero) ────────────────────────────
+    thumbs_flowables: list = []
+    for img_path in image_paths[1:4]:
+        t = rl_image(img_path, THUMB_W, THUMB_W)
+        if t:
+            thumbs_flowables.append(t)
+            thumbs_flowables.append(Spacer(1, 2 * mm))
+
     # ── Right-column info block ──────────────────────────────────────────────
     info: list = [
         cat_pill,
@@ -519,15 +516,26 @@ def build_product_page(product: dict, styles: dict) -> list:
         Spacer(1, 2 * mm),
         Paragraph(product["description"], desc_style),
     ]
+    if thumbs_flowables:
+        info.append(Spacer(1, 6 * mm))
+        info.append(Paragraph("More Views", ParagraphStyle(
+            "more_views",
+            fontName="Helvetica-Bold",
+            fontSize=8,
+            textColor=BRAND_DARK,
+            leading=11,
+            spaceAfter=3,
+        )))
+        info.extend(thumbs_flowables)
 
-    # ── Two-column table: [stacked images | info] ────────────────────────────
+    # ── Two-column table: [hero | info] ──────────────────────────────────────
     page_table = Table(
-        [[left_col, info]],
-        colWidths=[IMG_COL_W + 0.4 * cm, INFO_W_],
+        [[hero, info]],
+        colWidths=[HERO_W + 0.4 * cm, INFO_W],
         rowHeights=[CONTENT_H],
     )
     page_table.setStyle(TableStyle([
-        ("VALIGN",        (0, 0), (0, 0),   "TOP"),
+        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
         ("VALIGN",        (1, 0), (1, 0),   "TOP"),
         ("LEFTPADDING",   (0, 0), (0, 0),   0),
         ("RIGHTPADDING",  (0, 0), (0, 0),   10),
