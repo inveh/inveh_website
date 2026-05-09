@@ -15,6 +15,7 @@ Dependencies:
 
 import os
 import re
+from datetime import datetime
 import sys
 from pathlib import Path
 from io import BytesIO
@@ -53,12 +54,12 @@ PUBLIC_DIR  = PROJECT_DIR / "public"
 OUTPUT_PDF  = PROJECT_DIR / "inveh_brochure.pdf"
 LOGO_PATH   = PUBLIC_DIR / "inveh_logo.jpeg"
 
-# ── Brand colours ────────────────────────────────────────────────────────────
-BRAND_DARK   = colors.HexColor("#1A120B")   # dark espresso
-BRAND_GOLD   = colors.HexColor("#C8963E")   # warm amber / gold
-BRAND_CREAM  = colors.HexColor("#F5EFE6")   # off-white cream
-BRAND_MID    = colors.HexColor("#3D2314")   # medium wood brown
-BRAND_LIGHT  = colors.HexColor("#E3CCB0")   # light tan
+# ── Brand colours (matching the live website) ────────────────────────────────
+BRAND_DARK   = colors.HexColor("#02163b")   # logo / navbar dark blue
+BRAND_GOLD   = colors.HexColor("#fec955")   # logo yellow / gold
+BRAND_CREAM  = colors.white                  # page background = white
+BRAND_MID    = colors.HexColor("#02163b")   # secondary navy (same as dark)
+BRAND_LIGHT  = colors.HexColor("#d0daea")   # light blue-grey divider
 WHITE        = colors.white
 
 PAGE_W, PAGE_H = A4
@@ -262,19 +263,28 @@ def make_styles() -> dict:
 def draw_cover(c: canvas.Canvas, doc):
     w, h = PAGE_W, PAGE_H
 
-    # Dark background
-    c.setFillColor(BRAND_DARK)
+    # White page background
+    c.setFillColor(WHITE)
     c.rect(0, 0, w, h, fill=1, stroke=0)
 
-    # Gold top bar
+    # Navy top bar (full-width header like the website navbar)
+    c.setFillColor(BRAND_DARK)
+    c.rect(0, h - 2.5 * cm, w, 2.5 * cm, fill=1, stroke=0)
+
+    # Gold accent line under the top bar
     c.setFillColor(BRAND_GOLD)
-    c.rect(0, h - 1.2 * cm, w, 1.2 * cm, fill=1, stroke=0)
+    c.rect(0, h - 2.7 * cm, w, 0.2 * cm, fill=1, stroke=0)
 
-    # Gold bottom bar
-    c.rect(0, 0, w, 0.8 * cm, fill=1, stroke=0)
+    # Navy bottom bar
+    c.setFillColor(BRAND_DARK)
+    c.rect(0, 0, w, 1.0 * cm, fill=1, stroke=0)
 
-    # Decorative vertical stripe (left)
-    c.setFillColor(BRAND_MID)
+    # Gold accent line above bottom bar
+    c.setFillColor(BRAND_GOLD)
+    c.rect(0, 1.0 * cm, w, 0.15 * cm, fill=1, stroke=0)
+
+    # Decorative vertical stripe (left) in gold
+    c.setFillColor(BRAND_GOLD)
     c.rect(1.5 * cm, 0, 0.3 * cm, h, fill=1, stroke=0)
 
     # Logo (if available)
@@ -290,161 +300,290 @@ def draw_cover(c: canvas.Canvas, doc):
         except Exception:
             pass  # skip logo silently if it fails
 
-    # Title
-    c.setFillColor(BRAND_GOLD)
+    # Title (navy text on white background)
+    c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica-Bold", 34)
     c.drawCentredString(w / 2, h - 9 * cm, "INVEH LIGHTING")
 
-    c.setFillColor(BRAND_CREAM)
+    c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica-Bold", 22)
     c.drawCentredString(w / 2, h - 10.5 * cm, "SOLUTIONS")
 
-    # Horizontal rule
+    # Horizontal rule in gold
     c.setStrokeColor(BRAND_GOLD)
     c.setLineWidth(1.5)
     c.line(3 * cm, h - 11.2 * cm, w - 3 * cm, h - 11.2 * cm)
 
-    # Tagline
-    c.setFillColor(BRAND_LIGHT)
+    # Tagline in dark navy
+    c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica-Oblique", 12)
     c.drawCentredString(w / 2, h - 12.2 * cm, "Handcrafted Wooden Lamps & Décor")
 
-    # Product count badge
-    c.setFillColor(BRAND_MID)
-    c.roundRect(w / 2 - 3 * cm, h - 14.5 * cm, 6 * cm, 1.4 * cm, 0.4 * cm, fill=1, stroke=0)
-    c.setFillColor(BRAND_CREAM)
-    c.setFont("Helvetica", 10)
-    c.drawCentredString(w / 2, h - 13.9 * cm, "Exclusive Product Catalogue · 2025")
+    # Product count badge — navy background, white text, width fits the text
+    _now = datetime.now()
+    _badge_text = f"Exclusive Product Catalogue · {_now.strftime('%B %Y')}"
+    _font_name, _font_size = "Helvetica", 10
+    _pad_x = 0.5 * cm          # horizontal padding on each side
+    _badge_h = 1.4 * cm
+    _text_w = c.stringWidth(_badge_text, _font_name, _font_size)
+    _badge_w = _text_w + 2 * _pad_x
+    _badge_x = w / 2 - _badge_w / 2
+    _badge_y = h - 14.5 * cm
+    c.setFillColor(BRAND_DARK)
+    c.roundRect(_badge_x, _badge_y, _badge_w, _badge_h, 0.4 * cm, fill=1, stroke=0)
+    c.setFillColor(WHITE)
+    c.setFont(_font_name, _font_size)
+    c.drawCentredString(w / 2, _badge_y + 0.42 * cm, _badge_text)
 
-    # Contact block at bottom
-    c.setFillColor(BRAND_CREAM)
+    # Contact block at bottom (navy text on white)
+    c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica", 9)
     c.drawCentredString(w / 2, 3.5 * cm, "www.inveh.in  ·  inveh.in@gmail.com")
     c.setFont("Helvetica", 8)
     c.drawCentredString(w / 2, 2.5 * cm, "Instagram: @invehlighting")
 
-    c.setFillColor(BRAND_DARK)
+    c.setFillColor(WHITE)
     c.setFont("Helvetica", 7)
-    c.drawCentredString(w / 2, 1.2 * cm, "© 2025 Inveh Lighting Solutions. All rights reserved.")
+    c.drawCentredString(w / 2, 0.35 * cm,
+                        f"© {datetime.now().year} Inveh Lighting Solutions. All rights reserved.")
 
 
 # ── Page header/footer callback ───────────────────────────────────────────────
 def make_page_callback(title_text: str = "INVEH LIGHTING SOLUTIONS — Product Catalogue"):
     def on_page(c: canvas.Canvas, doc):
         w, h = PAGE_W, PAGE_H
-        # Header bar
+        # White page background
+        c.setFillColor(WHITE)
+        c.rect(0, 0, w, h, fill=1, stroke=0)
+        # Header bar — navy blue (same as website navbar)
         c.setFillColor(BRAND_DARK)
         c.rect(0, h - 1.1 * cm, w, 1.1 * cm, fill=1, stroke=0)
+        # Gold accent line under header
         c.setFillColor(BRAND_GOLD)
+        c.rect(0, h - 1.2 * cm, w, 0.1 * cm, fill=1, stroke=0)
+        c.setFillColor(WHITE)
         c.setFont("Helvetica-Bold", 7)
-        c.drawCentredString(w / 2, h - 0.65 * cm, title_text)
+        c.drawCentredString(w / 2, h - 0.68 * cm, title_text)
 
-        # Footer
-        c.setFillColor(BRAND_GOLD)
-        c.rect(0, 0, w, 0.7 * cm, fill=1, stroke=0)
+        # Footer — navy blue
         c.setFillColor(BRAND_DARK)
+        c.rect(0, 0, w, 0.7 * cm, fill=1, stroke=0)
+        # Gold accent line above footer
+        c.setFillColor(BRAND_GOLD)
+        c.rect(0, 0.7 * cm, w, 0.08 * cm, fill=1, stroke=0)
+        c.setFillColor(WHITE)
         c.setFont("Helvetica", 7)
         c.drawCentredString(w / 2, 0.22 * cm, f"Page {doc.page}  ·  www.inveh.in")
 
     return on_page
 
 
-# ── Product card (one row in the table grid) ──────────────────────────────────
-IMG_W  = 5.8 * cm
-IMG_H  = 5.8 * cm
-CELL_W = 8.2 * cm   # width for text column next to image
+# ── Constants ─────────────────────────────────────────────────────────────────
+# Usable area on a content page (header 1.1cm + gold strip 0.1cm + footer 0.7cm + strip 0.08cm)
+LEFT_MARGIN   = 1.6 * cm
+RIGHT_MARGIN  = 1.6 * cm
+TOP_MARGIN    = 1.6 * cm      # doc top margin (header drawn separately)
+BOTTOM_MARGIN = 1.4 * cm      # doc bottom margin (footer drawn separately)
+
+HEADER_H  = 1.1 * cm          # navy bar height
+FOOTER_H  = 0.7 * cm          # navy bar height
+CONTENT_W = PAGE_W - LEFT_MARGIN - RIGHT_MARGIN
+CONTENT_H = PAGE_H - TOP_MARGIN - BOTTOM_MARGIN - HEADER_H - FOOTER_H - 0.3 * cm
 
 
-def build_product_card(product: dict, styles: dict) -> list:
+# ── Per-product full-page layout ──────────────────────────────────────────────
+HERO_W   = CONTENT_W * 0.52    # left column: hero image
+INFO_W   = CONTENT_W * 0.44    # right column: text
+THUMB_W  = 3.2 * cm            # thumbnail strip width
+
+
+def build_product_page(product: dict, styles: dict) -> list:
     """
-    Returns a list of flowables that form one product card.
-    Layout: [image | info block] side by side via a 2-column Table.
+    Returns a list of flowables that fills one full content page.
+
+    Layout:
+      ┌────────────────────────────────────────────────────────┐
+      │  [HERO IMAGE (large)]  │  Name / SKU / Price / Desc   │
+      │                        │  ─────────────────────────── │
+      │                        │  Thumbnail strip              │
+      └────────────────────────────────────────────────────────┘
     """
-    # ── Resolve first image ──
-    img_flowable = None
+    # ── Resolve images ──────────────────────────────────────────────────────
+    image_paths: list[Path] = []
     for rel_path in product["images"]:
-        # Strip leading slash from paths like /INB001_…/…
-        clean = rel_path.lstrip("/")
-        found = find_image(clean)
+        found = find_image(rel_path.lstrip("/"))
         if found:
-            img_flowable = rl_image(found, IMG_W, IMG_H)
-            break
+            image_paths.append(found)
 
-    if img_flowable is None:
-        # Placeholder grey box
-        img_flowable = Spacer(IMG_W, IMG_H)
+    # Hero: first image, scaled to fill left column
+    if image_paths:
+        hero = rl_image(image_paths[0], HERO_W, CONTENT_H * 0.72)
+    else:
+        hero = Spacer(HERO_W, CONTENT_H * 0.72)
 
-    # ── Info block ──
-    price = product["model_price"]
+    # ── Price text ──────────────────────────────────────────────────────────
+    price    = product["model_price"]
     discount = product["discount"]
     if discount > 0:
-        final = price * (1 - discount / 100)
+        final      = price * (1 - discount / 100)
         price_text = (
             f'<strike>₹{price:,.0f}</strike>  '
-            f'<b>₹{final:,.0f}</b> ({discount:.0f}% off)'
+            f'<b>₹{final:,.0f}</b>  <font size="9">({discount:.0f}% off)</font>'
         )
     else:
         price_text = f"₹{price:,.0f}"
 
-    info = [
-        Paragraph(product["model_name"], styles["product_name"]),
-        Spacer(1, 1 * mm),
-        Paragraph(f"SKU: {product['model_num']}", styles["product_sku"]),
-        Spacer(1, 2 * mm),
-        Paragraph(price_text, styles["product_price"]),
-        Spacer(1, 3 * mm),
-        HRFlowable(width="100%", thickness=0.5, color=BRAND_LIGHT),
-        Spacer(1, 3 * mm),
-        Paragraph(product["description"], styles["product_desc"]),
-    ]
+    # ── Category label ──────────────────────────────────────────────────────
+    cat_label = product["title"].strip() or "Bulb Models"
 
-    # 2-column inner table: [image | info]
-    card_table = Table(
-        [[img_flowable, info]],
-        colWidths=[IMG_W + 0.3 * cm, CELL_W],
-        rowHeights=None,
+    cat_style = ParagraphStyle(
+        "cat_label",
+        fontName="Helvetica",
+        fontSize=8,
+        textColor=WHITE,
+        leading=10,
     )
-    card_table.setStyle(TableStyle([
-        ("VALIGN",      (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING",  (0, 0), (0, 0),  2),
-        ("RIGHTPADDING", (0, 0), (0, 0),  8),
-        ("LEFTPADDING",  (1, 0), (1, 0),  6),
-        ("RIGHTPADDING", (1, 0), (1, 0),  2),
-        ("TOPPADDING",   (0, 0), (-1, -1), 4),
-        ("BOTTOMPADDING",(0, 0), (-1, -1), 4),
+    cat_pill_text = Paragraph(cat_label.upper(), cat_style)
+    cat_pill = Table([[cat_pill_text]], colWidths=[INFO_W])
+    cat_pill.setStyle(TableStyle([
+        ("BACKGROUND",    (0, 0), (-1, -1), BRAND_DARK),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 6),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 6),
+        ("TOPPADDING",    (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
     ]))
 
-    return [card_table]
+    name_style = ParagraphStyle(
+        "prod_name_lg",
+        fontName="Helvetica-Bold",
+        fontSize=18,
+        textColor=BRAND_DARK,
+        leading=22,
+        spaceAfter=2,
+    )
+    sku_style = ParagraphStyle(
+        "prod_sku_lg",
+        fontName="Helvetica",
+        fontSize=9,
+        textColor=colors.HexColor("#6b7a99"),
+        leading=12,
+    )
+    price_style = ParagraphStyle(
+        "prod_price_lg",
+        fontName="Helvetica-Bold",
+        fontSize=16,
+        textColor=BRAND_DARK,
+        leading=20,
+    )
+    desc_style = ParagraphStyle(
+        "prod_desc_lg",
+        fontName="Helvetica",
+        fontSize=10,
+        textColor=colors.HexColor("#333333"),
+        leading=15,
+        spaceAfter=0,
+    )
+
+    # ── Thumbnail strip (remaining images after the hero) ───────────────────
+    thumbs_flowables: list = []
+    for img_path in image_paths[1:4]:   # up to 3 extra thumbnails
+        t = rl_image(img_path, THUMB_W, THUMB_W)
+        if t:
+            thumbs_flowables.append(t)
+            thumbs_flowables.append(Spacer(1, 2 * mm))
+
+    # ── Right-column info block ──────────────────────────────────────────────
+    info: list = [
+        cat_pill,
+        Spacer(1, 4 * mm),
+        Paragraph(product["model_name"], name_style),
+        Spacer(1, 1 * mm),
+        Paragraph(f"Model No: {product['model_num']}", sku_style),
+        Spacer(1, 4 * mm),
+        HRFlowable(width="100%", thickness=0.8, color=BRAND_GOLD, spaceAfter=4),
+        Spacer(1, 2 * mm),
+        Paragraph(price_text, price_style),
+        Spacer(1, 4 * mm),
+        HRFlowable(width="100%", thickness=0.4, color=BRAND_LIGHT, spaceAfter=4),
+        Spacer(1, 2 * mm),
+        Paragraph(product["description"], desc_style),
+    ]
+    if thumbs_flowables:
+        info.append(Spacer(1, 6 * mm))
+        info.append(Paragraph("More Views", ParagraphStyle(
+            "more_views",
+            fontName="Helvetica-Bold",
+            fontSize=8,
+            textColor=BRAND_DARK,
+            leading=11,
+            spaceAfter=3,
+        )))
+        info.extend(thumbs_flowables)
+
+    # ── Assemble two-column table ────────────────────────────────────────────
+    page_table = Table(
+        [[hero, info]],
+        colWidths=[HERO_W + 0.4 * cm, INFO_W],
+        rowHeights=[CONTENT_H],
+    )
+    page_table.setStyle(TableStyle([
+        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+        ("VALIGN",        (1, 0), (1, 0),   "TOP"),
+        ("LEFTPADDING",   (0, 0), (0, 0),   0),
+        ("RIGHTPADDING",  (0, 0), (0, 0),   10),
+        ("LEFTPADDING",   (1, 0), (1, 0),   10),
+        ("RIGHTPADDING",  (1, 0), (1, 0),   0),
+        ("TOPPADDING",    (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+        ("LINEAFTER",     (0, 0), (0, -1),  0.6, BRAND_LIGHT),
+    ]))
+
+    return [page_table, PageBreak()]
 
 
 # ── Main builder ──────────────────────────────────────────────────────────────
 def build_brochure(products: list[dict]):
+    from reportlab.platypus import SimpleDocTemplate, NextPageTemplate
+
     styles = make_styles()
+
+    # ── Page 1: Cover — drawn entirely via canvas callbacks ──────────────────
+    # We use a temporary single-page PDF for the cover, then a second PDF for
+    # the content, and merge them — simpler than fighting BaseDocTemplate's
+    # template-switching on page 1.
+    # Actually, cleanest approach: use BaseDocTemplate with TWO templates but
+    # ensure the cover template frame is empty (zero-size) so nothing reflowed
+    # into it, and the cover is drawn 100% by draw_cover().
 
     doc = BaseDocTemplate(
         str(OUTPUT_PDF),
         pagesize=A4,
-        leftMargin=1.8 * cm,
-        rightMargin=1.8 * cm,
-        topMargin=1.6 * cm,
-        bottomMargin=1.4 * cm,
+        leftMargin=LEFT_MARGIN,
+        rightMargin=RIGHT_MARGIN,
+        topMargin=TOP_MARGIN,
+        bottomMargin=BOTTOM_MARGIN,
     )
 
-    # Cover template (no header/footer)
-    cover_frame = Frame(0, 0, PAGE_W, PAGE_H, leftPadding=0, rightPadding=0,
-                        topPadding=0, bottomPadding=0)
+    # Cover template: zero-size frame so no flowable content lands on it
+    cover_frame = Frame(
+        0, 0, 1, 1,             # effectively invisible / empty
+        leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0,
+        id="cover_frame",
+    )
     cover_template = PageTemplate(
         id="cover",
         frames=[cover_frame],
         onPage=draw_cover,
     )
 
-    # Content template (with header/footer)
+    # Content template: full usable area between header and footer
     content_frame = Frame(
-        doc.leftMargin,
-        doc.bottomMargin + 0.7 * cm,   # room for footer
-        PAGE_W - doc.leftMargin - doc.rightMargin,
-        PAGE_H - doc.topMargin - doc.bottomMargin - 1.1 * cm - 0.7 * cm,
+        LEFT_MARGIN,
+        BOTTOM_MARGIN + FOOTER_H + 0.15 * cm,
+        CONTENT_W,
+        CONTENT_H,
+        leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0,
+        id="content_frame",
     )
     content_template = PageTemplate(
         id="content",
@@ -457,125 +596,86 @@ def build_brochure(products: list[dict]):
     # ── Story ────────────────────────────────────────────────────────────────
     story = []
 
-    # Cover page (handled entirely by draw_cover callback; we just push a page break)
-    story.append(PageBreak())
-
-    # Switch to content template
-    from reportlab.platypus import NextPageTemplate
-    story.insert(0, NextPageTemplate("cover"))
+    # Start on the cover template, immediately break to content
+    story.append(NextPageTemplate("cover"))
+    story.append(PageBreak())           # → page 1 (cover drawn by callback)
     story.append(NextPageTemplate("content"))
 
-    # Group products by category title
-    categories: dict[str, list] = {}
-    for p in products:
-        cat = p["title"].strip() if p["title"].strip() else "Bulb Models"
-        categories.setdefault(cat, []).append(p)
-
-    # Introduction page
-    intro_text = (
-        "Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. "
-        "Each piece in our collection is handcrafted from premium pine wood using "
-        "precision laser-cutting techniques. We blend modern manufacturing with "
-        "artisanal warmth to create lamps that don't just light a room — they "
-        "transform it.<br/><br/>"
-        "Browse our full range below. Customisation is available on most models. "
-        "Contact us at <b>inveh.in@gmail.com</b> or visit <b>www.inveh.in</b>."
-    )
+    # ── About Us page ────────────────────────────────────────────────────────
     intro_style = ParagraphStyle(
         "intro",
         fontName="Helvetica",
-        fontSize=10,
+        fontSize=11,
         textColor=BRAND_DARK,
-        leading=16,
+        leading=17,
         spaceAfter=6,
     )
-    story.append(Spacer(1, 0.5 * cm))
-    story.append(Paragraph("About Us", styles["section_heading"]))
-    story.append(HRFlowable(width="100%", thickness=1, color=BRAND_GOLD, spaceAfter=6))
-    story.append(Paragraph(intro_text, intro_style))
-    story.append(Spacer(1, 0.8 * cm))
-
-    # Products section header
-    story.append(Paragraph("Our Products", styles["section_heading"]))
-    story.append(HRFlowable(width="100%", thickness=1, color=BRAND_GOLD, spaceAfter=8))
+    about_heading_style = ParagraphStyle(
+        "about_heading",
+        fontName="Helvetica-Bold",
+        fontSize=22,
+        textColor=BRAND_DARK,
+        leading=28,
+        spaceAfter=4,
+        alignment=TA_CENTER,
+    )
+    story.append(Spacer(1, 1.5 * cm))
+    story.append(Paragraph("About Inveh Lighting Solutions", about_heading_style))
     story.append(Spacer(1, 0.3 * cm))
+    story.append(HRFlowable(width="60%", thickness=2, color=BRAND_GOLD,
+                             spaceAfter=10, hAlign="CENTER"))
+    story.append(Spacer(1, 0.5 * cm))
+    story.append(Paragraph(
+        "Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. "
+        "Each piece in our collection is handcrafted from premium pine wood using "
+        "precision laser-cutting techniques. We blend modern manufacturing with "
+        "artisanal warmth to create lamps that don't just illuminate a room — "
+        "they <i>transform</i> it.",
+        intro_style,
+    ))
+    story.append(Spacer(1, 0.4 * cm))
+    story.append(Paragraph(
+        "Customisation is available on most models. Reach us at "
+        "<b>inveh.in@gmail.com</b> or visit <b>www.inveh.in</b>. "
+        "Follow us on Instagram at <b>@invehlighting</b> for the latest collections.",
+        intro_style,
+    ))
+    story.append(PageBreak())           # → page 2 done, next page = products
 
-    # Render each category
-    for cat_name, cat_products in categories.items():
-        # Category heading row (full-width gold background)
-        cat_heading_style = ParagraphStyle(
-            "cat_heading",
-            fontName="Helvetica-Bold",
-            fontSize=10,
-            textColor=WHITE,
-            leading=14,
-        )
-        heading_table = Table(
-            [[Paragraph(cat_name.upper(), cat_heading_style)]],
-            colWidths=[PAGE_W - doc.leftMargin - doc.rightMargin],
-        )
-        heading_table.setStyle(TableStyle([
-            ("BACKGROUND",   (0, 0), (-1, -1), BRAND_MID),
-            ("LEFTPADDING",  (0, 0), (-1, -1), 8),
-            ("TOPPADDING",   (0, 0), (-1, -1), 4),
-            ("BOTTOMPADDING",(0, 0), (-1, -1), 4),
-            ("ROWBACKGROUNDS",(0, 0), (-1, -1), [BRAND_MID]),
-        ]))
-        story.append(heading_table)
-        story.append(Spacer(1, 4 * mm))
+    # ── One page per product ──────────────────────────────────────────────────
+    for product in products:
+        story.extend(build_product_page(product, styles))
+        # build_product_page already appends a PageBreak at the end
 
-        # 2-column grid of product cards
-        # Pack cards into rows of 2
-        for i in range(0, len(cat_products), 2):
-            left_p  = cat_products[i]
-            right_p = cat_products[i + 1] if i + 1 < len(cat_products) else None
+    # Remove the trailing PageBreak after the last product so the closing page
+    # doesn't have a blank page before it.
+    if story and isinstance(story[-1], PageBreak):
+        story.pop()
 
-            left_card  = build_product_card(left_p,  styles)
-            right_card = build_product_card(right_p, styles) if right_p else [Spacer(1, 1)]
-
-            col_w = (PAGE_W - doc.leftMargin - doc.rightMargin) / 2 - 0.4 * cm
-
-            row_table = Table(
-                [[left_card, right_card]],
-                colWidths=[col_w, col_w],
-            )
-            row_table.setStyle(TableStyle([
-                ("VALIGN",       (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING",  (0, 0), (-1, -1), 2),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 2),
-                ("TOPPADDING",   (0, 0), (-1, -1), 2),
-                ("BOTTOMPADDING",(0, 0), (-1, -1), 2),
-                # Light separator line between the two columns
-                ("LINEAFTER", (0, 0), (0, -1), 0.5, BRAND_LIGHT),
-            ]))
-            story.append(row_table)
-
-            # Thin divider between product rows
-            story.append(HRFlowable(width="100%", thickness=0.3, color=BRAND_LIGHT, spaceAfter=4))
-
-        story.append(Spacer(1, 6 * mm))
-
-    # Back / closing page
+    # ── Closing page ──────────────────────────────────────────────────────────
     story.append(PageBreak())
     closing_style = ParagraphStyle(
         "closing",
         fontName="Helvetica-Bold",
-        fontSize=18,
-        textColor=BRAND_GOLD,
+        fontSize=22,
+        textColor=BRAND_DARK,
         alignment=TA_CENTER,
-        leading=24,
+        leading=28,
     )
-    story.append(Spacer(1, 5 * cm))
-    story.append(Paragraph("Thank you for choosing Inveh", closing_style))
-    story.append(Spacer(1, 0.5 * cm))
     sub_style = ParagraphStyle(
         "sub",
         fontName="Helvetica",
-        fontSize=11,
+        fontSize=12,
         textColor=BRAND_DARK,
         alignment=TA_CENTER,
-        leading=18,
+        leading=20,
     )
+    story.append(Spacer(1, 5 * cm))
+    story.append(Paragraph("Thank you for choosing Inveh", closing_style))
+    story.append(Spacer(1, 0.6 * cm))
+    story.append(HRFlowable(width="50%", thickness=2, color=BRAND_GOLD,
+                             spaceAfter=8, hAlign="CENTER"))
+    story.append(Spacer(1, 0.4 * cm))
     story.append(Paragraph(
         "Every lamp carries a piece of our craft into your home.<br/><br/>"
         "<b>www.inveh.in</b><br/>"
