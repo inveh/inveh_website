@@ -437,7 +437,7 @@ def build_product_page(product: dict, styles: dict) -> list:
             f'<b>₹{final:,.0f}</b>  <font size="9">({discount:.0f}% off)</font>'
         )
     else:
-        price_text = f"₹{price:,.0f}"
+        price_text = f"Rs. {price:,.0f}"
 
     # ── Category label ───────────────────────────────────────────────────────
     cat_label = product["title"].strip() or "Bulb Models"
@@ -510,7 +510,7 @@ def build_product_page(product: dict, styles: dict) -> list:
         Spacer(1, 4 * mm),
         HRFlowable(width="100%", thickness=0.8, color=BRAND_GOLD, spaceAfter=4),
         Spacer(1, 2 * mm),
-        Paragraph(f"Price: Rs {price_text}", price_style),
+        Paragraph(f"Price: {price_text}", price_style),
         Spacer(1, 4 * mm),
         HRFlowable(width="100%", thickness=0.4, color=BRAND_LIGHT, spaceAfter=4),
         Spacer(1, 2 * mm),
