@@ -16,33 +16,6 @@ const publicBaseUrl = import.meta.env.BASE_URL || '/'
 export const getImagePath = (relativePath: string): string => `${publicBaseUrl}${relativePath}`
 
 export const productCategories: ProductCategory[] = [
-  {
-    title: "Tube Light Models",
-    images: [
-      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_1.webp') },
-      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_2.webp') },
-      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_3.webp') },
-    ],
-    model_name: 'Pine Tube Light',
-    model_num: "INT001",
-    model_price: 1600,
-    discount: 0,
-    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 44.5cm (Width) x 4.5cm (Depth) x 6cm (Height)',
-  },
-
-  {
-    title: "Down Light Models",
-    images: [
-      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_1.webp') },
-      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_2.webp') },
-      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_3.webp') },
-    ],
-    model_name: 'Pine Down Light',
-    model_num: "IND001",
-    model_price: 1200,
-    discount: 0,
-    description: 'A Pine wood housing to the standard down light (3W). Customisation possible in the area of the wood similar like the butterfly in the picture. Mentioned price is unit price. Size: 13cm(Width) x 13cm(Depth) x 15cm(Height)',
-  },
 
   {
     title: "Bulb Models",
@@ -436,6 +409,34 @@ export const productCategories: ProductCategory[] = [
     model_price: 2500,
     discount: 0,
     description: 'This wall decor lamp features a striking celestial and minimalist design that acts as both a functional light source and a piece of modern art.',
+  },
+
+  {
+    title: "Tube Light Models",
+    images: [
+      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_1.webp') },
+      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_2.webp') },
+      { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_3.webp') },
+    ],
+    model_name: 'Pine Tube Light',
+    model_num: "INT001",
+    model_price: 1600,
+    discount: 0,
+    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 44.5cm (Width) x 4.5cm (Depth) x 6cm (Height)',
+  },
+
+  {
+    title: "Down Light Models",
+    images: [
+      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_1.webp') },
+      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_2.webp') },
+      { src: getImagePath('IND001_DownLight_Indi/IND001_DownLight_Indi_3.webp') },
+    ],
+    model_name: 'Pine Down Light',
+    model_num: "IND001",
+    model_price: 1200,
+    discount: 0,
+    description: 'A Pine wood housing to the standard down light (3W). Customisation possible in the area of the wood similar like the butterfly in the picture. Mentioned price is unit price. Size: 13cm(Width) x 13cm(Depth) x 15cm(Height)',
   },
 
   {
