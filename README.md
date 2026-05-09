@@ -40,3 +40,8 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Execute below command to generate brochure
+cd /home/priyanka/Documents/inveh_website
+/home/priyanka/anaconda3/bin/python3 scripts/brochure.py
+
