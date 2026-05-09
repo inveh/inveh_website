@@ -510,7 +510,7 @@ def build_product_page(product: dict, styles: dict) -> list:
         Spacer(1, 4 * mm),
         HRFlowable(width="100%", thickness=0.8, color=BRAND_GOLD, spaceAfter=4),
         Spacer(1, 2 * mm),
-        Paragraph(price_text, price_style),
+        Paragraph(f"Price: Rs {price_text}", price_style),
         Spacer(1, 4 * mm),
         HRFlowable(width="100%", thickness=0.4, color=BRAND_LIGHT, spaceAfter=4),
         Spacer(1, 2 * mm),
