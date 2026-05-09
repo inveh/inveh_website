@@ -338,9 +338,9 @@ def draw_cover(c: canvas.Canvas, doc):
     # Contact block at bottom (navy text on white)
     c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica", 9)
-    c.drawCentredString(w / 2, 3.5 * cm, "www.inveh.in  ·  inveh.in@gmail.com")
+    c.drawCentredString(w / 2, 3.5 * cm, "www.inveh.in  ·  info@inveh.in")
     c.setFont("Helvetica", 8)
-    c.drawCentredString(w / 2, 2.5 * cm, "Instagram: @invehlighting")
+    c.drawCentredString(w / 2, 2.5 * cm, "Instagram: @inveh_lighting")
 
     c.setFillColor(WHITE)
     c.setFont("Helvetica", 7)
