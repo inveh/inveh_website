@@ -333,15 +333,27 @@ def draw_cover(c: canvas.Canvas, doc):
     c.roundRect(_badge_x, _badge_y, _badge_w, _badge_h, 0.4 * cm, fill=1, stroke=0)
     c.setFillColor(WHITE)
     c.setFont(_font_name, _font_size)
-    c.drawCentredString(w / 2, _badge_y + 0.42 * cm, _badge_text)
+    c.drawCentredString(w / 2, _badge_y + 0.55 * cm, _badge_text)
 
+    # Address block below the badge
+    address_lines = [
+        "Inveh Lighting Solutions,",
+        "10A1, Poompugar nagar, Dhali road,",
+        "Udumalpet - 642 154,",
+        "Tamilnadu, India."
+    ]
+    c.setFillColor(BRAND_DARK)
+    c.setFont("Helvetica", 11)
+    addr_y = _badge_y - 2.5 * cm
+    for line in address_lines:
+        c.drawCentredString(w / 2, addr_y, line)
+        addr_y -= 0.6 * cm
     # Contact block at bottom (navy text on white)
     c.setFillColor(BRAND_DARK)
     c.setFont("Helvetica", 9)
     c.drawCentredString(w / 2, 3.5 * cm, "www.inveh.in  ·  info@inveh.in")
     c.setFont("Helvetica", 8)
-    c.drawCentredString(w / 2, 2.5 * cm, "Instagram: @inveh_lighting")
-
+    c.drawCentredString(w / 2, 2.5 * cm, "Whatsapp/ Call: +91 94877 41183")
     c.setFillColor(WHITE)
     c.setFont("Helvetica", 7)
     c.drawCentredString(w / 2, 0.35 * cm,
@@ -372,8 +384,50 @@ def make_page_callback(title_text: str = "INVEH LIGHTING SOLUTIONS — Product C
         c.setFillColor(BRAND_GOLD)
         c.rect(0, 0.7 * cm, w, 0.08 * cm, fill=1, stroke=0)
         c.setFillColor(WHITE)
+        
+        # Center: Website
         c.setFont("Helvetica", 7)
-        c.drawCentredString(w / 2, 0.22 * cm, f"Page {doc.page}  ·  www.inveh.in")
+        c.drawCentredString(w / 2, 0.22 * cm, "www.inveh.in")
+        
+        # Left: Email with Post icon
+        c.saveState()
+        c.setStrokeColor(WHITE)
+        c.setLineWidth(0.8)
+        x_env = 1.6 * cm
+        y_env = 0.20 * cm
+        w_env = 0.35 * cm
+        h_env = 0.24 * cm
+        c.rect(x_env, y_env, w_env, h_env, stroke=1, fill=0)
+        c.line(x_env, y_env + h_env, x_env + w_env/2, y_env + h_env/2)
+        c.line(x_env + w_env/2, y_env + h_env/2, x_env + w_env, y_env + h_env)
+        c.restoreState()
+        
+        c.setFont("Helvetica", 7)
+        c.drawString(1.6 * cm + 0.5 * cm, 0.22 * cm, "info@inveh.in")
+        
+        # Right: Phone number with WhatsApp/Phone icon
+        phone_text = "+91 94877 41183"
+        c.setFont("Helvetica", 7)
+        c.drawRightString(w - 1.6 * cm, 0.22 * cm, phone_text)
+        text_w = c.stringWidth(phone_text, "Helvetica", 7)
+        
+        c.saveState()
+        c.setStrokeColor(WHITE)
+        c.setLineWidth(0.8)
+        x_wa = w - 1.6 * cm - text_w - 0.2 * cm
+        y_wa = 0.20 * cm
+        r_wa = 0.12 * cm
+        cx = x_wa - r_wa
+        cy = y_wa + r_wa
+        c.circle(cx, cy, r_wa, stroke=1, fill=0)
+        p = c.beginPath()
+        p.moveTo(cx - 0.7 * r_wa, cy - 0.7 * r_wa)
+        p.lineTo(cx - 1.3 * r_wa, cy - 1.3 * r_wa)
+        p.lineTo(cx - 0.3 * r_wa, cy - 0.95 * r_wa)
+        c.drawPath(p, stroke=1, fill=0)
+        c.setLineWidth(0.6)
+        c.arc(cx - 0.5*r_wa, cy - 0.5*r_wa, cx + 0.5*r_wa, cy + 0.5*r_wa, 135, 180)
+        c.restoreState()
 
     return on_page
 
@@ -642,15 +696,33 @@ def build_brochure(products: list[dict]):
     ))
     story.append(Spacer(1, 0.4 * cm))
     story.append(Paragraph(
-        "Customisation is available on most models. Reach us at "
-        "<b>info@inveh.in</b> or visit <b>www.inveh.in</b>. "
-        "Follow us on Instagram at <b>@inveh_lighting</b> for the latest collections.",
+        "Customisation is available on most models. Reach us to discuss further!",
         intro_style,
     ))
     story.append(PageBreak())           # → page 2 done, next page = products
 
     # ── One page per product ──────────────────────────────────────────────────
+    current_category = ""
     for product in products:
+        title_text = product.get("title", "").strip()
+        if title_text:
+            current_category = title_text
+            cat_title_style = ParagraphStyle(
+                "cat_title",
+                fontName="Helvetica-Bold",
+                fontSize=36,
+                textColor=BRAND_DARK,
+                alignment=TA_CENTER,
+            )
+            story.append(Spacer(1, 9 * cm))
+            story.append(Paragraph(title_text, cat_title_style))
+            story.append(Spacer(1, 1 * cm))
+            story.append(HRFlowable(width="15%", thickness=2, color=BRAND_GOLD, spaceAfter=8, hAlign="CENTER"))
+            story.append(PageBreak())
+
+        # Keep the title accurate for the badge on the product page
+        product["title"] = current_category
+        
         story.extend(build_product_page(product, styles))
         # build_product_page already appends a PageBreak at the end
 
@@ -684,10 +756,7 @@ def build_brochure(products: list[dict]):
                              spaceAfter=8, hAlign="CENTER"))
     story.append(Spacer(1, 0.4 * cm))
     story.append(Paragraph(
-        "Every lamp carries a piece of our craft into your home.<br/><br/>"
-        "<b>www.inveh.in</b><br/>"
-        "<b>info@inveh.in</b><br/>"
-        "<b>@inveh_lighting</b>",
+        "Every lamp carries a piece of our craft into your home.<br/><br/>",
         sub_style,
     ))
 
