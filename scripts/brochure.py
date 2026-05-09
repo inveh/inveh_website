@@ -596,9 +596,8 @@ def build_brochure(products: list[dict]):
     # ── Story ────────────────────────────────────────────────────────────────
     story = []
 
-    # Start on the cover template, immediately break to content
-    story.append(NextPageTemplate("cover"))
-    story.append(PageBreak())           # → page 1 (cover drawn by callback)
+    # The doc starts on page 1 using the first template ("cover") automatically.
+    # We only need to tell it to switch to "content" for all subsequent pages.
     story.append(NextPageTemplate("content"))
 
     # ── About Us page ────────────────────────────────────────────────────────
