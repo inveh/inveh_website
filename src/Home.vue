@@ -32,36 +32,39 @@ const goToProduct = (sku: string) => {
     </section>
 
     <section class="product-grid" aria-label="Product catalog">
-      <article
-        v-for="product in productCategories"
-        :key="product.model_num"
-        class="product-card"
-        @click="goToProduct(product.model_num)"
-        role="button"
-        tabindex="0"
-        @keydown.enter="goToProduct(product.model_num)"
-        :aria-label="`View ${product.model_name}`"
-      >
-        <div class="product-image-container">
-          <img
-            v-if="product.images.length > 0"
-            :src="product.images[0]!.src"
-            :alt="`${product.model_name} – handcrafted wooden LED lamp by Inveh Lighting`"
-            class="product-image"
-            loading="lazy"
-            width="400"
-            height="500"
-          />
+      <template v-for="product in productCategories" :key="product.model_num">
+        <div v-if="product.title" class="category-banner">
+          <span>{{ product.title }}</span>
         </div>
+        <article
+          class="product-card"
+          @click="goToProduct(product.model_num)"
+          role="button"
+          tabindex="0"
+          @keydown.enter="goToProduct(product.model_num)"
+          :aria-label="`View ${product.model_name}`"
+        >
+          <div class="product-image-container">
+            <img
+              v-if="product.images.length > 0"
+              :src="product.images[0]!.src"
+              :alt="`${product.model_name} – handcrafted wooden LED lamp by Inveh Lighting`"
+              class="product-image"
+              loading="lazy"
+              width="400"
+              height="500"
+            />
+          </div>
 
-        <div class="product-info">
-          <h2 class="product-title">{{ product.model_name }}</h2>
-          <p class="product-price" v-if="product.model_price > 0">
-            <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
-            <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
-          </p>
-        </div>
-      </article>
+          <div class="product-info">
+            <h2 class="product-title">{{ product.model_name }}</h2>
+            <p class="product-price" v-if="product.model_price > 0">
+              <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
+              <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
+            </p>
+          </div>
+        </article>
+      </template>
     </section>
   </main>
 </template>
@@ -151,6 +154,42 @@ const goToProduct = (sku: string) => {
   max-width: 1400px;
   margin: 0 auto;
   overflow-x: hidden;
+}
+
+.category-banner {
+  grid-column: 1 / -1;
+  background-color: #02163b; /* logo dark blue */
+  color: #fec955; /* logo yellow */
+  text-align: center;
+  padding: 12px 15px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 1.5rem -4rem 2.5rem -4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.8s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .category-banner {
+    margin: 1.5rem -1.25rem 2rem -1.25rem;
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-banner {
+    margin: 1rem -0.5rem 1.5rem -0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+  }
 }
 
 @media (max-width: 768px) {
