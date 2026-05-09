@@ -84,7 +84,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB005",
     model_price: 1100,
     discount: 0,
-    description: 'Mughal empire honeycomb lighting with its warmnes takes you to a different era. size: 14cm (Width) x 14cm(Depth) x 26cm(Height',
+    description: 'Mughal empire honeycomb lighting with its warmnes takes you to a different era. size: 14cm (Width) x 14cm(Depth) x 26cm(Height)',
   },
 
   {
@@ -126,7 +126,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB008",
     model_price: 1200,
     discount: 0,
-    description: 'Inspired from Germany\'s Ludwigsburg Pumpkin Festival. Size: 30cm (Height) x 45cm (Diameter)',
+    description: 'Inspired from Germany Ludwigsburg Pumpkin Festival. Size: 30cm (Height) x 45cm (Diameter)',
   },
 
   {
@@ -153,7 +153,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB010",
     model_price: 1700,
     discount: 0,
-    description: 'More spiky on the outside, more warm on the inside, same like a Pineapple!. A tropical vibe to your home!. Size:30cm (Height) x 45cm (Diameter',
+    description: 'More spiky on the outside, more warm on the inside, same like a Pineapple!. A tropical vibe to your home!. Size:30cm (Height) x 45cm (Diameter)',
   },
 
   {
@@ -252,7 +252,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB018",
     model_price: 1700,
     discount: 0,
-    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or "waffle" pattern that creates a dynamic sense of movement and texture. Size: 40cm (Height) x 25cm (Width)',
+    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or waffle pattern that creates a dynamic sense of movement and texture. Size: 40cm (Height) x 25cm (Width)',
   },
 
   {
@@ -281,7 +281,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB020",
     model_price: 1200,
     discount: 0,
-    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or "egg-shaped" silhouette. Size: 40cm (Height) x 20cm (Width)',
+    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or egg-shaped silhouette. Size: 40cm (Height) x 20cm (Width)',
   },
 
   {
@@ -308,7 +308,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB022",
     model_price: 1100,
     discount: 0,
-    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or "trapezoidal" silhouette. Size: 25cm (Height) x 20cm (Width)',
+    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or trapezoidal silhouette. Size: 25cm (Height) x 20cm (Width)',
   },
 
   {
@@ -352,7 +352,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB025",
     model_price: 1200,
     discount: 0,
-    description: 'This is a rectangular, pendant-style lamp featuring floral mandala-like motifs',
+    description: 'This is a rectangular, pendant-style lamp featuring floral mandala-like motifs. Size: 30cm (Height) x 15cm (Width)',
   },
 
   {
@@ -408,7 +408,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INW001",
     model_price: 2500,
     discount: 0,
-    description: 'This wall decor lamp features a striking celestial and minimalist design that acts as both a functional light source and a piece of modern art.',
+    description: 'This wall decor lamp features a striking celestial and minimalist design that acts as both a functional light source and a piece of modern art. Size: 36cm (Height) x 45cm (Width)',
   },
 
   {
