@@ -391,37 +391,53 @@ CONTENT_W = PAGE_W - LEFT_MARGIN - RIGHT_MARGIN
 CONTENT_H = PAGE_H - TOP_MARGIN - BOTTOM_MARGIN - HEADER_H - FOOTER_H - 0.3 * cm
 
 
-# ── Per-product full-page layout ──────────────────────────────────────────────
-HERO_W   = CONTENT_W * 0.52    # left column: hero image
-INFO_W   = CONTENT_W * 0.44    # right column: text
-THUMB_W  = 3.2 * cm            # thumbnail strip width
-
 
 def build_product_page(product: dict, styles: dict) -> list:
     """
-    Returns a list of flowables that fills one full content page.
+    Returns flowables for one full content page.
 
     Layout:
-      ┌────────────────────────────────────────────────────────┐
-      │  [HERO IMAGE (large)]  │  Name / SKU / Price / Desc   │
-      │                        │  ─────────────────────────── │
-      │                        │  Thumbnail strip              │
-      └────────────────────────────────────────────────────────┘
+      ┌──────────────────────────┬──────────────────────────┐
+      │  Image 1                 │  Category badge          │
+      │  ─────────────────────  │  Product name            │
+      │  Image 2                 │  Model No / SKU          │
+      │  ─────────────────────  │  ──────────────────────  │
+      │  Image 3  (etc.)         │  Price                   │
+      │                          │  ──────────────────────  │
+      │                          │  Description             │
+      └──────────────────────────┴──────────────────────────┘
+    All images from the website appear stacked one below the other on the left.
     """
-    # ── Resolve images ──────────────────────────────────────────────────────
+    # ── Resolve all images ───────────────────────────────────────────────────
     image_paths: list[Path] = []
     for rel_path in product["images"]:
         found = find_image(rel_path.lstrip("/"))
         if found:
             image_paths.append(found)
 
-    # Hero: first image, scaled to fill left column
-    if image_paths:
-        hero = rl_image(image_paths[0], HERO_W, CONTENT_H * 0.72)
-    else:
-        hero = Spacer(HERO_W, CONTENT_H * 0.72)
+    n_images = max(len(image_paths), 1)
 
-    # ── Price text ──────────────────────────────────────────────────────────
+    # Total vertical space in the left column
+    IMG_COL_W  = CONTENT_W * 0.52
+    gap        = 3 * mm                          # gap between stacked images
+    total_gaps = gap * (n_images - 1)
+    per_img_h  = (CONTENT_H - total_gaps) / n_images   # equal height per image
+
+    # Build the stacked image list for the left column
+    left_col: list = []
+    for idx, img_path in enumerate(image_paths):
+        img = rl_image(img_path, IMG_COL_W, per_img_h)
+        if img:
+            left_col.append(img)
+        else:
+            left_col.append(Spacer(IMG_COL_W, per_img_h))
+        if idx < n_images - 1:
+            left_col.append(Spacer(1, gap))
+
+    if not left_col:
+        left_col = [Spacer(IMG_COL_W, CONTENT_H)]
+
+    # ── Price text ───────────────────────────────────────────────────────────
     price    = product["model_price"]
     discount = product["discount"]
     if discount > 0:
@@ -433,8 +449,9 @@ def build_product_page(product: dict, styles: dict) -> list:
     else:
         price_text = f"₹{price:,.0f}"
 
-    # ── Category label ──────────────────────────────────────────────────────
+    # ── Category label ───────────────────────────────────────────────────────
     cat_label = product["title"].strip() or "Bulb Models"
+    INFO_W_   = CONTENT_W - IMG_COL_W - 0.4 * cm   # right column width
 
     cat_style = ParagraphStyle(
         "cat_label",
@@ -443,8 +460,10 @@ def build_product_page(product: dict, styles: dict) -> list:
         textColor=WHITE,
         leading=10,
     )
-    cat_pill_text = Paragraph(cat_label.upper(), cat_style)
-    cat_pill = Table([[cat_pill_text]], colWidths=[INFO_W])
+    cat_pill = Table(
+        [[Paragraph(cat_label.upper(), cat_style)]],
+        colWidths=[INFO_W_],
+    )
     cat_pill.setStyle(TableStyle([
         ("BACKGROUND",    (0, 0), (-1, -1), BRAND_DARK),
         ("LEFTPADDING",   (0, 0), (-1, -1), 6),
@@ -484,14 +503,6 @@ def build_product_page(product: dict, styles: dict) -> list:
         spaceAfter=0,
     )
 
-    # ── Thumbnail strip (remaining images after the hero) ───────────────────
-    thumbs_flowables: list = []
-    for img_path in image_paths[1:4]:   # up to 3 extra thumbnails
-        t = rl_image(img_path, THUMB_W, THUMB_W)
-        if t:
-            thumbs_flowables.append(t)
-            thumbs_flowables.append(Spacer(1, 2 * mm))
-
     # ── Right-column info block ──────────────────────────────────────────────
     info: list = [
         cat_pill,
@@ -508,26 +519,15 @@ def build_product_page(product: dict, styles: dict) -> list:
         Spacer(1, 2 * mm),
         Paragraph(product["description"], desc_style),
     ]
-    if thumbs_flowables:
-        info.append(Spacer(1, 6 * mm))
-        info.append(Paragraph("More Views", ParagraphStyle(
-            "more_views",
-            fontName="Helvetica-Bold",
-            fontSize=8,
-            textColor=BRAND_DARK,
-            leading=11,
-            spaceAfter=3,
-        )))
-        info.extend(thumbs_flowables)
 
-    # ── Assemble two-column table ────────────────────────────────────────────
+    # ── Two-column table: [stacked images | info] ────────────────────────────
     page_table = Table(
-        [[hero, info]],
-        colWidths=[HERO_W + 0.4 * cm, INFO_W],
+        [[left_col, info]],
+        colWidths=[IMG_COL_W + 0.4 * cm, INFO_W_],
         rowHeights=[CONTENT_H],
     )
     page_table.setStyle(TableStyle([
-        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+        ("VALIGN",        (0, 0), (0, 0),   "TOP"),
         ("VALIGN",        (1, 0), (1, 0),   "TOP"),
         ("LEFTPADDING",   (0, 0), (0, 0),   0),
         ("RIGHTPADDING",  (0, 0), (0, 0),   10),
@@ -635,8 +635,8 @@ def build_brochure(products: list[dict]):
     story.append(Spacer(1, 0.4 * cm))
     story.append(Paragraph(
         "Customisation is available on most models. Reach us at "
-        "<b>inveh.in@gmail.com</b> or visit <b>www.inveh.in</b>. "
-        "Follow us on Instagram at <b>@invehlighting</b> for the latest collections.",
+        "<b>info@inveh.in</b> or visit <b>www.inveh.in</b>. "
+        "Follow us on Instagram at <b>@inveh_lighting</b> for the latest collections.",
         intro_style,
     ))
     story.append(PageBreak())           # → page 2 done, next page = products
@@ -678,8 +678,8 @@ def build_brochure(products: list[dict]):
     story.append(Paragraph(
         "Every lamp carries a piece of our craft into your home.<br/><br/>"
         "<b>www.inveh.in</b><br/>"
-        "inveh.in@gmail.com<br/>"
-        "@invehlighting",
+        "<b>info@inveh.in</b><br/>"
+        "<b>@inveh_lighting</b>",
         sub_style,
     ))
 
