@@ -17,6 +17,20 @@ const goToProduct = (sku: string) => {
     <!-- Visually hidden H1 for SEO – does not affect visual layout -->
     <h1 class="visually-hidden">Inveh Lighting Solutions – Shop Handcrafted Wooden LED Lamps Online</h1>
 
+    <!-- About Section -->
+    <section class="about-section" aria-label="About Inveh Lighting Solutions">
+      <div class="about-inner">
+        <h2 class="about-heading">About Us</h2>
+        <div class="about-rule"></div>
+        <p class="about-text">
+          Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. Each piece in our
+          collection is handcrafted from premium pine wood, engineered wood and acrylic using
+          state-of-the-art techniques. We blend modern manufacturing with artisanal warmth to create
+          lamps that don't just illuminate a room — they <em>transform</em> it.
+        </p>
+      </div>
+    </section>
+
     <section class="product-grid" aria-label="Product catalog">
       <article
         v-for="product in productCategories"
@@ -57,6 +71,63 @@ const goToProduct = (sku: string) => {
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   box-sizing: border-box;
+}
+
+/* ── About Section ────────────────────────────────────────────────────────── */
+.about-section {
+  background-color: #ffffff;
+  border-top: 3px solid #02163b;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 3rem 4rem;
+  animation: fadeInDown 0.6s ease both;
+}
+
+.about-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #02163b;
+  margin: 0 0 0.75rem 0;
+}
+
+.about-rule {
+  width: 48px;
+  height: 2px;
+  background-color: #fec955;
+  margin: 0 auto 1.25rem;
+  border-radius: 2px;
+}
+
+.about-text {
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+  font-weight: 400;
+}
+
+.about-text em {
+  font-style: italic;
+  color: #02163b;
+  font-weight: 500;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 1.25rem;
+  }
 }
 
 /* Visually hidden but readable by screen-readers and search crawlers */

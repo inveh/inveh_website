@@ -288,7 +288,7 @@ def draw_cover(c: canvas.Canvas, doc):
     c.rect(1.5 * cm, 0, 0.3 * cm, h, fill=1, stroke=0)
 
     # Logo (if available)
-    logo_y = h - 5.5 * cm
+    logo_y = h - 6.0 * cm
     if LOGO_PATH.exists():
         try:
             logo_buf = webp_to_jpeg_bytes(LOGO_PATH) if LOGO_PATH.suffix == ".webp" else None
@@ -633,11 +633,11 @@ def build_brochure(products: list[dict]):
                              spaceAfter=10, hAlign="CENTER"))
     story.append(Spacer(1, 0.5 * cm))
     story.append(Paragraph(
-        "Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. "
-        "Each piece in our collection is handcrafted from premium pine wood using "
-        "precision laser-cutting techniques. We blend modern manufacturing with "
-        "artisanal warmth to create lamps that don't just illuminate a room — "
-        "they <i>transform</i> it.",
+        "Welcome to Inveh Lighting Solutions \u2014 where nature meets craftsmanship. "
+        "Each piece in our collection is handcrafted from premium pine wood, engineered wood "
+        "and acrylic using state-of-the-art techniques. We blend modern manufacturing with "
+        "artisanal warmth to create lamps that don't just illuminate a room \u2014 they "
+        "<i>transform</i> it.",
         intro_style,
     ))
     story.append(Spacer(1, 0.4 * cm))
