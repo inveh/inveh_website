@@ -398,7 +398,7 @@ export const productCategories: ProductCategory[] = [
   },
 
   {
-    title: "Wall Decors",
+    title: "Wall Sconce",
     images: [
       { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_1.webp') },
       { src: getImagePath('INW001_Bug_Wall_Decor_Lamp/INW001_Bug_Wall_Decor_Lamp_2.webp') },
