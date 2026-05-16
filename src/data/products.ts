@@ -406,12 +406,12 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Bug Wall Decor Lamp',
     model_num: "INW001",
-    model_price: 2500,
+    model_price: 3500,
     discount: 0,
     description: 'This wall decor lamp features a striking celestial and minimalist design that acts as both a functional light source and a piece of modern art. Size: 36cm (Height) x 45cm (Width)',
   },
 
-   {
+  {
     title: "",
     images: [
       { src: getImagePath('INW002_Moon_Deer_Wall_Sconce/INW002_Moon_Deer_Wall_Sconce_1.webp') },
@@ -419,7 +419,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Moon Deer Wall Sconce',
     model_num: "INW002",
-    model_price: 1500,
+    model_price: 2000,
     discount: 0,
     description: 'The wall sconce features a high-contrast black background with a white silhouette of a jumping deer and a crescent moon.',
   },
