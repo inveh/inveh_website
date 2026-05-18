@@ -148,6 +148,7 @@ export const productCategories: ProductCategory[] = [
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_1.webp') },
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_2.webp') },
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_3.webp') },
+      { src: getImagePath('INB010_Pineapple/INB010_Pineapple_4.webp') },
     ],
     model_name: 'Pineapple',
     model_num: "INB010",
@@ -396,6 +397,22 @@ export const productCategories: ProductCategory[] = [
     discount: 0,
     description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom. Size: 30cm (Height) x 22cm (Width)',
   },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_1.webp') },
+      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_2.webp') },
+      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_3.webp') },
+      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_4.webp') },
+    ],
+    model_name: 'Multi Hexagon',
+    model_num: "INB034",
+    model_price: 3500,
+    discount: 0,
+    description: 'The Lampshade is a polyhedron (specifically resembling a dodecahedron), constructed from multiple flat hexagon, interlocking panels',
+  },
+
 
   {
     title: "Wall Sconce",
