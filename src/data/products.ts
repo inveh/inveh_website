@@ -145,10 +145,10 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
+      { src: getImagePath('INB010_Pineapple/INB010_Pineapple_4.webp') },
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_1.webp') },
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_2.webp') },
       { src: getImagePath('INB010_Pineapple/INB010_Pineapple_3.webp') },
-      { src: getImagePath('INB010_Pineapple/INB010_Pineapple_4.webp') },
     ],
     model_name: 'Pineapple',
     model_num: "INB010",
