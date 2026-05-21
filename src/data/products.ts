@@ -28,7 +28,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB001",
     model_price: 2400,
     discount: 0,
-    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder giving a warm glow. Size: 36cm (Height) x 20cm (Diameter)',
+    description: 'A cylindrical wave pendant surrounding an antique brass pendant holder giving a warm glow. Size: 20cm (Length) x 20cm (Width) x 36cm (Height)',
   },
 
   {
@@ -42,7 +42,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB002",
     model_price: 2300,
     discount: 0,
-    description: 'Set of pine wood traingles stacked over one another giving a tunnel like glow. Size:11cm (Width) x 12cm (Depth)',
+    description: 'Set of pine wood traingles stacked over one another giving a tunnel like glow. Size: 23cm (Length) x 23cm (Width) x 11cm (Height)',
   },
 
   {
@@ -56,7 +56,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB003",
     model_price: 2600,
     discount: 0,
-    description: 'Pine wood popsicle sticks hanging in a circular frame giving a feeling of Chinese Feng-ling. Size:30cm (Height) x 14cm (Diameter)',
+    description: 'Pine wood popsicle sticks hanging in a circular frame giving a feeling of Chinese Feng-ling. Size: 14cm (Length) x 14cm (Width) x 30cm (Height)',
   },
 
   {
@@ -70,7 +70,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB004",
     model_price: 2300,
     discount: 0,
-    description: 'Rabbit silhouette cut out in the center with a moon behind it. Sure the little children in your home will love this. Size: 25cm cube',
+    description: 'Rabbit silhouette cut out in the center with a moon behind it. Sure the little children in your home will love this. Size: 25cm (Length) x 25cm (Width) x 25cm (Height)',
   },
 
   {
@@ -84,7 +84,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB005",
     model_price: 2000,
     discount: 0,
-    description: 'Mughal empire honeycomb lighting with its warmnes takes you to a different era. size: 14cm (Width) x 14cm(Depth) x 26cm(Height)',
+    description: 'Mughal empire honeycomb lighting with its warmnes takes you to a different era. Size: 14cm (Length) x 14cm (Width) x 26cm (Height)',
   },
 
   {
@@ -98,7 +98,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB006",
     model_price: 3100,
     discount: 0,
-    description: 'A design derived from ancient calabash containers will sure make the surrounding environment warm and cozy. Size: 50cm (Height) x 40cm (Diameter)',
+    description: 'A design derived from ancient calabash containers will sure make the surrounding environment warm and cozy. Size: 40cm (Length) x 40cm (Width) x 50cm (Height)',
   },
 
   {
@@ -112,7 +112,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB007",
     model_price: 2300,
     discount: 0,
-    description: 'Caution: You may feel sleepy or hypnotized when you start tracing each circle! Size: 35cm (Height) x 35cm (Diameter)',
+    description: 'Caution: You may feel sleepy or hypnotized when you start tracing each circle! Size: 35cm (Length) x 35cm (Width) x 35cm (Height)',
   },
 
   {
@@ -126,7 +126,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB008",
     model_price: 2400,
     discount: 0,
-    description: 'Inspired from Germany Ludwigsburg Pumpkin Festival. Size: 30cm (Height) x 45cm (Diameter)',
+    description: 'Inspired from Germany Ludwigsburg Pumpkin Festival. Size: 45cm (Length) x 45cm (Width) x 30cm (Height)',
   },
 
   {
@@ -139,7 +139,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB009",
     model_price: 2000,
     discount: 0,
-    description: 'Let your imagination fly with this fairy moon. Size: 20cm (Width) x 4.5cm (Depth) x 20cm (Height)',
+    description: 'Let your imagination fly with this fairy moon. Size: 4.5cm (Length) x 20cm (Width) x 20cm (Height)',
   },
 
   {
@@ -154,7 +154,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB010",
     model_price: 3500,
     discount: 0,
-    description: 'More spiky on the outside, more warm on the inside, same like a Pineapple!. A tropical vibe to your home!. Size:30cm (Height) x 45cm (Diameter)',
+    description: 'More spiky on the outside, more warm on the inside, same like a Pineapple!. A tropical vibe to your home!. Size: 45cm (Length) x 45cm (Width) x 30cm (Height)',
   },
 
   {
@@ -168,7 +168,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB011",
     model_price: 2400,
     discount: 0,
-    description: 'To escape the busy day, let the light spend some time in a jail until we energise!. Size: 20cm (Height) x 14cm (Diameter)',
+    description: 'To escape the busy day, let the light spend some time in a jail until we energise!. Size: 14cm (Length) x 14cm (Width) x 20cm (Height)',
   },
 
   {
@@ -182,7 +182,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB012",
     model_price: 2400,
     discount: 0,
-    description: 'Get the Amsterdam Tulips garden vibe with this hexagon tulip lamp. Size: 15cm (Height) x 17cm (Diameter)',
+    description: 'Get the Amsterdam Tulips garden vibe with this hexagon tulip lamp. Size: 17cm (Length) x 17cm (Width) x 15cm (Height)',
   },
 
   {
@@ -196,7 +196,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB013",
     model_price: 2000,
     discount: 0,
-    description: 'Let the light bloom in your home with this wooden flower lamp. Size: 25cm (Height) x 20cm (Diameter)',
+    description: 'Let the light bloom in your home with this wooden flower lamp. Size: 20cm (Length) x 20cm (Width) x 25cm (Height)',
   },
 
   {
@@ -209,7 +209,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB014",
     model_price: 2000,
     discount: 0,
-    description: 'If you want to enjoy the Christmas in Lilliputian civilization, then this Mini Christmas Tree is a perfect choice. Size: 12cm (Height) x 14cm (Diameter)',
+    description: 'If you want to enjoy the Christmas in Lilliputian civilization, then this Mini Christmas Tree is a perfect choice. Size: 14cm (Length) x 14cm (Width) x 12cm (Height)',
   },
 
   {
@@ -224,7 +224,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB015",
     model_price: 2100,
     discount: 0,
-    description: 'The lamp is shaped like a rabbit,that combines modern manufacturing techniques with a warm, rustic aesthetic. Size: 15cm (Height) x 28cm (Width) x 12cm (Depth)',
+    description: 'The lamp is shaped like a rabbit,that combines modern manufacturing techniques with a warm, rustic aesthetic. Size: 14cm (Length) x 28cm (Width) x 16cm (Height)',
   },
 
   {
@@ -238,7 +238,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB017",
     model_price: 2600,
     discount: 0,
-    description: 'The image features a parametric pendant lamp with a series of vertical, curved wooden slats that are held in place by horizontal rings, creating a tapered, cage-like silhouette. Size: 40cm (Height) x 37cm (Width)',
+    description: 'The image features a parametric pendant lamp with a series of vertical, curved wooden slats that are held in place by horizontal rings, creating a tapered, cage-like silhouette. Size: 37cm (Length) x 37cm (Width) x 40cm (Height)',
   },
 
   {
@@ -253,7 +253,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB018",
     model_price: 3400,
     discount: 0,
-    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or waffle pattern that creates a dynamic sense of movement and texture. Size: 40cm (Height) x 25cm (Width)',
+    description: 'The lamp hasvertical fins feature a sharp, repeating zig-zag or waffle pattern that creates a dynamic sense of movement and texture. Size: 25cm (Length) x 25cm (Width) x 40cm (Height)',
   },
 
   {
@@ -267,7 +267,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB019",
     model_price: 2300,
     discount: 0,
-    description: 'The pendant lamp has a organic silhouette with precise, uniform shapes of the wooden ribs. Size: 30cm (Height) x 30cm (Width)',
+    description: 'The pendant lamp has a organic silhouette with precise, uniform shapes of the wooden ribs. Size: 28cm (Length) x 28cm (Width) x 30cm (Height)',
   },
 
   {
@@ -282,7 +282,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB020",
     model_price: 2300,
     discount: 0,
-    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or egg-shaped silhouette. Size: 40cm (Height) x 20cm (Width)',
+    description: ' The pendant lamp features vertical, curved wooden slats arranged in an elliptical or egg-shaped silhouette. Size: 20cm (Length) x 20cm (Width) x 40cm (Height)',
   },
 
   {
@@ -296,7 +296,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB021",
     model_price: 2300,
     discount: 0,
-    description: 'The lampshade is composed of several vertical, curved wooden ribs that taper at the top and bottom, creating a teardrop or bulbous silhouette. Size: 35cm (Height) x 22cm (Width)',
+    description: 'The lampshade is composed of several vertical, curved wooden ribs that taper at the top and bottom, creating a teardrop or bulbous silhouette. Size: 20cm (Length) x 20cm (Width) x 40cm (Height)',
   },
 
   {
@@ -309,7 +309,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB022",
     model_price: 2000,
     discount: 0,
-    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or trapezoidal silhouette. Size: 25cm (Height) x 20cm (Width)',
+    description: 'The pendant lamp featuresvertical wooden slats arranged in a conical or trapezoidal silhouette. Size: 20cm (Length) x 20cm (Width) x 25cm (Height)',
   },
 
   {
@@ -324,7 +324,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB023",
     model_price: 2300,
     discount: 0,
-    description: 'The pendant lamp features a cylindrical, laser-cut wooden shade that blends intricate traditional motifs with modern manufacturing techniques. Size: 36cm (Height) x 24cm (Width)',
+    description: 'The pendant lamp features a cylindrical, laser-cut wooden shade that blends intricate traditional motifs with modern manufacturing techniques. Size: 24cm (Length) x 24cm (Width) x 36cm (Height)',
   },
 
   {
@@ -339,7 +339,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB024",
     model_price: 2400,
     discount: 0,
-    description: 'The lamp is composed of several vertical wooden fins arranged radially around a central light source. Size: 25cm (Height) x 25cm (Width)',
+    description: 'The lamp is composed of several vertical wooden fins arranged radially around a central light source. Size: 25cm (Length) x 25cm (Width) x 25cm (Height)',
   },
 
   {
@@ -353,7 +353,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB025",
     model_price: 2100,
     discount: 0,
-    description: 'This is a rectangular, pendant-style lamp featuring floral mandala-like motifs. Size: 30cm (Height) x 15cm (Width)',
+    description: 'This is a rectangular, pendant-style lamp featuring floral mandala-like motifs. Size: 15cm (Length) x 15cm (Width) x 30cm (Height)',
   },
 
   {
@@ -367,7 +367,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB026",
     model_price: 2600,
     discount: 0,
-    description: 'The pendant lamp featuresvertical, interlocking ribs that create a bulbous, hexagonal or octagonal silhouette. Size: 32cm (Height) x 38cm (Width)',
+    description: 'The pendant lamp featuresvertical, interlocking ribs that create a bulbous, hexagonal or octagonal silhouette. Size: 38cm (Length) x 38cm (Width) x 32cm (Height)',
   },
 
   {
@@ -381,7 +381,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB027",
     model_price: 2600,
     discount: 0,
-    description: 'The lamp has an elongated, egg-shaped (ellipsoid) silhouette formed by vertical and horizontal cross-sections. Size: 35cm (Height) x 20cm (Width)',
+    description: 'The lamp has an elongated, egg-shaped (ellipsoid) silhouette formed by vertical and horizontal cross-sections. Size: 20cm (Length) x 20cm (Width) x 35cm (Height)',
   },
 
   {
@@ -395,7 +395,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INB029",
     model_price: 2100,
     discount: 0,
-    description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom. Size: 30cm (Height) x 22cm (Width)',
+    description: 'The lamp features a tapered, geometric silhouette created by vertical wooden slats that flare outward toward the bottom. Size: 22cm (Length) x 22cm (Width) x 30cm (Height)',
   },
 
   {
@@ -453,7 +453,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "INT001",
     model_price: 2300,
     discount: 0,
-    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 44.5cm (Width) x 4.5cm (Depth) x 6cm (Height)',
+    description: 'A Pine wood housing to the standard batten tube light (20W). Size: 44.5cm (Length) x 4.5cm (Width) x 6cm (Height)',
   },
 
   {
@@ -467,7 +467,7 @@ export const productCategories: ProductCategory[] = [
     model_num: "IND001",
     model_price: 1900,
     discount: 0,
-    description: 'A Pine wood housing to the standard down light (3W). Customisation possible in the area of the wood similar like the butterfly in the picture. Mentioned price is unit price. Size: 13cm(Width) x 13cm(Depth) x 15cm(Height)',
+    description: 'A Pine wood housing to the standard down light (3W). Customisation possible in the area of the wood similar like the butterfly in the picture. Mentioned price is unit price. Size: 13cm (Length) x 13cm (Width) x 15cm (Height)',
   },
 
   {
@@ -482,6 +482,6 @@ export const productCategories: ProductCategory[] = [
     model_num: "ING001",
     model_price: 100,
     discount: 0,
-    description: 'Surpise your beloved ones with such personalised Gifts. Complete customization possible. Mentioned price for unit price. Size: 5cm (Height) x 4cm (Width) x 0.8cm (Depth)',
+    description: 'Surpise your beloved ones with such personalised Gifts. Complete customization possible. Mentioned price for unit price. Size: 4cm (Length) x 0.8cm (Width) x 5cm (Height)',
   },
 ];
