@@ -157,7 +157,7 @@ const addToCart = () => {
               <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
               <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>
             </h2>
-            <span class="tax-info">Tax included.</span>
+            <span class="tax-info">Tax included. Shipping calculated at checkout.</span>
           </div>
 
           <div class="quantity-selector">
