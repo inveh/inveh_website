@@ -53,6 +53,7 @@ PROJECT_DIR = SCRIPT_DIR.parent
 PUBLIC_DIR  = PROJECT_DIR / "public"
 OUTPUT_PDF  = PROJECT_DIR / "inveh_brochure.pdf"
 LOGO_PATH   = PUBLIC_DIR / "inveh_logo.jpeg"
+RETAIL_DISCOUNT_PERCENT = 30.0
 
 # ── Brand colours (matching the live website) ────────────────────────────────
 BRAND_DARK   = colors.HexColor("#02163b")   # logo / navbar dark blue
@@ -452,7 +453,7 @@ INFO_W  = CONTENT_W * 0.44    # right column: text
 THUMB_W = 3.2 * cm            # thumbnail width
 
 
-def build_product_page(product: dict, styles: dict) -> list:
+def build_product_page(product: dict, styles: dict, is_retail: bool = False) -> list:
     """
     Returns flowables for one full content page.
 
@@ -487,11 +488,16 @@ def build_product_page(product: dict, styles: dict) -> list:
     if discount > 0:
         final      = price * (1 - discount / 100)
         price_text = (
-            f'<strike>₹{price:,.0f}</strike>  '
-            f'<b>₹{final:,.0f}</b>  <font size="9">({discount:.0f}% off)</font>'
+            f'<strike>Rs.{price:,.0f}</strike>  '
+            f'<b>Rs.{final:,.0f}</b>  <font size="9">({discount:.0f}% off)</font>'
         )
     else:
-        price_text = f"Rs. {price:,.0f}"
+        final      = price
+        price_text = f"Rs.{price:,.0f}"
+        
+    if is_retail:
+        retail_price = final * (1 - RETAIL_DISCOUNT_PERCENT / 100)
+        retail_price_text = f"Retail Price: <b>Rs.{retail_price:,.0f}</b> <font size=\"10\" color=\"#6b7a99\">({RETAIL_DISCOUNT_PERCENT:g}% off)</font>"
 
     # ── Category label ───────────────────────────────────────────────────────
     cat_label = product["title"].strip() or "Bulb Models"
@@ -565,11 +571,18 @@ def build_product_page(product: dict, styles: dict) -> list:
         HRFlowable(width="100%", thickness=0.8, color=BRAND_GOLD, spaceAfter=4),
         Spacer(1, 2 * mm),
         Paragraph(f"Price: {price_text}", price_style),
+    ]
+    
+    if is_retail:
+        info.append(Spacer(1, 2 * mm))
+        info.append(Paragraph(retail_price_text, price_style))
+        
+    info.extend([
         Spacer(1, 4 * mm),
         HRFlowable(width="100%", thickness=0.4, color=BRAND_LIGHT, spaceAfter=4),
         Spacer(1, 2 * mm),
         Paragraph(product["description"], desc_style),
-    ]
+    ])
     if thumbs_flowables:
         info.append(Spacer(1, 6 * mm))
         info.append(Paragraph("More Views", ParagraphStyle(
@@ -604,7 +617,7 @@ def build_product_page(product: dict, styles: dict) -> list:
 
 
 # ── Main builder ──────────────────────────────────────────────────────────────
-def build_brochure(products: list[dict]):
+def build_brochure(products: list[dict], output_path: Path, is_retail: bool = False):
     from reportlab.platypus import SimpleDocTemplate, NextPageTemplate
 
     styles = make_styles()
@@ -618,7 +631,7 @@ def build_brochure(products: list[dict]):
     # into it, and the cover is drawn 100% by draw_cover().
 
     doc = BaseDocTemplate(
-        str(OUTPUT_PDF),
+        str(output_path),
         pagesize=A4,
         leftMargin=LEFT_MARGIN,
         rightMargin=RIGHT_MARGIN,
@@ -705,7 +718,7 @@ def build_brochure(products: list[dict]):
     current_category = ""
     for product in products:
         title_text = product.get("title", "").strip()
-        if title_text:
+        if title_text and title_text != current_category:
             current_category = title_text
             cat_title_style = ParagraphStyle(
                 "cat_title",
@@ -723,7 +736,7 @@ def build_brochure(products: list[dict]):
         # Keep the title accurate for the badge on the product page
         product["title"] = current_category
         
-        story.extend(build_product_page(product, styles))
+        story.extend(build_product_page(product, styles, is_retail))
         # build_product_page already appends a PageBreak at the end
 
     # Remove the trailing PageBreak after the last product so the closing page
@@ -761,7 +774,7 @@ def build_brochure(products: list[dict]):
     ))
 
     doc.build(story)
-    print(f"✅  Brochure saved to: {OUTPUT_PDF}")
+    print(f"✅  Brochure saved to: {output_path}")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
@@ -777,5 +790,9 @@ if __name__ == "__main__":
     if not products:
         sys.exit("[ERROR] No products parsed. Check the regex against products.ts.")
 
-    print("🖨️   Building PDF brochure …")
-    build_brochure(products)
+    print("🖨️   Building standard PDF brochure …")
+    build_brochure(products, OUTPUT_PDF, is_retail=False)
+    
+    retail_pdf = PROJECT_DIR / "inveh_brochure_retail.pdf"
+    print("🖨️   Building retail PDF brochure …")
+    build_brochure(products, retail_pdf, is_retail=True)
