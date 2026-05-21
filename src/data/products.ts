@@ -406,11 +406,11 @@ export const productCategories: ProductCategory[] = [
       { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_3.webp') },
       { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_4.webp') },
     ],
-    model_name: 'Multi Hexagon',
-    model_num: "INB034",
-    model_price: 3500,
+    model_name: 'Hexagon Ball',
+    model_num: "INB030",
+    model_price: 2400,
     discount: 0,
-    description: 'The Lampshade is a polyhedron (specifically resembling a dodecahedron), constructed from multiple flat hexagon, interlocking panels',
+    description: 'The Lampshade is a polyhedron (specifically resembling a dodecahedron), constructed from multiple flat hexagon, interlocking panels. Size: 30cm (Length) x 30cm (Width) x 40cm (Height)',
   },
 
 
