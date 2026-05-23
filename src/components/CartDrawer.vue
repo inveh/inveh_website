@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { cart, isCartOpen, type CartItem, clearCart } from '../store/cart';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
 
 const showUserForm = ref(false);
 const userName = ref('');
@@ -25,7 +23,7 @@ const getItemTotal = (item: CartItem) => {
   return `Rs. ${price * item.quantity}`;
 };
 
-const proceedToDownload = () => {
+const proceedToCheckout = () => {
   showUserForm.value = true;
 };
 
@@ -35,9 +33,9 @@ const handleClearAll = () => {
   }
 };
 
-const downloadPDF = () => {
+const submitOrderViaWhatsApp = () => {
   if (!userName.value) {
-    alert("Please enter a name to generate the quote.");
+    alert("Please enter your name to submit the order.");
     return;
   }
   if (!userEmail.value && !userPhone.value) {
@@ -45,62 +43,44 @@ const downloadPDF = () => {
     return;
   }
 
-  const doc = new jsPDF();
-  
-  doc.setFontSize(22);
-  doc.text('Inveh Lighting Solutions', 14, 22);
-  
-  doc.setFontSize(14);
-  doc.text('Cart Quote Request', 14, 32);
-
-  doc.setFontSize(11);
-  doc.text(`Requested By: ${userName.value}`, 14, 42);
-  
-  let startYPos = 42;
-  if (userEmail.value) {
-    startYPos += 6;
-    doc.text(`Email: ${userEmail.value}`, 14, startYPos);
-  }
-  if (userPhone.value) {
-    startYPos += 6;
-    doc.text(`Phone: ${userPhone.value}`, 14, startYPos);
-  }
-
   let grandTotal = 0;
   let grandTotalQty = 0;
 
-  const tableData = cart.map((item) => {
+  const itemsDetails = cart.map((item) => {
     const finalPrice = item.model_price > 0 ? item.model_price - (item.discount || 0) : 0;
     const lineTotal = finalPrice * item.quantity;
     grandTotal += lineTotal;
     grandTotalQty += item.quantity;
     
-    return [
-      item.model_name,
-      item.model_num,
-      item.quantity.toString(),
-      item.model_price > 0 && finalPrice > 0 ? `Rs. ${finalPrice}` : 'N/A',
-      item.model_price > 0 && finalPrice > 0 ? `Rs. ${lineTotal}` : 'N/A'
-    ];
-  });
+    const priceText = item.model_price > 0 && finalPrice > 0 ? `Rs. ${finalPrice}` : 'N/A';
+    const totalText = item.model_price > 0 && finalPrice > 0 ? `Rs. ${lineTotal}` : 'N/A';
+    
+    return `• *${item.model_name}*\n  SKU: ${item.model_num}\n  Qty: ${item.quantity} | Price: ${priceText} | Total: ${totalText}`;
+  }).join('\n\n');
 
-  autoTable(doc, {
-    startY: startYPos + 10,
-    head: [['Model Name', 'SKU', 'Quantity', 'Price', 'Total']],
-    body: tableData,
-    foot: [[
-      { content: 'Grand Total', colSpan: 2, styles: { halign: 'right', fontStyle: 'bold' } },
-      grandTotalQty.toString(),
-      '',
-      `Rs. ${grandTotal}`
-    ]],
-    theme: 'striped',
-    headStyles: { fillColor: [26, 26, 26] },
-    footStyles: { fillColor: [240, 240, 240], textColor: [26, 26, 26] },
-  });
+  // Build the elegant WhatsApp message
+  let message = `*INVEH LIGHTING SOLUTIONS - NEW ORDER REQUEST*\n\n`;
+  message += `*Customer Details:*\n`;
+  message += `• *Name:* ${userName.value}\n`;
+  if (userEmail.value) {
+    message += `• *Email:* ${userEmail.value}\n`;
+  }
+  if (userPhone.value) {
+    message += `• *Phone:* ${userPhone.value}\n`;
+  }
+  message += `\n*Order Items:*\n${itemsDetails}\n\n`;
+  message += `*Total Quantity:* ${grandTotalQty}\n`;
+  message += `*Grand Total:* Rs. ${grandTotal}\n\n`;
+  message += `Please confirm my order. Thank you!`;
 
-  alert('Send the downloaded PDF to info@inveh.in or +919487741183 (Whatsapp) to confirm order');
-  doc.save('Inveh-Lighting-Quote.pdf');
+  const encodedText = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/919487741183?text=${encodedText}`;
+
+  // Open WhatsApp in a new tab
+  window.open(whatsappUrl, '_blank');
+
+  // Clear cart and close drawer
+  clearCart();
   closeCart();
 };
 </script>
@@ -131,7 +111,7 @@ const downloadPDF = () => {
     
     <div class="cart-items form-container" v-else-if="cart.length > 0 && showUserForm">
       <h3 class="form-title">Contact Details</h3>
-      <p class="form-desc">Please provide your Name and at least one contact method (Email or Phone).</p>
+      <p class="form-desc">Please provide your Name and at least one contact method (Email or Phone) to submit your order via WhatsApp.</p>
       
       <div class="form-group">
         <label>Name *</label>
@@ -151,8 +131,8 @@ const downloadPDF = () => {
     </div>
     
     <div class="cart-footer" v-if="cart.length > 0">
-      <button class="checkout-btn" v-if="!showUserForm" @click="proceedToDownload">Proceed to Download Quote</button>
-      <button class="checkout-btn" v-else @click="downloadPDF">Generate PDF</button>
+      <button class="checkout-btn" v-if="!showUserForm" @click="proceedToCheckout">Proceed to Checkout</button>
+      <button class="checkout-btn" v-else @click="submitOrderViaWhatsApp">Submit Order via WhatsApp</button>
       <button class="clear-btn" v-if="!showUserForm" @click="handleClearAll">Clear All</button>
     </div>
   </div>
