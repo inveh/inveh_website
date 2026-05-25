@@ -473,12 +473,12 @@ export const productCategories: ProductCategory[] = [
   {
     title: "Table Lamps",
     images: [
-      { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
-      { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
-      { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
       ],
     model_name: 'Table Lamp',
-    model_num: "INT001",
+    model_num: "INTL001",
     model_price: 1500,
     discount: 0,
     description: 'The Table Lamp utilizes a clean, geometric H-frame design. Two vertical wooden pillars extend upward from a flat, rectangular wooden base with subtly rounded corners.The lighting headappearing to be mounted on a pivot point that allows the head to tilt and adjust the angle of the light.',
