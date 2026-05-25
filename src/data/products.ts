@@ -473,9 +473,9 @@ export const productCategories: ProductCategory[] = [
   {
     title: "Table Lamps",
     images: [
-      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
-      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
-      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp1.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp_1.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp_2.webp') },
+      { src: getImagePath('INTL001_Table_Lamp/INTL001_Table_Lamp_3.webp') },
       ],
     model_name: 'Table Lamp',
     model_num: "INTL001",
