@@ -476,6 +476,7 @@ export const productCategories: ProductCategory[] = [
       { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
       { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
       { src: getImagePath('INT001_Table_Lamp/INT001_Table_Lamp1.webp') },
+      ],
     model_name: 'Table Lamp',
     model_num: "INT001",
     model_price: 1500,
