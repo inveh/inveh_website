@@ -38,6 +38,5 @@ __screenshots__/
 # Vite
 *.timestamp-*-*.mjs
 scripts/brochure.py
-inveh_brochure_retail.pdf
-inveh_brochure.pdf
+inveh_brochure*.pdf
 .gitignore
