@@ -401,10 +401,10 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_1.webp') },
-      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_2.webp') },
-      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_3.webp') },
-      { src: getImagePath('INB034_Multi_Hexagon/INB034_Multi_Hexagon_4.webp') },
+      { src: getImagePath('INB030_Hexagon_Ball/INB030_Hexagon_Ball_1.webp') },
+      { src: getImagePath('INB030_Hexagon_Ball/INB030_Hexagon_Ball_2.webp') },
+      { src: getImagePath('INB030_Hexagon_Ball/INB030_Hexagon_Ball_3.webp') },
+      { src: getImagePath('INB030_Hexagon_Ball/INB030_Hexagon_Ball_4.webp') },
     ],
     model_name: 'Hexagon Ball',
     model_num: "INB030",
