@@ -19,18 +19,29 @@ useHead(computed(() => {
   const p = product.value
   if (!p) return { title: 'Product Not Found – Inveh Lighting Solutions' }
   const sellingPrice = p.model_price - (p.discount || 0)
+  const productTitle = `${p.model_name} – Inveh Lighting Solutions | Handcrafted Wooden LED Lamp`
+  const productDesc = p.description
+    ? `${p.description} | Buy ${p.model_name} from Inveh Lighting Solutions.`
+    : `Buy the ${p.model_name} handcrafted wooden LED lamp from Inveh Lighting Solutions. Starting at Rs. ${sellingPrice}.`
+  const productImage = p.images[0]?.src 
+    ? `https://www.inveh.in${p.images[0].src}` 
+    : 'https://www.inveh.in/inveh_logo.webp'
+
   return {
-    title: `${p.model_name} – Inveh Lighting Solutions | Handcrafted Wooden LED Lamp`,
+    title: productTitle,
     meta: [
-      {
-        name: 'description',
-        content: p.description
-          ? `${p.description} | Buy ${p.model_name} from Inveh Lighting Solutions.`
-          : `Buy the ${p.model_name} handcrafted wooden LED lamp from Inveh Lighting Solutions. Starting at Rs. ${sellingPrice}.`
-      },
+      { name: 'description', content: productDesc },
+      // Open Graph
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: `https://www.inveh.in/product/${p.model_num}` },
       { property: 'og:title', content: `${p.model_name} – Inveh Lighting Solutions` },
       { property: 'og:description', content: p.description || `Handcrafted wooden LED lamp by Inveh Lighting Solutions.` },
-      { property: 'og:image', content: p.images[0]?.src || 'https://www.inveh.in/inveh_logo.webp' },
+      { property: 'og:image', content: productImage },
+      // Twitter Card
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: `${p.model_name} – Inveh Lighting Solutions` },
+      { name: 'twitter:description', content: p.description || `Handcrafted wooden LED lamp by Inveh Lighting Solutions.` },
+      { name: 'twitter:image', content: productImage }
     ],
     script: [
       {
@@ -48,7 +59,7 @@ useHead(computed(() => {
             priceCurrency: 'INR',
             price: sellingPrice,
             availability: 'https://schema.org/InStock',
-            url: `https://www.inveh.in/#/product/${p.model_num}`,
+            url: `https://www.inveh.in/product/${p.model_num}`,
             seller: { '@type': 'Organization', name: 'Inveh Lighting Solutions' }
           }
         })

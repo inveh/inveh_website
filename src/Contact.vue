@@ -1,13 +1,15 @@
 <template>
+  <div class="contact-header">
+    <h1 class="page-title">Contact Us</h1>
+    <div class="header-rule"></div>
+  </div>
+
   <div class="description_style">
-    <ul>
-      <li>We are passionate engineers from a small town in India with a Glocalization idea, working to address the gap between the technology and comfort.</li>
-      <li>In 2023, it all started as a hobby project, slowly acquiring wings to fly as a small manufacturing unit catering the demands.</li>
-      <li>In the products page, you shall see the list of products which we already supply the market.</li>
-      <li>Feel free to contact us for your personalized Lighting Solutions.</li>
-      <br />
-      <li>Happy Lighting!</li>
-    </ul>
+    <p>We are passionate engineers from a small town in India with a Glocalization idea, working to address the gap between the technology and comfort.</p>
+    <p>In 2023, it all started as a hobby project, slowly acquiring wings to fly as a small manufacturing unit catering the demands.</p>
+    <p>In the products page, you shall see the list of products which we already supply the market.</p>
+    <p>Feel free to contact us for your personalized Lighting Solutions.</p>
+    <p class="signature">Happy Lighting!</p>
   </div>
 
   <div class="info-grid">
@@ -52,21 +54,47 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+.contact-header {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #02163b;
+  margin: 0 0 0.75rem 0;
+}
+
+.header-rule {
+  width: 60px;
+  height: 2px;
+  background-color: #fec955;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
 .description_style {
   text-align: center;
-  max-width: 1500px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
-.description_style ul {
-  list-style-position: inside;
-  padding-left: 0;
+.description_style p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0 0 1.25rem 0;
 }
 
-.description_style li {
-  margin-bottom: 1rem;
-  line-height: 1;
+.signature {
+  font-weight: 500;
+  color: #02163b;
+  margin-top: 1.5rem;
 }
 
 .info-grid {

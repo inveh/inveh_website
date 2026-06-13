@@ -14,8 +14,7 @@ const goToProduct = (sku: string) => {
 
 <template>
   <main>
-    <!-- Visually hidden H1 for SEO – does not affect visual layout -->
-    <h1 class="visually-hidden">Inveh Lighting Solutions – Shop Handcrafted Wooden LED Lamps Online</h1>
+
 
     <!-- About Section -->
     <section class="about-section" aria-label="About Inveh Lighting Solutions">
@@ -57,7 +56,7 @@ const goToProduct = (sku: string) => {
           </div>
 
           <div class="product-info">
-            <h2 class="product-title">{{ product.model_name }}</h2>
+            <h3 class="product-title">{{ product.model_name }}</h3>
             <p class="product-price" v-if="product.model_price > 0">
               <span v-if="product.discount > 0" class="original-price">Rs. {{ product.model_price }}</span>
               <span class="selling-price">Rs. {{ product.model_price - (product.discount || 0) }}</span>

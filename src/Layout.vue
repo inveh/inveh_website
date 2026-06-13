@@ -27,7 +27,9 @@ const openCart = () => {
 
         <!-- Center: Logo -->
         <div class="header-item center">
-          <router-link to="/" class="brand-logo">INVEH</router-link>
+          <component :is="$route.path === '/' ? 'h1' : 'div'" class="brand-logo-container">
+            <router-link to="/" class="brand-logo">INVEH</router-link>
+          </component>
         </div>
 
         <!-- Right: Cart -->
@@ -134,6 +136,14 @@ body {
   height: 40px;
   width: auto;
   object-fit: contain;
+}
+
+.brand-logo-container {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 .brand-logo {
