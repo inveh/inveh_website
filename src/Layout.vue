@@ -14,7 +14,7 @@ const openCart = () => {
   <div class="layout-wrapper">
     <!-- Announcement Bar -->
     <div class="announcement-bar">
-      <span>Welcome to Inveh Lighting Solutions</span>
+      <span>We craft premium, vintage wooden LED lamps.</span>
     </div>
 
     <!-- Main Header -->
