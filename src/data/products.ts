@@ -230,6 +230,20 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
+      { src: getImagePath('INB016_TowerShape/INB016_TowerShape_1.webp') },
+      { src: getImagePath('INB016_TowerShape/INB016_TowerShape_2.webp') },
+      { src: getImagePath('INB016_TowerShape/INB016_TowerShape_3.webp') },
+    ],
+    model_name: 'Tower Shape',
+    model_num: "INB016",
+    model_price: 2300,
+    discount: 0,
+    description: 'The lamp is shaped like a tower. It is the Powerhouse for your home.  Size: 24cm (Length) x 24cm (Width) x 28cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_1.webp') },
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_2.webp') },
       { src: getImagePath('INB017_LightHouse/INB017_LightHouse_4.webp') },
