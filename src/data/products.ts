@@ -452,9 +452,47 @@ export const productCategories: ProductCategory[] = [
     model_num: "INW002",
     model_price: 2000,
     discount: 0,
-    description: 'The wall sconce features a high-contrast black background with a white silhouette of a jumping deer and a crescent moon.',
+    description: 'The wall sconce features a high-contrast black background with a white silhouette of a jumping deer and a crescent moon. Size: 33cm (Height) x 3cm (Width)',
   },
 
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_1.webp') },
+      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_2.webp') },
+    ],
+    model_name: 'Calf and Cow Wall Sconce',
+    model_num: "INW004",
+    model_price: 2000,
+    discount: 0,
+    description: 'The wall sconce features a high-contrast black background with a white silhouette of a calf and cow. Size: 33cm (Height) x 3cm (Width)',
+  },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_1.webp') },
+      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_2.webp') },
+    ],
+    model_name: 'Single Bullock and Cart Wall Sconce',
+    model_num: "INW005",
+    model_price: 2000,
+    discount: 0,
+    description: 'The wall sconce features a high-contrast black background with a white silhouette of single bullock and cart. Size: 33cm (Height) x 3cm (Width)',
+  },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_1.webp') },
+      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_2.webp') },
+    ],
+    model_name: 'Double Bullock and Cart Wall Sconce',
+    model_num: "INW006",
+    model_price: 2000,
+    discount: 0,
+    description: 'The wall sconce features a high-contrast black background with a white silhouette of double bullock and cart. Size: 33cm (Height) x 3cm (Width)',
+  },
 
   {
     title: "Tube Light Models",
