@@ -427,6 +427,35 @@ export const productCategories: ProductCategory[] = [
     description: 'The Lampshade is a polyhedron (specifically resembling a dodecahedron), constructed from multiple flat hexagon, interlocking panels. Size: 30cm (Length) x 30cm (Width) x 40cm (Height)',
   },
 
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_1.webp') },
+      { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_2.webp') },
+      { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_3.webp') },
+      { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_4.webp') },
+    ],
+    model_name: 'Criss Cross',
+    model_num: "INB032",
+    model_price: 2100,
+    discount: 0,
+    description: 'The Lampshade is a polyhedron (specifically resembling a dodecahedron), constructed from multiple flat hexagon, interlocking panels. Size: 30cm (Length) x 30cm (Width) x 40cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INB033_Floral_box/INB033_Floral_box_1.webp') },
+      { src: getImagePath('INB033_Floral_box/INB033_Floral_box_2.webp') },
+      { src: getImagePath('INB033_Floral_box/INB033_Floral_box_3.webp') },
+      { src: getImagePath('INB033_Floral_box/INB033_Floral_box_4.webp') },
+    ],
+    model_name: 'Floral Box',
+    model_num: "INB033",
+    model_price: 2300,
+    discount: 0,
+    description: 'The Lampshade is floral boxy shaped. Size: 20cm (Length) x 20cm (Width) x 33cm (Height)',
+  },
 
   {
     title: "Wall Sconce",
