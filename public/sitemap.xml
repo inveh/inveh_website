@@ -197,6 +197,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.inveh.in/product/INW007</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.inveh.in/product/INT001</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
