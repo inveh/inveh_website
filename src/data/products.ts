@@ -524,6 +524,23 @@ export const productCategories: ProductCategory[] = [
   },
 
   {
+    title: "",
+    images: [
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_1.webp') },
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_2.webp') },
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_3.webp') },
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_4.webp') },
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_5.webp') },
+      { src: getImagePath('INW007_RoundWallLight_CowCalf_Kalpavriksha/INW007_RoundWallLight_CowCalf_Kalpavriksha_6.webp') },
+    ],
+    model_name: 'Cow, Calf and Kalpavriksha Wall Sconce',
+    model_num: "INW007",
+    model_price: 2000,
+    discount: 0,
+    description: 'The wall sconce features a high-contrast black background with a white silhouette of Cow, Calf and Kalpavriksha. Size: 32cm (Height) x 3cm (Width)',
+  },
+
+  {
     title: "Tube Light Models",
     images: [
       { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_1.webp') },
