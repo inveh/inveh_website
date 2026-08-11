@@ -487,8 +487,8 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_3.webp') },
-      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_4.webp') },
+      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_1.webp') },
+      { src: getImagePath('INW004_RoundWallLight_CalfCow/INW004_RoundWallLight_CalfCow_2.webp') },
     ],
     model_name: 'Calf and Cow Wall Sconce',
     model_num: "INW004",
@@ -500,8 +500,8 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_3.webp') },
-      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_4.webp') },
+      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_1.webp') },
+      { src: getImagePath('INW005_RoundWallLight_SingleBullockCart/INW005_RoundWallLight_SingleBullockCart_2.webp') },
     ],
     model_name: 'Single Bullock and Cart Wall Sconce',
     model_num: "INW005",
@@ -513,8 +513,8 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_3.webp') },
-      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_4.webp') },
+      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_1.webp') },
+      { src: getImagePath('INW006_RoundWallLight_DoubleBullockCart/INW006_RoundWallLight_DoubleBullockCart_2.webp') },
     ],
     model_name: 'Double Bullock and Cart Wall Sconce',
     model_num: "INW006",
