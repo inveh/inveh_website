@@ -14,7 +14,7 @@ const goToProduct = (sku: string) => {
 
 <template>
   <main>
-
+    <h1 class="visually-hidden">Wooden Pendant Light Manufacturer — Inveh Lighting Solutions</h1>
 
     <!-- About Section -->
     <section class="about-section" aria-label="About Inveh Lighting Solutions">
@@ -22,10 +22,11 @@ const goToProduct = (sku: string) => {
         <h2 class="about-heading">About Us</h2>
         <div class="about-rule"></div>
         <p class="about-text">
-          Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. Each piece in our
-          collection is handcrafted from premium pine wood, engineered wood and acrylic using
-          state-of-the-art techniques. We blend modern manufacturing with artisanal warmth to create
-          lamps that don't just illuminate a room — they <em>transform</em> it.
+          Welcome to Inveh Lighting Solutions — a wooden pendant light manufacturer where nature meets
+          craftsmanship. Each piece in our collection is handcrafted from premium pine wood,
+          engineered wood and acrylic using state-of-the-art techniques. We blend modern
+          manufacturing with artisanal warmth to create lamps that don't just illuminate a room —
+          they <em>transform</em> it.
         </p>
       </div>
     </section>
