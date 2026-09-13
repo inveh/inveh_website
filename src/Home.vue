@@ -146,16 +146,18 @@ const goToProduct = (sku: string) => {
 .services-heading {
   margin: 0 0 1rem;
   color: #02163b;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .services-inner p {
   margin: 0 auto 0.9rem;
+  font-size: 0.97rem;
   color: #444;
   line-height: 1.8;
+  font-weight: 400;
 }
 
 .services-inner p:last-child {
