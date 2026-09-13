@@ -2,14 +2,14 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
+import seo from './data/seo_list.json'
 
 const route = useRoute()
 
 // Dynamically update <title> and other tags on each route change
 useHead(computed(() => {
-  const title = (route.meta.title as string) || 'Inveh Lighting Solutions – Handcrafted Wooden LED Lamps';
-  const description = (route.meta.description as string) ||
-    'Inveh Lighting Solutions crafts premium handmade wooden LED pendant lamps, tube lights, and personalised gifts. Shop unique eco-friendly lighting. Based in Udumalpet, Tamil Nadu, India.';
+  const title = (route.meta.title as string) || seo.siteTitle;
+  const description = (route.meta.description as string) || seo.siteDescription;
   const canonicalUrl = `https://www.inveh.in${route.path === '/' ? '/' : route.path}`;
   const defaultImage = 'https://www.inveh.in/inveh_logo.webp';
 

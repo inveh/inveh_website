@@ -3,6 +3,7 @@ import Layout from './Layout.vue';
 import Home from './Home.vue';
 import ProductDetail from './ProductDetail.vue';
 import Contact from './Contact.vue';
+import seo from './data/seo_list.json';
 
 const scrollPositions = new Map();
 
@@ -34,8 +35,8 @@ const router = createRouter({
           name: 'Home',
           component: Home,
           meta: {
-            title: 'Inveh Lighting Solutions – Handcrafted Wooden LED Lamps | Udumalpet, India',
-            description: 'Inveh Lighting Solutions crafts premium handmade wooden LED pendant lamps, tube lights, and personalised gifts. Shop unique eco-friendly lighting for homes and offices. Based in Udumalpet, Tamil Nadu, India.'
+            title: seo.siteTitle,
+            description: seo.siteDescription
           }
         },
         {

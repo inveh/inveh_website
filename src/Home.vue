@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { productCategories, type ProductImage } from './data/products'
+import seo from './data/seo_list.json'
 
 const router = useRouter()
 
@@ -14,7 +15,7 @@ const goToProduct = (sku: string) => {
 
 <template>
   <main>
-    <h1 class="visually-hidden">Wooden Pendant Light Manufacturer — Inveh Lighting Solutions</h1>
+    <h1 class="visually-hidden">Lighting and Interior Solutions for Kerala and Tamil Nadu — Inveh Lighting Solutions</h1>
 
     <!-- About Section -->
     <section class="about-section" aria-label="About Inveh Lighting Solutions">
@@ -28,6 +29,13 @@ const goToProduct = (sku: string) => {
           manufacturing with artisanal warmth to create lamps that don't just illuminate a room —
           they <em>transform</em> it.
         </p>
+      </div>
+    </section>
+
+    <section class="services-section" aria-labelledby="services-heading">
+      <div class="services-inner">
+        <h2 id="services-heading" class="services-heading">{{ seo.serviceHeading }}</h2>
+        <p v-for="paragraph in seo.serviceParagraphs" :key="paragraph">{{ paragraph }}</p>
       </div>
     </section>
 
@@ -123,13 +131,45 @@ const goToProduct = (sku: string) => {
   font-weight: 500;
 }
 
+.services-section {
+  background: #f7f7f5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 2.5rem 4rem;
+}
+
+.services-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-heading {
+  margin: 0 0 1rem;
+  color: #02163b;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services-inner p {
+  margin: 0 auto 0.9rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+.services-inner p:last-child {
+  margin-bottom: 0;
+}
+
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-  .about-section {
+  .about-section,
+  .services-section {
     padding: 2rem 1.25rem;
   }
 }

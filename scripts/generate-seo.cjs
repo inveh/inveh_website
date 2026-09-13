@@ -4,6 +4,10 @@ const path = require('path');
 const SITE_URL = 'https://www.inveh.in';
 const DIST_DIR = path.join(__dirname, '../dist');
 const PUBLIC_DIR = path.join(__dirname, '../public');
+const SEO = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/data/seo_list.json'), 'utf8'));
+const SEO_KEYWORDS = SEO.keywords.join(', ');
+const SEO_AREAS = JSON.stringify(SEO.areasServed);
+const SEO_KNOWS_ABOUT = JSON.stringify(SEO.knowsAbout);
 
 const escapeHtml = (value) => String(value)
   .replace(/&/g, '&amp;')
@@ -215,9 +219,9 @@ function main() {
   generateRobots();
 
   // 2. Prerender Home page
-  const homeHead = `    <title>Inveh Lighting Solutions – Handcrafted Wooden LED Lamps | Udumalpet, India</title>
-    <meta name="description" content="Inveh Lighting Solutions crafts premium handmade wooden LED pendant lamps, tube lights, and personalised gifts. Shop unique eco-friendly lighting for homes and offices. Based in Udumalpet, Tamil Nadu, India.">
-    <meta name="keywords" content="wooden LED lamps India, handmade pendant lamp, wooden lighting solutions, eco-friendly lamps, personalised lamp gifts, Udumalpet lighting, inveh lighting">
+  const homeHead = `    <title>${escapeHtml(SEO.siteTitle)}</title>
+    <meta name="description" content="${escapeHtml(SEO.siteDescription)}">
+    <meta name="keywords" content="${escapeHtml(SEO_KEYWORDS)}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${SITE_URL}/">
 
@@ -225,14 +229,14 @@ function main() {
     <meta property="og:type" content="website">
     <meta property="og:url" content="${SITE_URL}/">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
-    <meta property="og:title" content="Inveh Lighting Solutions – Handcrafted Wooden LED Lamps">
-    <meta property="og:description" content="Discover unique handcrafted wooden LED pendant lamps, tube lights and personalised gifts. Made in India by passionate engineers.">
+    <meta property="og:title" content="${escapeHtml(SEO.siteTitle)}">
+    <meta property="og:description" content="${escapeHtml(SEO.socialDescription)}">
     <meta property="og:image" content="${SITE_URL}/inveh_logo.webp">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Inveh Lighting Solutions – Handcrafted Wooden LED Lamps">
-    <meta name="twitter:description" content="Discover unique handcrafted wooden LED pendant lamps, tube lights and personalised gifts. Made in India by passionate engineers.">
+    <meta name="twitter:title" content="${escapeHtml(SEO.siteTitle)}">
+    <meta name="twitter:description" content="${escapeHtml(SEO.socialDescription)}">
     <meta name="twitter:image" content="${SITE_URL}/inveh_logo.webp">
 
     <!-- JSON-LD: Organization -->
@@ -243,7 +247,7 @@ function main() {
       "name": "Inveh Lighting Solutions",
       "url": "${SITE_URL}",
       "logo": "${SITE_URL}/inveh_logo.webp",
-      "description": "Inveh Lighting Solutions crafts premium handmade wooden LED pendant lamps, tube lights, and personalised gifts.",
+      "description": "${escapeHtml(SEO.siteDescription)}",
       "foundingDate": "2023",
       "address": {
         "@type": "PostalAddress",
@@ -258,8 +262,10 @@ function main() {
         "telephone": "+91-94877-41183",
         "email": "info@inveh.in",
         "contactType": "Customer Service",
-        "areaServed": "IN"
+        "areaServed": ${SEO_AREAS}
       },
+      "areaServed": ${SEO_AREAS},
+      "knowsAbout": ${SEO_KNOWS_ABOUT},
       "sameAs": [
         "https://www.instagram.com/inveh_lighting/"
       ]
@@ -325,6 +331,10 @@ function main() {
       <section>
         <h2>About Us</h2>
         <p>Welcome to Inveh Lighting Solutions — where nature meets craftsmanship. Each piece in our collection is handcrafted from premium pine wood, engineered wood and acrylic using state-of-the-art techniques. We blend modern manufacturing with artisanal warmth to create lamps that don't just illuminate a room — they transform it.</p>
+      </section>
+      <section>
+        <h2>${escapeHtml(SEO.serviceHeading)}</h2>
+        ${SEO.serviceParagraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('\n        ')}
       </section>
       <section>
         <h2>Our Lighting Collection</h2>
@@ -406,10 +416,10 @@ function main() {
           ? `Rs. ${sellingPrice} <del>Rs. ${p.model_price}</del>` 
           : `Rs. ${p.model_price}`)
       : '';
-    const productTitle = `${p.model_name} – Inveh Lighting Solutions | Handcrafted Wooden LED Lamp`;
+    const productTitle = `${p.model_name} – ${SEO.productTitleSuffix}`;
     const productDesc = p.description
       ? `${p.description} | Buy ${p.model_name} from Inveh Lighting Solutions.`
-      : `Buy the ${p.model_name} handcrafted wooden LED lamp from Inveh Lighting Solutions. Starting at Rs. ${sellingPrice}.`;
+      : `Buy the ${p.model_name} ${SEO.productDescriptionSuffix}. Starting at Rs. ${sellingPrice}.`;
     const productImage = p.images[0]
       ? `${SITE_URL}${p.images[0]}`
       : `${SITE_URL}/inveh_logo.webp`;
@@ -441,13 +451,13 @@ function main() {
     <meta property="og:url" content="${SITE_URL}/product/${escapeHtml(p.model_num)}">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
     <meta property="og:title" content="${escapeHtml(p.model_name)} – Inveh Lighting Solutions">
-    <meta property="og:description" content="${escapeHtml(p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.')}">
+    <meta property="og:description" content="${escapeHtml(p.description || SEO.productDescriptionSuffix)}">
     <meta property="og:image" content="${escapeHtml(productImage)}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapeHtml(p.model_name)} – Inveh Lighting Solutions">
-    <meta name="twitter:description" content="${escapeHtml(p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.')}">
+    <meta name="twitter:description" content="${escapeHtml(p.description || SEO.productDescriptionSuffix)}">
     <meta name="twitter:image" content="${escapeHtml(productImage)}">
 
     <!-- JSON-LD: Product Schema -->
