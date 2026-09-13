@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useHead } from '@vueuse/head'
+import { useHead } from '@unhead/vue'
 import { productCategories } from './data/products'
 import { addToCartStore, isCartOpen } from './store/cart'
 
@@ -46,7 +46,7 @@ useHead(computed(() => {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify({
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Product',
           name: p.model_name,
@@ -121,16 +121,22 @@ const addToCart = () => {
         <div class="gallery">
           <!-- Desktop Thumbnails (Left side of gallery) -->
           <div class="thumbnails" v-if="product.images.length > 1">
-            <img 
+            <button
               v-for="(img, idx) in product.images" 
               :key="idx" 
-              :src="img.src" 
+              type="button"
+              class="thumbnail-button"
               :class="{ active: currentImageIndex === idx }"
               @click="currentImageIndex = idx"
-              class="thumbnail"
-              :alt="`${product.model_name} – view ${idx + 1}`"
-              loading="lazy"
-            />
+              :aria-label="`View ${product.model_name}, image ${idx + 1}`"
+            >
+              <img
+                :src="img.src"
+                class="thumbnail"
+                :alt="`${product.model_name} – view ${idx + 1}`"
+                loading="lazy"
+              />
+            </button>
           </div>
 
           <!-- Main Image -->
@@ -147,7 +153,7 @@ const addToCart = () => {
         <!-- Accordions below gallery -->
         <div class="accordions" v-if="product.description">
           <div class="accordion-item">
-            <button class="accordion-header" @click="toggleDescription">
+            <button class="accordion-header" :aria-expanded="isDescriptionOpen" @click="toggleDescription">
               <span>Description</span>
               <span class="accordion-icon">{{ isDescriptionOpen ? '−' : '+' }}</span>
             </button>
@@ -283,7 +289,16 @@ const addToCart = () => {
   border: 1px solid #ddd;
 }
 
-.thumbnail.active {
+.thumbnail-button {
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.thumbnail-button.active .thumbnail {
   opacity: 1;
   border-color: #333;
 }

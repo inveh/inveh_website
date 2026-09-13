@@ -42,6 +42,7 @@ const goToProduct = (sku: string) => {
           role="button"
           tabindex="0"
           @keydown.enter="goToProduct(product.model_num)"
+          @keydown.space.prevent="goToProduct(product.model_num)"
           :aria-label="`View ${product.model_name}`"
         >
           <div class="product-image-container">

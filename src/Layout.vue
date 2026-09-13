@@ -34,21 +34,21 @@ const openCart = () => {
 
         <!-- Right: Cart -->
         <div class="header-item right">
-          <div class="cart-icon-wrapper" @click="openCart">
+            <button class="cart-icon-wrapper" type="button" aria-label="Open shopping cart" @click="openCart">
             <svg class="icon cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
             <span v-if="cartTotal > 0" class="cart-badge">{{ cartTotal }}</span>
-          </div>
+            </button>
         </div>
       </div>
 
       <!-- Navigation -->
       <nav class="main-nav">
         <router-link to="/">Home</router-link>
-        <router-link to="/Contact">Contact</router-link>
+        <router-link to="/contact">Contact</router-link>
       </nav>
     </header>
 

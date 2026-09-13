@@ -5,6 +5,13 @@ const SITE_URL = 'https://www.inveh.in';
 const DIST_DIR = path.join(__dirname, '../dist');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 // Parse products from src/data/products.ts using a custom state-machine brace parser
 function parseProducts() {
   const productsFilePath = path.join(__dirname, '../src/data/products.ts');
@@ -119,7 +126,7 @@ function generateSitemap(products) {
 
   <!-- Contact page -->
   <url>
-    <loc>${SITE_URL}/Contact</loc>
+    <loc>${SITE_URL}/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -288,7 +295,7 @@ function main() {
         "opens": "09:00",
         "closes": "18:00"
       },
-      "priceRange": "₹100 – ₹1500"
+      "priceRange": "₹100 – ₹3500"
     }
     </script>`;
 
@@ -301,17 +308,17 @@ function main() {
       : '';
     homeBodyProductsList += `
       <article>
-        <a href="/product/${p.model_num}">
-          <h3>${p.model_name}</h3>
-          <p>SKU: ${p.model_num} | ${priceText}</p>
-          <p>${p.description}</p>
+        <a href="/product/${escapeHtml(p.model_num)}">
+          <h3>${escapeHtml(p.model_name)}</h3>
+          <p>SKU: ${escapeHtml(p.model_num)} | ${priceText}</p>
+          <p>${escapeHtml(p.description)}</p>
         </a>
       </article>`;
   });
 
   const homeBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/Contact">Contact</a></nav>
+      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
       <h1>INVEH – Handcrafted Wooden LED Lamps</h1>
     </header>
     <main>
@@ -336,11 +343,11 @@ function main() {
   const contactHead = `    <title>Contact Us – Inveh Lighting Solutions | Udumalpet, Tamil Nadu</title>
     <meta name="description" content="Get in touch with Inveh Lighting Solutions. Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="${SITE_URL}/Contact">
+    <link rel="canonical" href="${SITE_URL}/contact">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${SITE_URL}/Contact">
+    <meta property="og:url" content="${SITE_URL}/contact">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
     <meta property="og:title" content="Contact Us – Inveh Lighting Solutions">
     <meta property="og:description" content="Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.">
@@ -354,7 +361,7 @@ function main() {
 
   const contactBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/Contact">Contact</a></nav>
+      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
       <h1>Contact Us - Inveh Lighting Solutions</h1>
     </header>
     <main>
@@ -389,7 +396,7 @@ function main() {
   const contactDest = path.join(DIST_DIR, 'Contact/index.html');
   ensureDirectoryExists(contactDest);
   fs.writeFileSync(contactDest, contactHtml, 'utf8');
-  console.log('Prerendered Contact page: /Contact/index.html');
+  console.log('Prerendered Contact page: /contact/index.html');
 
   // 4. Prerender each Product Detail page
   products.forEach(p => {
@@ -406,68 +413,63 @@ function main() {
     const productImage = p.images[0]
       ? `${SITE_URL}${p.images[0]}`
       : `${SITE_URL}/inveh_logo.webp`;
+    const productSchema = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: p.model_name,
+      sku: p.model_num,
+      description: p.description,
+      image: p.images.map(img => `${SITE_URL}${img}`),
+      brand: { '@type': 'Brand', name: 'Inveh Lighting Solutions' },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'INR',
+        price: sellingPrice,
+        availability: 'https://schema.org/InStock',
+        url: `${SITE_URL}/product/${p.model_num}`,
+        seller: { '@type': 'Organization', name: 'Inveh Lighting Solutions' }
+      }
+    }).replace(/</g, '\\u003c');
 
-    const productHead = `    <title>${productTitle}</title>
-    <meta name="description" content="${productDesc}">
+    const productHead = `    <title>${escapeHtml(productTitle)}</title>
+    <meta name="description" content="${escapeHtml(productDesc)}">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="${SITE_URL}/product/${p.model_num}">
+    <link rel="canonical" href="${SITE_URL}/product/${escapeHtml(p.model_num)}">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${SITE_URL}/product/${p.model_num}">
+    <meta property="og:url" content="${SITE_URL}/product/${escapeHtml(p.model_num)}">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
-    <meta property="og:title" content="${p.model_name} – Inveh Lighting Solutions">
-    <meta property="og:description" content="${p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.'}">
-    <meta property="og:image" content="${productImage}">
+    <meta property="og:title" content="${escapeHtml(p.model_name)} – Inveh Lighting Solutions">
+    <meta property="og:description" content="${escapeHtml(p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.')}">
+    <meta property="og:image" content="${escapeHtml(productImage)}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${p.model_name} – Inveh Lighting Solutions">
-    <meta name="twitter:description" content="${p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.'}">
-    <meta name="twitter:image" content="${productImage}">
+    <meta name="twitter:title" content="${escapeHtml(p.model_name)} – Inveh Lighting Solutions">
+    <meta name="twitter:description" content="${escapeHtml(p.description || 'Handcrafted wooden LED lamp by Inveh Lighting Solutions.')}">
+    <meta name="twitter:image" content="${escapeHtml(productImage)}">
 
     <!-- JSON-LD: Product Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "${p.model_name}",
-      "sku": "${p.model_num}",
-      "description": "${p.description.replace(/"/g, '\\"')}",
-      "image": ${JSON.stringify(p.images.map(img => `${SITE_URL}${img}`))},
-      "brand": {
-        "@type": "Brand",
-        "name": "Inveh Lighting Solutions"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "price": ${sellingPrice},
-        "availability": "https://schema.org/InStock",
-        "url": "${SITE_URL}/product/${p.model_num}",
-        "seller": {
-          "@type": "Organization",
-          "name": "Inveh Lighting Solutions"
-        }
-      }
-    }
+    ${productSchema}
     </script>`;
 
     const productBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/Contact">Contact</a></nav>
-      <h1>${p.model_name} - Inveh Lighting Solutions</h1>
+      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
+      <h1>${escapeHtml(p.model_name)} - Inveh Lighting Solutions</h1>
     </header>
     <main>
       <article>
-        <h2>${p.model_name}</h2>
-        <p>SKU: ${p.model_num}</p>
+        <h2>${escapeHtml(p.model_name)}</h2>
+        <p>SKU: ${escapeHtml(p.model_num)}</p>
         <p class="price">Price: ${priceText}</p>
         <div class="description">
-          <p>${p.description}</p>
+          <p>${escapeHtml(p.description)}</p>
         </div>
         <div class="gallery">
-          ${p.images.map((img, idx) => `<img src="${img}" alt="${p.model_name} view ${idx + 1}" />`).join('\n          ')}
+          ${p.images.map((img, idx) => `<img src="${escapeHtml(img)}" alt="${escapeHtml(p.model_name)} view ${idx + 1}" />`).join('\n          ')}
         </div>
         <p><a href="/">Back to Home Catalog</a></p>
       </article>

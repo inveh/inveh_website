@@ -45,13 +45,17 @@ const router = createRouter({
           // Title is set dynamically in ProductDetail.vue using the product name
         },
         {
-          path: 'Contact',
+          path: 'contact',
           name: 'Contact',
           component: Contact,
           meta: {
             title: 'Contact Us – Inveh Lighting Solutions | Udumalpet, Tamil Nadu',
             description: 'Get in touch with Inveh Lighting Solutions. Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.'
           }
+        },
+        {
+          path: 'Contact',
+          redirect: { name: 'Contact' },
         },
       ],
     },
