@@ -130,7 +130,7 @@ function generateSitemap(products) {
 
   <!-- Contact page -->
   <url>
-    <loc>${SITE_URL}/contact</loc>
+    <loc>${SITE_URL}/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -140,7 +140,7 @@ function generateSitemap(products) {
 
   products.forEach(p => {
     xml += `  <url>
-    <loc>${SITE_URL}/product/${p.model_num}</loc>
+    <loc>${SITE_URL}/product/${p.model_num}/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -324,7 +324,7 @@ function main() {
 
   const homeBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
+      <nav><a href="/">Home</a> | <a href="/contact/">Contact</a></nav>
       <h1>INVEH – Handcrafted Wooden LED Lamps</h1>
     </header>
     <main>
@@ -353,11 +353,11 @@ function main() {
   const contactHead = `    <title>Contact Us – Inveh Lighting Solutions | Udumalpet, Tamil Nadu</title>
     <meta name="description" content="Get in touch with Inveh Lighting Solutions. Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="${SITE_URL}/contact">
+    <link rel="canonical" href="${SITE_URL}/contact/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${SITE_URL}/contact">
+    <meta property="og:url" content="${SITE_URL}/contact/">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
     <meta property="og:title" content="Contact Us – Inveh Lighting Solutions">
     <meta property="og:description" content="Reach us by email at info@inveh.in or call +91 94877 41183. Based in Udumalpet, Tamil Nadu, India.">
@@ -371,7 +371,7 @@ function main() {
 
   const contactBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
+      <nav><a href="/">Home</a> | <a href="/contact/">Contact</a></nav>
       <h1>Contact Us - Inveh Lighting Solutions</h1>
     </header>
     <main>
@@ -403,9 +403,10 @@ function main() {
     </footer>`;
 
   const contactHtml = generateHtmlPage(template, contactHead, contactBody);
-  const contactDest = path.join(DIST_DIR, 'Contact/index.html');
+  const contactDest = path.join(DIST_DIR, 'contact/index.html');
   ensureDirectoryExists(contactDest);
   fs.writeFileSync(contactDest, contactHtml, 'utf8');
+  fs.writeFileSync(path.join(DIST_DIR, 'contact.html'), contactHtml, 'utf8');
   console.log('Prerendered Contact page: /contact/index.html');
 
   // 4. Prerender each Product Detail page
@@ -436,7 +437,7 @@ function main() {
         priceCurrency: 'INR',
         price: sellingPrice,
         availability: 'https://schema.org/InStock',
-        url: `${SITE_URL}/product/${p.model_num}`,
+        url: `${SITE_URL}/product/${p.model_num}/`,
         seller: { '@type': 'Organization', name: 'Inveh Lighting Solutions' }
       }
     }).replace(/</g, '\\u003c');
@@ -444,11 +445,11 @@ function main() {
     const productHead = `    <title>${escapeHtml(productTitle)}</title>
     <meta name="description" content="${escapeHtml(productDesc)}">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="${SITE_URL}/product/${escapeHtml(p.model_num)}">
+    <link rel="canonical" href="${SITE_URL}/product/${escapeHtml(p.model_num)}/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${SITE_URL}/product/${escapeHtml(p.model_num)}">
+    <meta property="og:url" content="${SITE_URL}/product/${escapeHtml(p.model_num)}/">
     <meta property="og:site_name" content="Inveh Lighting Solutions">
     <meta property="og:title" content="${escapeHtml(p.model_name)} – Inveh Lighting Solutions">
     <meta property="og:description" content="${escapeHtml(p.description || SEO.productDescriptionSuffix)}">
@@ -467,7 +468,7 @@ function main() {
 
     const productBody = `
     <header>
-      <nav><a href="/">Home</a> | <a href="/contact">Contact</a></nav>
+      <nav><a href="/">Home</a> | <a href="/contact/">Contact</a></nav>
       <h1>${escapeHtml(p.model_name)} - Inveh Lighting Solutions</h1>
     </header>
     <main>
