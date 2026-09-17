@@ -401,10 +401,10 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
-      { src: getImagePath('INB028_Butterfly_WallLight_5.webp') },
-      { src: getImagePath('INB028_Butterfly_WallLight_6.webp') },
+      { src: getImagePath('INB028_Butterfly_WallLight/INB028_Butterfly_WallLight_5.webp') },
+      { src: getImagePath('INB028_Butterfly_WallLight/INB028_Butterfly_WallLight_6.webp') },
     ],
-    model_name: 'RButterfly Wall Light',
+    model_name: 'Butterfly Wall Light',
     model_num: "INB028",
     model_price: 2500,
     discount: 0,
