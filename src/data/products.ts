@@ -401,6 +401,19 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
+      { src: getImagePath('INB028_Butterfly_WallLight_5.webp') },
+      { src: getImagePath('INB028_Butterfly_WallLight_6.webp') },
+    ],
+    model_name: 'RButterfly Wall Light',
+    model_num: "INB028",
+    model_price: 2500,
+    discount: 0,
+    description: 'A modern, wall-mounted ambient sconce featuring intricate butterfly cutout silhouettes that cast a warm, diffused glow. Size: 14cm (Length) x 14cm (Width) x 26cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
       { src: getImagePath('INB029_Bell/INB029_Bell_2.webp') },
       { src: getImagePath('INB029_Bell/INB029_Bell_1.webp') },
       { src: getImagePath('INB029_Bell/INB029_Bell_4.webp') },
@@ -595,5 +608,17 @@ export const productCategories: ProductCategory[] = [
     model_price: 100,
     discount: 0,
     description: 'Surpise your beloved ones with such personalised Gifts. Complete customization possible. Mentioned price for unit price. Size: 4cm (Length) x 0.8cm (Width) x 5cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('ING002_Customised_Calendar/ING002_Customised_Calendar_1.webp') },
+    ],
+    model_name: 'Customised Calendar',
+    model_num: "ING002",
+    model_price: 400,
+    discount: 0,
+    description: ' A modern, circular white-and-black perpetual desk calendar featuring rotating rings for the date, day, and month, customized with gold embossed branding. Size: 19cm (Width) x 20cm (Height)',
   },
 ];
