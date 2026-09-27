@@ -343,6 +343,7 @@ function main() {
     </main>
     <footer>
       <p>&copy; 2026 Inveh Lighting. All Rights Reserved.</p>
+      <p><a href="/privacy_policy.txt">Privacy Policy</a></p>
     </footer>`;
 
   const homeHtml = generateHtmlPage(template, homeHead, homeBody);
@@ -400,6 +401,7 @@ function main() {
     </main>
     <footer>
       <p>&copy; 2026 Inveh Lighting. All Rights Reserved.</p>
+      <p><a href="/privacy_policy.txt">Privacy Policy</a></p>
     </footer>`;
 
   const contactHtml = generateHtmlPage(template, contactHead, contactBody);
@@ -487,6 +489,7 @@ function main() {
     </main>
     <footer>
       <p>&copy; 2026 Inveh Lighting. All Rights Reserved.</p>
+      <p><a href="/privacy_policy.txt">Privacy Policy</a></p>
     </footer>`;
 
     const productHtml = generateHtmlPage(template, productHead, productBody);
