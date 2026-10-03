@@ -617,7 +617,7 @@ export const productCategories: ProductCategory[] = [
     ],
     model_name: 'Customised Calendar',
     model_num: "ING002",
-    model_price: 400,
+    model_price: 700,
     discount: 0,
     description: ' A modern, circular white-and-black perpetual desk calendar featuring rotating rings for the date, day, and month, customized with gold embossed branding. Size: 19cm (Width) x 20cm (Height)',
   },
