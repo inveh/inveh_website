@@ -443,6 +443,19 @@ export const productCategories: ProductCategory[] = [
   {
     title: "",
     images: [
+      { src: getImagePath('INB031_Cubic_Veneer_Lamp/INB031_Cubic_Veneer_Lamp_1.webp') },
+      { src: getImagePath('INB031_Cubic_Veneer_Lamp/INB031_Cubic_Veneer_Lamp_2.webp') },
+    ],
+    model_name: 'Cubic Veneer Lamp',
+    model_num: "INB031",
+    model_price: 2500,
+    discount: 0,
+    description: 'A cubic pendant lamp with a warm, textured golden shade suspended by a cord from the ceiling Size: 20cm (Length) x 20cm (Width) x 20cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
       { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_1.webp') },
       { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_2.webp') },
       { src: getImagePath('INB032_Criss_cross/INB032_Criss_cross_3.webp') },
