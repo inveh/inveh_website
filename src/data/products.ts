@@ -643,7 +643,6 @@ export const productCategories: ProductCategory[] = [
       { src: getImagePath('ING003_House_Name_Plate/ING003_Bakery_Name_Plate_1.webp')},
       { src: getImagePath('ING003_House_Name_Plate/ING003_Bakery_Name_Plate_2.webp')},
     ],
-    ],
     model_name: 'House Name Plate',
     model_num: "ING003",
     model_price: 0,
