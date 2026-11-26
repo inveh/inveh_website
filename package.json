@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist --cname www.inveh.in"
   },
   "dependencies": {
     "@unhead/vue": "^3.4.0",

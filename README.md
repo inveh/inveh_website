@@ -41,7 +41,17 @@ npm run dev
 npm run build
 ```
 
+### Deploy to GitHub Pages
+
+```sh
+npm run deploy
+```
+
+This builds the site, then publishes `dist` to the `gh-pages` branch with the
+`www.inveh.in` custom domain. In the repository's **Settings → Pages**, select
+**Deploy from a branch**, then choose `gh-pages` and `/(root)`. Pushing to
+`main` also runs the deployment workflow.
+
 ### Execute below command to generate brochure
 cd /home/priyanka/Documents/inveh_website
 /home/priyanka/anaconda3/bin/python3 scripts/brochure.py
-

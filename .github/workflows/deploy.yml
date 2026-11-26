@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
@@ -23,16 +21,13 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install and Build 🔧
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Upload artifact 📤
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist' # Ensure this matches your Vue build output folder
+      - name: Configure Git credentials
+        run: git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf https://github.com/
+        env:
+          GH_TOKEN: ${{ github.token }}
 
-      - name: Deploy to GitHub Pages 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Build and deploy
+        run: npm run deploy
