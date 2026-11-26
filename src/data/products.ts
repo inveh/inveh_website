@@ -567,6 +567,32 @@ export const productCategories: ProductCategory[] = [
   },
 
   {
+    title: "",
+    images: [
+      { src: getImagePath('INW008_House_Name_Plate/INW008_House_Name_Plate_1.webp') },
+      { src: getImagePath('INW008_House_Name_Plate/INW008_House_Name_Plate_2.webp') },
+    ],
+    model_name: 'House Name Plate',
+    model_num: "INW008",
+    model_price: 2000,
+    discount: 0,
+    description: 'With gold embossed naming on a black acrylic base, let your home stand out. Size: Overall 45cm (Width) x 45cm (Height)',
+  },
+
+  {
+    title: "",
+    images: [
+      { src: getImagePath('INW009_Shop_Logo_board/INW009_Shop_Logo_board_1.webp') },
+      { src: getImagePath('INW009_Shop_Logo_board/INW009_Shop_Logo_board_2.webp') },
+    ],
+    model_name: 'Shop Logo Board',
+    model_num: "INW009",
+    model_price: 3000,
+    discount: 0,
+    description: 'With gold and black embossed logo on a white acrylic base, let your shop stand out. Size: Overall 33cm (Width) x 25cm (Height)',
+  },
+
+  {
     title: "Tube Light Models",
     images: [
       { src: getImagePath('INT001_Tube_light_Patti/INT001_Tube_light_Patti_1.webp') },
@@ -633,31 +659,5 @@ export const productCategories: ProductCategory[] = [
     model_price: 700,
     discount: 0,
     description: 'A modern, circular white-and-black perpetual desk calendar featuring rotating rings for the date, day, and month, customized with gold embossed branding. Size: 19cm (Width) x 20cm (Height)',
-  },
-
-  {
-    title: "",
-    images: [
-      { src: getImagePath('ING003_House_Name_Plate/ING003_House_Name_Plate_1.webp') },
-      { src: getImagePath('ING003_House_Name_Plate/ING003_House_Name_Plate_2.webp') },
-    ],
-    model_name: 'House Name Plate',
-    model_num: "ING003",
-    model_price: 2000,
-    discount: 0,
-    description: 'With gold embossed naming on a black acrylic base, let your home stand out. Size: Overall 45cm (Width) x 45cm (Height)',
-  },
-
-  {
-    title: "",
-    images: [
-      { src: getImagePath('ING004_Shop_Logo_board/ING004_Shop_Logo_board_1.webp') },
-      { src: getImagePath('ING004_Shop_Logo_board/ING004_Shop_Logo_board_2.webp') },
-    ],
-    model_name: 'Shop Logo Board',
-    model_num: "ING004",
-    model_price: 3000,
-    discount: 0,
-    description: 'With gold and black embossed logo on a white acrylic base, let your shop stand out. Size: Overall 33cm (Width) x 25cm (Height)',
   },
 ];
