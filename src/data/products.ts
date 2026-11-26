@@ -640,14 +640,24 @@ export const productCategories: ProductCategory[] = [
     images: [
       { src: getImagePath('ING003_House_Name_Plate/ING003_House_Name_Plate_1.webp') },
       { src: getImagePath('ING003_House_Name_Plate/ING003_House_Name_Plate_2.webp') },
-      { src: getImagePath('ING003_House_Name_Plate/ING003_Bakery_Name_Plate_1.webp')},
-      { src: getImagePath('ING003_House_Name_Plate/ING003_Bakery_Name_Plate_2.webp')},
     ],
     model_name: 'House Name Plate',
     model_num: "ING003",
-    model_price: 0,
+    model_price: 2000,
     discount: 0,
     description: 'With gold embossed naming on a black acrylic base, let your home stand out. Size: Overall 45cm (Width) x 45cm (Height)',
   },
 
+  {
+    title: "",
+    images: [
+      { src: getImagePath('ING004_Shop_Logo_board/ING004_Shop_Logo_board_1.webp') },
+      { src: getImagePath('ING004_Shop_Logo_board/ING004_Shop_Logo_board_2.webp') },
+    ],
+    model_name: 'Shop Logo Board',
+    model_num: "ING004",
+    model_price: 3000,
+    discount: 0,
+    description: 'With gold and black embossed logo on a white acrylic base, let your shop stand out. Size: Overall 33cm (Width) x 25cm (Height)',
+  },
 ];
