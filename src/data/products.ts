@@ -18,7 +18,7 @@ export const getImagePath = (relativePath: string): string => `${publicBaseUrl}$
 export const productCategories: ProductCategory[] = [
 
   {
-    title: "Bulb Models",
+    title: "Pendant Models",
     images: [
       { src: getImagePath('INB001_Wave_Pendant_Lamp/INB001_Wave_Pendant_Lamp_1.webp') },
       { src: getImagePath('INB001_Wave_Pendant_Lamp/INB001_Wave_Pendant_Lamp_2.webp') },
